@@ -12,6 +12,8 @@ var personTwoLeftLeg = document.getElementById("personTwoLeftLeg");
 var personTwoRightLeg = document.getElementById("personTwoRightLeg");
 var clock = document.getElementById("clock");
 
+function updateClock()
+{
 var currentTime = new Date();
 var currentHours = currentTime.getHours();
 var currentMinutes = currentTime.getMinutes();
@@ -121,6 +123,9 @@ greeting = "Hello";
 }
 
 personOneTalk.innerHTML = greeting + "! What's your name?";
+};
+
+document.body.onload = setInterval("updateClock()", 1000);
 
 submitButton.onclick = function()
 {
