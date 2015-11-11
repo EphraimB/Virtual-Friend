@@ -122,12 +122,13 @@ else
 greeting = "Hello";
 }
 
-personOneTalk.innerHTML = greeting + "! What's your name?";
 };
+
+personOneTalk.innerHTML = "Hello! What's your name?";
 
 document.body.onload = setInterval("updateClock()", 1000);
 
-submitButton.onclick = function()
+submitButton.onclick = function howYouDoing()
 {
 personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! How are you doing?";
 submitButton.style.display = "none";
@@ -173,7 +174,7 @@ submitButtonThree.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonThree);
 
-submitButtonThree.onclick = function()
+submitButtonThree.onclick = function interests()
 {
 var conditionTwo = false;
 
@@ -200,7 +201,7 @@ var submitButtonFour = document.createElement("button");
 submitButtonFour.innerHTML = "Submit";
 personTwoTalk.appendChild(submitButtonFour);
 
-submitButtonFour.onclick = function()
+submitButtonFour.onclick = function friends()
 {
 
 if(personTwoSays.value == "Technology")
