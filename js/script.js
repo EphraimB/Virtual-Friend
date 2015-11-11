@@ -77,7 +77,7 @@ else if((currentHours == 17) && (currentMinutes >= 50))
 image = "url(images/sunset.jpg)";
 }
 
-else if((currentHours >= 12) && (currentHours < 17))
+else if((currentHours >= 12) && (currentHours <= 17))
 {
 image = "url(images/afternoon.jpg)";
 }
@@ -87,7 +87,7 @@ else if((currentHours >= 18) && (currentHours < 24))
 image = "url(images/night.jpg)";
 }
 
-else if((currentHours >= 0) && (currentHours < 5))
+else if((currentHours >= 0) && (currentHours <= 5))
 {
 image = "url(images/night.jpg)";
 }
