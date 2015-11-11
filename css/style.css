@@ -16,6 +16,8 @@
 #personOneLeftArm{position: absolute; left: 5px; top: 300px; width: 100px; height: 30px; background-color: grey;}
 #personOneRightArm{position: absolute; left: 194px; top: 300px; width: 100px; height: 30px; background-color: grey;}
 
+#personOneTalk{position: absolute; left: 150px; top: 175px; width: 200px; height: 30px; border-radius: 25px; background-color: green; text-align: center;}
+
 #personTwoBody{position: absolute; left: 505px; top: 200px; width: 90px; height: 400px; border-radius: 25px; background-color: grey;}
 
 #personTwoLeftLeg{position: absolute; left: 505px; top: 600px; width: 30px; height: 200px; border-radius: 15px; background-color: grey;}
@@ -23,3 +25,5 @@
 
 #personTwoLeftArm{position: absolute; left: 405px; top: 300px; width: 100px; height: 30px; background-color: grey;}
 #personTwoRightArm{position: absolute; left: 594px; top: 300px; width: 100px; height: 30px; background-color: grey;}
+
+#personTwoTalk{position: absolute; left: 550px; top: 175px; width: 200px; height: 75px; border-radius: 25px; background-color: green; text-align: center;}
