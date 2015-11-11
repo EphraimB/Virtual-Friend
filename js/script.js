@@ -12,7 +12,6 @@ personTwoSays.value = "";
 var submitButtonTwo = document.createElement("button");
 
 submitButtonTwo.innerHTML = "Submit";
-submitButtonTwo.setAttribute("id", "submitButtonTwo");
 personTwoTalk.appendChild(submitButtonTwo);
 
 submitButtonTwo.onclick = function()
@@ -35,6 +34,32 @@ personOneTalk.innerHTML = "Can you please repeat yourself?";
 
 submitButtonTwo.style.display = "none";
 personTwoSays.value = "";
+personTwoSays.setAttribute("placeholder", "Keep the conversation going...");
+
+var submitButtonThree = document.createElement("button");
+
+submitButtonThree.innerHTML = "Submit";
+
+personTwoTalk.appendChild(submitButtonThree);
+
+submitButtonThree.onclick = function()
+{
+
+if(personTwoSays.value == "What are your interests?")
+{
+personOneTalk.innerHTML = "Technology. What are your interests?";
+}
+
+else
+{
+personOneTalk.innerHTML = "Huh?";
+}
+
+submitButtonThree.style.display = "none";
+personTwoSays.value = "";
+personTwoSays.setAttribute("placeholder", "Type reply...");
+};
+
 };
 
 };
