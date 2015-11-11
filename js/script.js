@@ -34,6 +34,30 @@ AMOrPM = "";
 
 clock.innerHTML = currentHours + ":" + currentMinutes + " " + AMOrPM;
 
+var greeting;
+
+if((currentHours >= 0) && (currentHours < 12))
+{
+greeting = "Good morning";
+}
+
+else if((currentHours >= 12) && (currentHours < 18))
+{
+greeting = "Good afternoon";
+}
+
+else if((currentHours >= 18) && (currentHours < 24))
+{
+greeting = "Good evening";
+}
+
+else
+{
+greeting = "Hello";
+}
+
+personOneTalk.innerHTML = greeting + "! What's your name?";
+
 submitButton.onclick = function()
 {
 personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! How are you doing?";
