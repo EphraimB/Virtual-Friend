@@ -60,9 +60,14 @@ clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutesCorrectlyForm
 
 var image;
 
-if((currentHours >= 6) && (currentHours < 18))
+if((currentHours >= 6) && (currentHours < 12))
 {
 image = "url(images/morning.jpg)";
+}
+
+else if((currentHours >= 12) && (currentHours < 18))
+{
+image = "url(images/afternoon.jpg)";
 }
 
 else if((currentHours >= 18) && (currentHours < 24))
