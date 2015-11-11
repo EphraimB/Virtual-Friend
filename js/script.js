@@ -58,6 +58,21 @@ currentMinutesCorrectlyFormatted = currentMinutes;
 
 clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutesCorrectlyFormatted + " " + AMOrPM;
 
+var image;
+
+if((currentHours >= 6) && (currentHours < 18))
+{
+image = "url(images/morning.jpg)";
+}
+
+else if((currentHours >= 18) && (currentHours < 6))
+{
+image = "url(images/night.jpg)";
+}
+
+document.body.style.background = image + "no-repeat center center fixed";
+document.body.style.backgroundSize = "cover";
+
 var greeting;
 
 if((currentHours >= 0) && (currentHours < 12))
