@@ -110,6 +110,7 @@ personOneTalk.innerHTML = "Goodbye!";
 personOne.style.display = "none";
 }
 
+personTwoSays.value = "";
 }
 
 }
