@@ -2,6 +2,14 @@ var submitButton = document.getElementById("submitButton");
 var personOneTalk = document.getElementById("personOneTalk");
 var personTwoSays = document.getElementById("personTwoSays");
 var personTwoTalk = document.getElementById("personTwoTalk");
+var personOne = document.getElementById("personOne");
+var personTwo = document.getElementById("personTwo");
+var personTwoFace = document.getElementById("personTwoFace");
+var personTwoBody = document.getElementById("personTwoBody");
+var personTwoLeftArm = document.getElementById("personTwoLeftArm");
+var personTwoRightArm = document.getElementById("personTwoRightArm");
+var personTwoLeftLeg = document.getElementById("personTwoLeftLeg");
+var personTwoRightLeg = document.getElementById("personTwoRightLeg");
 
 submitButton.onclick = function()
 {
@@ -81,14 +89,25 @@ submitButtonFour.onclick = function()
 
 if(personTwoSays.value == "Technology")
 {
+personOneTalk.innerHTML = "Cool! We both have the same interests! Let's be friends!";
+
+personOneTalk.style.display = "none";
+personTwoTalk.style.display = "none";
+
 //Hug
-
-
+personTwoFace.style.left = "200px";
+personTwoBody.style.left = "205px";
+personTwoLeftArm.style.left = "105px";
+personTwoRightArm.style.left = "294px";
+personTwoLeftLeg.style.left = "205px";
+personTwoRightLeg.style.left = "265px";
 }
 
 else
 {
-//End conversation
+personOneTalk.innerHTML = "Goodbye!";
+
+personOne.style.display = "none";
 }
 
 }
