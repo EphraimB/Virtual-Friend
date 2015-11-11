@@ -10,6 +10,29 @@ var personTwoLeftArm = document.getElementById("personTwoLeftArm");
 var personTwoRightArm = document.getElementById("personTwoRightArm");
 var personTwoLeftLeg = document.getElementById("personTwoLeftLeg");
 var personTwoRightLeg = document.getElementById("personTwoRightLeg");
+var clock = document.getElementById("clock");
+
+var currentTime = new Date();
+var currentHours = currentTime.getHours();
+var currentMinutes = currentTime.getMinutes();
+var AMOrPM;
+
+if(currentHours < 12)
+{
+AMOrPM = "AM";
+}
+
+else if(currentHours >= 12)
+{
+AMOrPM = "PM";
+}
+
+else
+{
+AMOrPM = "";
+}
+
+clock.innerHTML = currentHours + ":" + currentMinutes + " " + AMOrPM;
 
 submitButton.onclick = function()
 {

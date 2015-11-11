@@ -27,3 +27,5 @@
 #personTwoRightArm{position: absolute; left: 594px; top: 300px; width: 100px; height: 30px; background-color: grey;}
 
 #personTwoTalk{position: absolute; left: 550px; top: 175px; width: 200px; height: auto; border-radius: 25px; background-color: green; text-align: center;}
+
+#clock{position: absolute; left: 900px; top: 200px; width: 200px; height: auto; background-color: black; color: white; text-align: center; font-size: 20pt;}
