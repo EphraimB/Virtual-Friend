@@ -58,6 +58,27 @@ personOneTalk.innerHTML = "Huh?";
 submitButtonThree.style.display = "none";
 personTwoSays.value = "";
 personTwoSays.setAttribute("placeholder", "Type reply...");
+
+var submitButtonFour = document.createElement("button");
+
+submitButtonFour.innerHTML = "Submit";
+personTwoTalk.appendChild(submitButtonFour);
+
+submitButtonFour.onclick = function()
+{
+
+if(personTwoSays.value == "Technology")
+{
+//Hug
+}
+
+else
+{
+//End conversation
+}
+
+};
+
 };
 
 };
