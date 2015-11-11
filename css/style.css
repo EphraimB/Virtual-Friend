@@ -20,3 +20,6 @@
 
 #personTwoLeftLeg{position: absolute; left: 505px; top: 600px; width: 30px; height: 200px; border-radius: 15px; background-color: grey;}
 #personTwoRightLeg{position: absolute; left: 565px; top: 600px; width: 30px; height: 200px; border-radius: 15px; background-color: grey;}
+
+#personTwoLeftArm{position: absolute; left: 405px; top: 300px; width: 100px; height: 30px; background-color: grey;}
+#personTwoRightArm{position: absolute; left: 594px; top: 300px; width: 100px; height: 30px; background-color: grey;}
