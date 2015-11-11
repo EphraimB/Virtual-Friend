@@ -14,26 +14,31 @@ var submitButtonTwo = document.createElement("button");
 submitButtonTwo.innerHTML = "Submit";
 personTwoTalk.appendChild(submitButtonTwo);
 
-submitButtonTwo.onclick = function howDoing()
+submitButtonTwo.onclick = function()
 {
+var condition = false;
 
 if(personTwoSays.value == "good")
 {
 personOneTalk.innerHTML = "Nice to hear!";
+
+condition = true;
 }
 
 else if(personTwoSays.value == "not good")
 {
 personOneTalk.innerHTML = "I'm sorry to hear that";
+
+condition = true;
 }
 
 else
 {
 personOneTalk.innerHTML = "Can you please repeat yourself?";
-
-howDoing();
 }
 
+if(condition == true)
+{
 submitButtonTwo.style.display = "none";
 personTwoSays.value = "";
 personTwoSays.setAttribute("placeholder", "Keep the conversation going...");
@@ -44,21 +49,24 @@ submitButtonThree.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonThree);
 
-submitButtonThree.onclick = function interests()
+submitButtonThree.onclick = function()
 {
+var conditionTwo = false;
 
 if(personTwoSays.value == "What are your interests?")
 {
 personOneTalk.innerHTML = "Technology. What are your interests?";
+
+conditionTwo = true;
 }
 
 else
 {
 personOneTalk.innerHTML = "Huh?";
-
-interests();
 }
 
+if(conditionTwo == true)
+{
 submitButtonThree.style.display = "none";
 personTwoSays.value = "";
 personTwoSays.setAttribute("placeholder", "Type reply...");
@@ -81,6 +89,10 @@ if(personTwoSays.value == "Technology")
 else
 {
 //End conversation
+}
+
+}
+
 }
 
 };
