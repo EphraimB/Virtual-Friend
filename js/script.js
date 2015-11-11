@@ -14,7 +14,7 @@ var submitButtonTwo = document.createElement("button");
 submitButtonTwo.innerHTML = "Submit";
 personTwoTalk.appendChild(submitButtonTwo);
 
-submitButtonTwo.onclick = function()
+submitButtonTwo.onclick = function howDoing()
 {
 
 if(personTwoSays.value == "good")
@@ -30,6 +30,8 @@ personOneTalk.innerHTML = "I'm sorry to hear that";
 else
 {
 personOneTalk.innerHTML = "Can you please repeat yourself?";
+
+howDoing();
 }
 
 submitButtonTwo.style.display = "none";
@@ -42,7 +44,7 @@ submitButtonThree.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonThree);
 
-submitButtonThree.onclick = function()
+submitButtonThree.onclick = function interests()
 {
 
 if(personTwoSays.value == "What are your interests?")
@@ -53,6 +55,8 @@ personOneTalk.innerHTML = "Technology. What are your interests?";
 else
 {
 personOneTalk.innerHTML = "Huh?";
+
+interests();
 }
 
 submitButtonThree.style.display = "none";
@@ -70,6 +74,8 @@ submitButtonFour.onclick = function()
 if(personTwoSays.value == "Technology")
 {
 //Hug
+
+
 }
 
 else
