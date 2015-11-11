@@ -5,6 +5,6 @@ var personTwoTalk = document.getElementById("personTwoSays");
 submitButton.onclick = function()
 {
 personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! How are you doing?";
-
+submitButton.style.display = "none";
 personTwoSays.value = "";
 };
