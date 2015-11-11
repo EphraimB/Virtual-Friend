@@ -65,9 +65,19 @@ if((currentHours >= 6) && (currentHours < 18))
 image = "url(images/morning.jpg)";
 }
 
-else if((currentHours >= 18) && (currentHours < 6))
+else if((currentHours >= 18) && (currentHours < 24))
 {
 image = "url(images/night.jpg)";
+}
+
+else if((currentHours >= 0) && (currentHours < 6))
+{
+image = "url(images/night.jpg)";
+}
+
+else
+{
+image = "";
 }
 
 document.body.style.background = image + "no-repeat center center fixed";
