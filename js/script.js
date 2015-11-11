@@ -32,7 +32,19 @@ else
 AMOrPM = "";
 }
 
-clock.innerHTML = currentHours + ":" + currentMinutes + " " + AMOrPM;
+var currentHoursTwelveHourMode;
+
+if((currentHours >= 13) && (currentHours < 24))
+{
+currentHoursTwelveHourMode = currentHours - 12;
+}
+
+else
+{
+currentHoursTwelveHourMode = currentHours;
+}
+
+clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutes + " " + AMOrPM;
 
 var greeting;
 
