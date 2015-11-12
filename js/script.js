@@ -12,6 +12,8 @@ var personTwoLeftLeg = document.getElementById("personTwoLeftLeg");
 var personTwoRightLeg = document.getElementById("personTwoRightLeg");
 var clock = document.getElementById("clock");
 
+var greeting;
+
 function updateClock()
 {
 var currentTime = new Date();
@@ -100,8 +102,6 @@ image = "";
 document.body.style.background = image + "no-repeat center center fixed";
 document.body.style.backgroundSize = "cover";
 
-var greeting;
-
 if((currentHours >= 0) && (currentHours < 12))
 {
 greeting = "Good morning";
@@ -124,7 +124,9 @@ greeting = "Hello";
 
 };
 
-personOneTalk.innerHTML = "Hello! What's your name?";
+updateClock();
+
+personOneTalk.innerHTML = greeting + "! What's your name?";
 
 document.body.onload = setInterval("updateClock()", 1000);
 
