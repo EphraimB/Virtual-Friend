@@ -181,18 +181,20 @@ submitButtonThree.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonThree);
 
+var appropiateForConversation = 0;
+
 submitButtonThree.onclick = function conversationStarter()
 {
 
-if(personTwoSays.value == "Can we talk about Technology?")
+if((personTwoSays.value == "Can we talk about Technology?" && appropiateForConversation == 0) || (personTwoSays.value == "Technology" && appropiateForConversation == 1))
 {
-personOneTalk.innerHTML = "Yes";
-
 technology();
 }
 
 else
 {
+appropiateForConversation = 1;
+
 personOneTalk.innerHTML = "I don't know of that topic. What other topics are you interested in?";
 }
 
@@ -201,12 +203,14 @@ function technology()
 personTwoSays.value = "";
 submitButtonThree.style.display = "none";
 
+var submitButtonFour = document.createElement("button");
+
 submitButtonFour.innerHTML = "Submit";
 personTwoTalk.appendChild(submitButtonFour);
 personTwoSays.setAttribute("placeholder", "Type reply...");
 
 //Get the latest technology news from the internet
-personOneTalk.innerHTML = "Have you heard of...";
+personOneTalk.innerHTML = "Sure! Have you heard of...";
 };
 
 };
