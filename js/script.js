@@ -133,7 +133,7 @@ document.body.onload = setInterval("updateClock()", 1000);
 submitButton.onclick = function howYouDoing()
 {
 //Randomize second greeting
-var secondGreeting = ["How are you doing?", "What's new?"];
+var secondGreeting = ["How are you doing?", "What's new?", "What's up?"];
 var randomString = Math.floor(Math.random() * secondGreeting.length);
 
 personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
