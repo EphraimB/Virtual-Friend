@@ -183,38 +183,12 @@ personTwoTalk.appendChild(submitButtonThree);
 
 submitButtonThree.onclick = function conversationStarter()
 {
-var conditionTwo = false;
 
-if(personTwoSays.value == "What are your interests?")
+if(personTwoSays.value == "Can we talk about Technology?")
 {
-personOneTalk.innerHTML = "Technology. What are your interests?";
+personOneTalk.innerHTML = "Yes";
 
-conditionTwo = true;
-}
-
-else
-{
-personOneTalk.innerHTML = "Huh?";
-}
-
-if(conditionTwo == true)
-{
-submitButtonThree.style.display = "none";
-personTwoSays.value = "";
-personTwoSays.setAttribute("placeholder", "Type reply...");
-
-var submitButtonFour = document.createElement("button");
-
-submitButtonFour.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonFour);
-
-submitButtonFour.onclick = function conversation()
-{
-
-if(personTwoSays.value == "Technology")
-{
-//Get the latest technology news from the internet
-
+technology();
 }
 
 else
@@ -222,10 +196,18 @@ else
 personOneTalk.innerHTML = "I don't know of that topic. What other topics are you interested in?";
 }
 
+function technology()
+{
 personTwoSays.value = "";
-}
+submitButtonThree.style.display = "none";
 
-}
+submitButtonFour.innerHTML = "Submit";
+personTwoTalk.appendChild(submitButtonFour);
+personTwoSays.setAttribute("placeholder", "Type reply...");
+
+//Get the latest technology news from the internet
+personOneTalk.innerHTML = "Have you heard of...";
+};
 
 };
 
