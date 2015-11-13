@@ -213,25 +213,13 @@ submitButtonFour.onclick = function conversation()
 
 if(personTwoSays.value == "Technology")
 {
-personOneTalk.innerHTML = "Cool! We both have the same interests! Let's be friends!";
+//Get the latest technology news from the internet
 
-personOneTalk.style.display = "none";
-personTwoTalk.style.display = "none";
-
-//Hug
-personTwoFace.style.left = "200px";
-personTwoBody.style.left = "205px";
-personTwoLeftArm.style.left = "105px";
-personTwoRightArm.style.left = "294px";
-personTwoLeftLeg.style.left = "205px";
-personTwoRightLeg.style.left = "265px";
 }
 
 else
 {
-personOneTalk.innerHTML = "Goodbye!";
-
-personOne.style.display = "none";
+personOneTalk.innerHTML = "I don't know of that topic. What other topics are you interested in?";
 }
 
 personTwoSays.value = "";
