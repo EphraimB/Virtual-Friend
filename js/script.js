@@ -132,7 +132,12 @@ document.body.onload = setInterval("updateClock()", 1000);
 
 submitButton.onclick = function howYouDoing()
 {
-personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! How are you doing?";
+//Randomize second greeting
+var secondGreeting = ["How are you doing?", "What's new?"];
+var randomString = Math.floor(Math.random() * secondGreeting.length);
+
+personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
+
 submitButton.style.display = "none";
 personTwoSays.value = "";
 
@@ -176,7 +181,7 @@ submitButtonThree.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonThree);
 
-submitButtonThree.onclick = function interests()
+submitButtonThree.onclick = function conversationStarter()
 {
 var conditionTwo = false;
 
@@ -203,7 +208,7 @@ var submitButtonFour = document.createElement("button");
 submitButtonFour.innerHTML = "Submit";
 personTwoTalk.appendChild(submitButtonFour);
 
-submitButtonFour.onclick = function friends()
+submitButtonFour.onclick = function conversation()
 {
 
 if(personTwoSays.value == "Technology")
