@@ -1,4 +1,4 @@
 <?php
-$url = "http://www.cnet.com/rss";
+$url = "http://www.winbeta.com/feed";
 $str = file_get_contents ($url);
 ?>
