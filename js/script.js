@@ -43,6 +43,11 @@ if((currentHours >= 13) && (currentHours < 24))
 currentHoursTwelveHourMode = currentHours - 12;
 }
 
+else if(currentHours == 0)
+{
+currentHoursTwelveHourMode = currentHours + 12;
+}
+
 else
 {
 currentHoursTwelveHourMode = currentHours;
