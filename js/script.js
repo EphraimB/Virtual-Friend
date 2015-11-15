@@ -241,7 +241,7 @@ for(var i = 0; i < thefeeds.length; i++)
 rssoutput += thefeeds[i].title;
 }
 
-feedcontainer.innerHTML = rssoutput;
+feedcontainer.innerHTML = rssoutput + "?";
 }
 
 else
