@@ -220,7 +220,7 @@ function fetchLatestNews()
 var feedcontainer = document.getElementById("personOneTalk");
 var feedurl = "http://www.winbeta.org/feed";
 var feedlimit = 1;
-var rssoutput = "Sure! Let's talk about ";
+var rssoutput = "Sure! Have you heard of ";
 
 function rssfeedsetup()
 {
