@@ -210,7 +210,22 @@ personTwoTalk.appendChild(submitButtonFour);
 personTwoSays.setAttribute("placeholder", "Type reply...");
 
 //Get the latest technology news from the internet
-personOneTalk.innerHTML = "Sure! Have you heard of...";
+function fetchLatestNews()
+{
+var request = new XMLHttpRequest();
+
+request.addEventListener("load", handleResponse);
+request.open("GET", "../php/news.php", true);
+request.send();
+};
+
+function handleResponse()
+{
+personOneTalk.innerHTML = "Sure! Have you heard of " + this.responseText;
+};
+
+fetchLatestNews();
+
 };
 
 };
