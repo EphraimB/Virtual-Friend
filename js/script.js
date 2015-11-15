@@ -219,17 +219,11 @@ function fetchLatestNews()
 {
 var request = new XMLHttpRequest();
 
-request.addEventListener("load", handleResponse);
-request.open("GET", "http://www.winbeta.org/feed", true);
+request.open("GET", "http://www.cnet.com/rss/news/");
 request.send();
 };
 
-function handleResponse()
-{
-personOneTalk.innerHTML = "Sure! Have you heard of " + this.responseText;
-};
-
-fetchLatestNews();
+personOneTalk.innerHTML = "Sure! Have you heard of " + fetchLatestNews();
 
 };
 
