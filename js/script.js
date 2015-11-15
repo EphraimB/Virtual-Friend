@@ -217,10 +217,45 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 //Get the latest technology news from the internet
 function fetchLatestNews()
 {
+var feedcontainer = document.getElementById("personOneTalk");
+var feedurl = "http://www.winbeta.org/feed";
+var feedlimit = 1;
+var rssoutput = "Sure! Let's talk about ";
+
+function rssfeedsetup()
+{
+var feedpointer = new google.feeds.Feed(feedurl);
+feedpointer.setNumEntries(feedlimit);
+feedpointer.load(displayfeed);
+};
+
+function displayfeed(result)
+{
+
+if(!result.error)
+{
+var thefeeds = result.feed.entries;
+
+for(var i = 0; i < thefeeds.length; i++)
+{
+rssoutput += thefeeds[i].title;
+}
+
+feedcontainer.innerHTML = rssoutput;
+}
+
+else
+{
+feedContainer.innerHTML = "I don't know anything right now";
+}
 
 };
 
-personOneTalk.innerHTML = "Sure! Have you heard of " + fetchLatestNews();
+rssfeedsetup();
+
+};
+
+fetchLatestNews();
 
 };
 
