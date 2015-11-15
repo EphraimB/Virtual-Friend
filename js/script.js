@@ -217,10 +217,7 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 //Get the latest technology news from the internet
 function fetchLatestNews()
 {
-var request = new XMLHttpRequest();
 
-request.open("GET", "http://www.cnet.com/rss/news/");
-request.send();
 };
 
 personOneTalk.innerHTML = "Sure! Have you heard of " + fetchLatestNews();
