@@ -217,7 +217,6 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 //Get the latest technology news from the internet
 function fetchLatestNews()
 {
-var feedcontainer = document.getElementById("personOneTalk");
 var feedurl = "http://www.winbeta.org/feed";
 var feedlimit = 1;
 var rssoutput = "Sure! Have you heard of ";
@@ -239,14 +238,26 @@ var thefeeds = result.feed.entries;
 for(var i = 0; i < thefeeds.length; i++)
 {
 rssoutput += thefeeds[i].title;
+
+var conversationOfRSS = thefeeds[i].content;
 }
 
-feedcontainer.innerHTML = rssoutput + "?";
+personOneTalk.innerHTML = rssoutput + "?";
+
+submitButtonFour.onclick = function conversation()
+{
+//Todo: Modify the RSS content to display only one sentance
+
+
+//After modifying the RSS content
+personOneTalk.innerHTML = conversationOfRSS;
+};
+
 }
 
 else
 {
-feedContainer.innerHTML = "I don't know anything right now";
+personOneTalk.innerHTML = "I don't know anything right now";
 }
 
 };
