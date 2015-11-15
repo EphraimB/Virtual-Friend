@@ -215,7 +215,7 @@ function fetchLatestNews()
 var request = new XMLHttpRequest();
 
 request.addEventListener("load", handleResponse);
-request.open("GET", "../php/news.php", true);
+request.open("GET", "http://www.winbeta.org/feed", true);
 request.send();
 };
 
