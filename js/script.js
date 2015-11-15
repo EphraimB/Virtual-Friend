@@ -215,59 +215,14 @@ personTwoTalk.appendChild(submitButtonFour);
 personTwoSays.setAttribute("placeholder", "Type reply...");
 
 //Get the latest technology news from the internet
-function fetchLatestNews()
-{
-var feedurl = "http://www.winbeta.org/feed";
-var feedlimit = 1;
-var rssoutput = "Sure! Have you heard of ";
 
-function rssfeedsetup()
-{
-var feedpointer = new google.feeds.Feed(feedurl);
-feedpointer.setNumEntries(feedlimit);
-feedpointer.load(displayfeed);
-};
+//Fetch the RSS feed
+var request = new XMLHttpRequest();
 
-function displayfeed(result)
-{
+request.open("http://www.winbeta.org/feed");
+request.send();
 
-if(!result.error)
-{
-var thefeeds = result.feed.entries;
-
-for(var i = 0; i < thefeeds.length; i++)
-{
-rssoutput += thefeeds[i].title;
-
-var conversationOfRSS = thefeeds[i].content;
-}
-
-personOneTalk.innerHTML = rssoutput + "?";
-
-submitButtonFour.onclick = function conversation()
-{
-//Todo: Modify the RSS content to display only one sentance
-
-
-//After modifying the RSS content
-personOneTalk.innerHTML = conversationOfRSS;
-};
-
-}
-
-else
-{
-personOneTalk.innerHTML = "I don't know anything right now";
-}
-
-};
-
-rssfeedsetup();
-
-};
-
-fetchLatestNews();
-
+personOneTalk.innerHTML = "Sure! Have you heard of " + request;
 };
 
 };
