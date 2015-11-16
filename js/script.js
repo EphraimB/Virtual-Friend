@@ -239,7 +239,9 @@ personOneTalk.innerHTML = "Sure! Have you heard of " + xmlDoc.getElementsByTagNa
 
 submitButtonFour.onclick = function()
 {
-personOneTalk.innerHTML = xmlDoc.getElementsByTagName("description")[1].childNodes[0].nodeValue;
+var description = xmlDoc.getElementsByTagName("description")[1];
+
+personOneTalk.innerHTML = description.childNodes[0].nodeValue;
 };
 
 }
