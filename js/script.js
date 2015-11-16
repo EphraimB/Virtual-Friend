@@ -241,7 +241,10 @@ submitButtonFour.onclick = function()
 {
 var description = xmlDoc.getElementsByTagName("description")[1];
 
-personOneTalk.innerHTML = description.childNodes[0].nodeValue;
+var removeImage = xmlDoc.getElementsByTagName("img")[0];
+var textDescription = description.removeChild(removeImage);
+
+personOneTalk.innerHTML = description.chileNodes[0].nodeValue;
 };
 
 }
