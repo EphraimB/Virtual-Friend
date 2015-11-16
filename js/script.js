@@ -223,12 +223,9 @@ var xmlDoc;
 request.open("GET", "http://www.winbeta.org/feed", true);
 request.send();
 
-if(request.readyState == 4)
-{
 xmlDoc = request.responseXML;
-}
 
-personOneTalk.innerHTML = xmlDoc;
+personOneTalk.innerHTML = "Have you heard of " + xmlDoc;
 
 };
 
