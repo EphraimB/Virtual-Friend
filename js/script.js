@@ -225,7 +225,7 @@ if(typeof request.overrideMimeType != "undefined")
 request.overrideMimeType("text/xml");
 }
 
-request.open("GET", "http://www.winbeta.org/feed", true);
+request.open("GET", "http://www.cnet.com/rss/news", true);
 request.send();
 
 request.onreadystatechange = function()
@@ -234,15 +234,13 @@ request.onreadystatechange = function()
 if(request.readyState == 4 && request.status == 200)
 {
 var xmlDoc = request.responseXML;
+var title = xmlDoc.getElementsByTagName("title")[2]
 
-personOneTalk.innerHTML = "Sure! Have you heard of " + xmlDoc.getElementsByTagName("title")[1].childNodes[0].nodeValue;
+personOneTalk.innerHTML = "Sure! Have you heard of " + title.childNodes[0].nodeValue;
 
 submitButtonFour.onclick = function()
 {
 var description = xmlDoc.getElementsByTagName("description")[1];
-
-var removeImage = xmlDoc.getElementsByTagName("img")[0];
-var textDescription = description.removeChild(removeImage);
 
 personOneTalk.innerHTML = description.childNodes[0].nodeValue;
 };
