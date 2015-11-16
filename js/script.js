@@ -236,6 +236,12 @@ if(request.readyState == 4 && request.status == 200)
 var xmlDoc = request.responseXML;
 
 personOneTalk.innerHTML = "Sure! Have you heard of " + xmlDoc.getElementsByTagName("title")[1].childNodes[0].nodeValue;
+
+submitButtonFour.onclick = function()
+{
+personOneTalk.innerHTML = xmlDoc.getElementsByTagName("description")[1].childNodes[0].nodeValue;
+};
+
 }
 
 else
