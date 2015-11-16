@@ -218,17 +218,17 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 
 //Fetch the RSS feed
 var request = new XMLHttpRequest();
+var xmlDoc;
 
-request.open("GET", "http://cors.io/?u=http://www.winbeta.org/feed", true);
+request.open("GET", "http://www.winbeta.org/feed", true);
 request.send();
-var xmlDoc = request.responseXML;
-var RSS = "";
 
-RSS += xmlDoc;
+if(request.readyState == 4)
+{
+xmlDoc = request.responseXML;
+}
 
-
-personOneTalk.innerHTML = "Sure! Have you heard of " + RSS;
-
+personOneTalk.innerHTML = xmlDoc;
 
 };
 
