@@ -233,7 +233,9 @@ request.onreadystatechange = function()
 
 if(request.readyState == 4 && request.status == 200)
 {
-personOneTalk.innerHTML = "Sure! Have you heard of " + request.responseXML;
+var xmlDoc = request.responseXML;
+
+personOneTalk.innerHTML = "Sure! Have you heard of " + xmlDoc;
 }
 
 else
