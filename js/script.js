@@ -220,12 +220,28 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 var request = new XMLHttpRequest();
 var xmlDoc;
 
+if(typeof request.overrideMimeType != "undefined")
+{
+request.overrideMimeType("text/xml");
+}
+
 request.open("GET", "http://www.winbeta.org/feed", true);
 request.send();
 
-xmlDoc = request.responseXML;
+request.onreadystatechange = function()
+{
 
-personOneTalk.innerHTML = "Have you heard of " + xmlDoc;
+if(request.readyState == 4 && request.status == 200)
+{
+personOneTalk.innerHTML = "Sure! Have you heard of " + request.responseXML;
+}
+
+else
+{
+
+}
+
+};
 
 };
 
