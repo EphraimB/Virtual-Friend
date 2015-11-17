@@ -201,6 +201,8 @@ else
 appropiateForConversation = 1;
 
 personOneTalk.innerHTML = "I don't know of that topic. What other topics are you interested in?";
+
+personTwoSays.setAttribute("placeholder", "Type reply...");
 }
 
 function technology()
@@ -242,10 +244,12 @@ var start = titleValue.length;
 
 titleValue.deleteData(start - 7, 7);
 
-personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue;
+personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
 
 submitButtonFour.onclick = function()
 {
+personTwoSays.value = "";
+
 var description = xmlDoc.getElementsByTagName("description")[1];
 
 personOneTalk.innerHTML = description.childNodes[0].nodeValue;
