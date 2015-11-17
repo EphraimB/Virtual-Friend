@@ -304,10 +304,6 @@ var title = xmlMoviesDoc.getElementsByTagName("title")[2];
 
 var titleValue = title.childNodes[0];
 
-var start = titleValue.length;
-
-titleValue.deleteData(start - 7, 7);
-
 personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
 
 submitButtonFour.onclick = function()
