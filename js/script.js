@@ -234,9 +234,15 @@ request.onreadystatechange = function()
 if(request.readyState == 4 && request.status == 200)
 {
 var xmlDoc = request.responseXML;
-var title = xmlDoc.getElementsByTagName("title")[2]
+var title = xmlDoc.getElementsByTagName("title")[2];
 
-personOneTalk.innerHTML = "Sure! Have you heard that " + title.childNodes[0].nodeValue;
+var titleValue = title.childNodes[0];
+
+var start = titleValue.length;
+
+titleValue.deleteData(start - 7, 7);
+
+personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue;
 
 submitButtonFour.onclick = function()
 {
