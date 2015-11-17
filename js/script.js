@@ -196,6 +196,11 @@ if((personTwoSays.value == "Can we talk about Technology?" && appropiateForConve
 technology();
 }
 
+else if((personTwoSays.value == "Can we talk about Movies?" && appropiateForConversation == 0) || (personTwoSays.value == "Movies" && appropiateForConversation == 1))
+{
+movies();
+}
+
 else
 {
 appropiateForConversation = 1;
@@ -220,7 +225,6 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 
 //Fetch the RSS feed
 var request = new XMLHttpRequest();
-var xmlDoc;
 
 if(typeof request.overrideMimeType != "undefined")
 {
@@ -251,6 +255,66 @@ submitButtonFour.onclick = function()
 personTwoSays.value = "";
 
 var description = xmlDoc.getElementsByTagName("description")[1];
+
+personOneTalk.innerHTML = description.childNodes[0].nodeValue;
+};
+
+}
+
+else
+{
+
+}
+
+};
+
+};
+
+function movies()
+{
+personTwoSays.value = "";
+submitButtonThree.style.display = "none";
+
+var submitButtonFour = document.createElement("button");
+
+submitButtonFour.innerHTML = "Submit";
+personTwoTalk.appendChild(submitButtonFour);
+personTwoSays.setAttribute("placeholder", "Type reply...");
+
+//Get the latest movie news from the internet
+
+//Fetch the RSS feed
+var requestMovies = new XMLHttpRequest();
+
+if(typeof requestMovies.overrideMimeType != "undefined")
+{
+requestMovies.overrideMimeType("text/xml");
+}
+
+requestMovies.open("GET", "http://movieweb.com/rss/movie-news/", true);
+requestMovies.send();
+
+requestMovies.onreadystatechange = function()
+{
+
+if(requestMovies.readyState == 4 && requestMovies.status == 200)
+{
+var xmlMoviesDoc = requestMovies.responseXML;
+var title = xmlMoviesDoc.getElementsByTagName("title")[2];
+
+var titleValue = title.childNodes[0];
+
+var start = titleValue.length;
+
+titleValue.deleteData(start - 7, 7);
+
+personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
+
+submitButtonFour.onclick = function()
+{
+personTwoSays.value = "";
+
+var description = xmlMoviesDoc.getElementsByTagName("description")[1];
 
 personOneTalk.innerHTML = description.childNodes[0].nodeValue;
 };
