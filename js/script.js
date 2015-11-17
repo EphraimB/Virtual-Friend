@@ -236,7 +236,7 @@ if(request.readyState == 4 && request.status == 200)
 var xmlDoc = request.responseXML;
 var title = xmlDoc.getElementsByTagName("title")[2]
 
-personOneTalk.innerHTML = "Sure! Have you heard of " + title.childNodes[0].nodeValue;
+personOneTalk.innerHTML = "Sure! Have you heard that " + title.childNodes[0].nodeValue;
 
 submitButtonFour.onclick = function()
 {
