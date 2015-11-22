@@ -235,11 +235,11 @@ request.onreadystatechange = function()
 if(request.readyState == 4 && request.status == 200)
 {
 var xmlDoc = request.responseXML;
-//var title = xmlDoc.getElementsByTagName("title")[2];
+var title = xmlDoc.getElementsByTagName("title")[2];
 
-//var titleValue = title.childNodes[0];
+var titleValue = title.childNodes[0];
 
-personOneTalk.innerHTML = "Sure! Have you heard that " + xmlDoc + "?";
+personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
 
 submitButtonFour.onclick = function()
 {
