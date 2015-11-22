@@ -283,7 +283,7 @@ if(typeof requestMovies.overrideMimeType != "undefined")
 requestMovies.overrideMimeType("text/xml");
 }
 
-requestMovies.open("GET", "http://movieweb.com/rss/movie-news/", true);
+requestMovies.open("GET", "http://www.npr.org/rss/rss.php?id=1045", true);
 requestMovies.send();
 
 requestMovies.onreadystatechange = function()
