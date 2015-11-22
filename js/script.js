@@ -226,12 +226,7 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 //Fetch the RSS feed
 var request = new XMLHttpRequest();
 
-if(typeof request.overrideMimeType != "undefined")
-{
-request.overrideMimeType("text/xml");
-}
-
-request.open("GET", "http://www.cnet.com/rss/news", true);
+request.open("GET", "http://www.msn.com/rss/news.aspx", true);
 request.send();
 
 request.onreadystatechange = function()
@@ -240,15 +235,11 @@ request.onreadystatechange = function()
 if(request.readyState == 4 && request.status == 200)
 {
 var xmlDoc = request.responseXML;
-var title = xmlDoc.getElementsByTagName("title")[2];
+//var title = xmlDoc.getElementsByTagName("title")[2];
 
-var titleValue = title.childNodes[0];
+//var titleValue = title.childNodes[0];
 
-var start = titleValue.length;
-
-titleValue.deleteData(start - 7, 7);
-
-personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
+personOneTalk.innerHTML = "Sure! Have you heard that " + xmlDoc + "?";
 
 submitButtonFour.onclick = function()
 {
