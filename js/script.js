@@ -226,7 +226,7 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 //Fetch the RSS feed
 var request = new XMLHttpRequest();
 
-request.open("GET", "http://www.msn.com/rss/news.aspx", true);
+request.open("GET", "http://www.npr.org/rss/rss.php?id=1019", true);
 request.send();
 
 request.onreadystatechange = function()
@@ -235,6 +235,7 @@ request.onreadystatechange = function()
 if(request.readyState == 4 && request.status == 200)
 {
 var xmlDoc = request.responseXML;
+
 var title = xmlDoc.getElementsByTagName("title")[2];
 
 var titleValue = title.childNodes[0];
