@@ -155,14 +155,16 @@ submitButtonTwo.onclick = function()
 {
 var condition = false;
 
-if(personTwoSays.value == "good")
+var personTwoReply = personTwoSays.value.toLowerCase();
+
+if(personTwoReply == "good" || personTwoReply == "awesome")
 {
 personOneTalk.innerHTML = "Nice to hear!";
 
 condition = true;
 }
 
-else if(personTwoSays.value == "not good")
+else if(personTwoReply == "not good")
 {
 personOneTalk.innerHTML = "I'm sorry to hear that";
 
@@ -190,15 +192,18 @@ var appropiateForConversation = 0;
 
 submitButtonThree.onclick = function conversationStarter()
 {
+var personTwoReply = personTwoSays.value.toLowerCase();
 
-if((personTwoSays.value == "Can we talk about Technology?" && appropiateForConversation == 0) || (personTwoSays.value == "Technology" && appropiateForConversation == 1))
+if((personTwoReply == "can we talk about technology?" && appropiateForConversation == 0) || (personTwoReply == "technology" && appropiateForConversation == 1))
 {
-technology();
+var topic = "1019";
+topicFeed();
 }
 
-else if((personTwoSays.value == "Can we talk about Movies?" && appropiateForConversation == 0) || (personTwoSays.value == "Movies" && appropiateForConversation == 1))
+else if((personTwoReply == "can we talk about movies?" && appropiateForConversation == 0) || (personTwoReply == "movies" && appropiateForConversation == 1))
 {
-movies();
+var topic = "1045";
+topicFeed();
 }
 
 else
@@ -210,7 +215,7 @@ personOneTalk.innerHTML = "I don't know of that topic. What other topics are you
 personTwoSays.setAttribute("placeholder", "Type reply...");
 }
 
-function technology()
+function topicFeed()
 {
 personTwoSays.value = "";
 submitButtonThree.style.display = "none";
@@ -226,7 +231,7 @@ personTwoSays.setAttribute("placeholder", "Type reply...");
 //Fetch the RSS feed
 var request = new XMLHttpRequest();
 
-request.open("GET", "http://www.npr.org/rss/rss.php?id=1019", true);
+request.open("GET", "http://www.npr.org/rss/rss.php?id=" + topic, true);
 request.send();
 
 request.onreadystatechange = function()
@@ -247,62 +252,6 @@ submitButtonFour.onclick = function()
 personTwoSays.value = "";
 
 var description = xmlDoc.getElementsByTagName("description")[1];
-
-personOneTalk.innerHTML = description.childNodes[0].nodeValue;
-};
-
-}
-
-else
-{
-
-}
-
-};
-
-};
-
-function movies()
-{
-personTwoSays.value = "";
-submitButtonThree.style.display = "none";
-
-var submitButtonFour = document.createElement("button");
-
-submitButtonFour.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonFour);
-personTwoSays.setAttribute("placeholder", "Type reply...");
-
-//Get the latest movie news from the internet
-
-//Fetch the RSS feed
-var requestMovies = new XMLHttpRequest();
-
-if(typeof requestMovies.overrideMimeType != "undefined")
-{
-requestMovies.overrideMimeType("text/xml");
-}
-
-requestMovies.open("GET", "http://www.npr.org/rss/rss.php?id=1045", true);
-requestMovies.send();
-
-requestMovies.onreadystatechange = function()
-{
-
-if(requestMovies.readyState == 4 && requestMovies.status == 200)
-{
-var xmlMoviesDoc = requestMovies.responseXML;
-var title = xmlMoviesDoc.getElementsByTagName("title")[2];
-
-var titleValue = title.childNodes[0];
-
-personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
-
-submitButtonFour.onclick = function()
-{
-personTwoSays.value = "";
-
-var description = xmlMoviesDoc.getElementsByTagName("description")[1];
 
 personOneTalk.innerHTML = description.childNodes[0].nodeValue;
 };

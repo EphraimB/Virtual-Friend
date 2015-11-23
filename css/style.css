@@ -30,4 +30,6 @@
 
 #clock{position: absolute; left: 80%; top: 50%; width: auto; height: auto; padding: 1%; background-color: black; color: white; text-align: center; font-size: 20pt;}
 
+#version{position: absolute; left: 25%; top: 90%; color: red; font-size: 20pt; font-weight: bold;}
+
 img, br, a{display: none;}
