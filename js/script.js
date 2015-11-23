@@ -105,7 +105,7 @@ image = "";
 }
 
 document.body.style.background = image + "no-repeat center center fixed";
-document.body.style.backgroundSize = "cover";
+document.body.style.backgroundSize = "100% 100%";
 
 if((currentHours >= 0) && (currentHours < 12))
 {
@@ -138,7 +138,7 @@ document.body.onload = setInterval("updateClock()", 1000);
 submitButton.onclick = function howYouDoing()
 {
 //Randomize second greeting
-var secondGreeting = ["How are you doing?", "What's new?", "What's up?"];
+var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
 var randomString = Math.floor(Math.random() * secondGreeting.length);
 
 personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
@@ -164,7 +164,7 @@ personOneTalk.innerHTML = "Nice to hear!";
 condition = true;
 }
 
-else if(personTwoReply == "not good")
+else if(personTwoReply == "not good" || personTwoReply == "bad")
 {
 personOneTalk.innerHTML = "I'm sorry to hear that";
 

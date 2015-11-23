@@ -28,7 +28,7 @@
 
 #personTwoTalk{position: absolute; left: 54%; top: 19%; width: auto; height: auto; padding: 1%; border-radius: 25%; background-color: green; text-align: center;}
 
-#clock{position: absolute; left: 80%; top: 50%; width: auto; height: auto; padding: 1%; background-color: black; color: white; text-align: center; font-size: 20pt;}
+#clock{position: absolute; left: 78%; top: 34%; width: auto; height: auto; padding: 1%; background-color: black; color: white; text-align: center; font-size: 19pt;}
 
 #version{position: absolute; left: 25%; top: 90%; color: red; font-size: 20pt; font-weight: bold;}
 
