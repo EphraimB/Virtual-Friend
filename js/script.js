@@ -159,21 +159,30 @@ var personTwoReply = personTwoSays.value.toLowerCase();
 
 if(personTwoReply == "good" || personTwoReply == "awesome")
 {
-personOneTalk.innerHTML = "Nice to hear!";
+var personOneReply = ["Nice to hear!", "I'm happy for you!"];
+var randomString = Math.floor(Math.random() * personOneReply.length);
+
+personOneTalk.innerHTML = personOneReply[randomString];
 
 condition = true;
 }
 
 else if(personTwoReply == "not good" || personTwoReply == "bad")
 {
-personOneTalk.innerHTML = "I'm sorry to hear that";
+var personOneReply = ["I'm sorry to hear that", "Oh well"];
+var randomString = Math.floor(Math.random() * personOneReply.length);
+
+personOneTalk.innerHTML = personOneReply[randomString];
 
 condition = true;
 }
 
 else
 {
-personOneTalk.innerHTML = "Can you please repeat yourself?";
+var personOneReply = ["Can you please repeat yourself?", "Again please?"];
+var randomString = Math.floor(Math.random() * personOneReply.length);
+
+personOneTalk.innerHTML = personOneReply[randomString];
 }
 
 if(condition == true)
@@ -210,7 +219,10 @@ else
 {
 appropiateForConversation = 1;
 
-personOneTalk.innerHTML = "I don't know of that topic. What other topics are you interested in?";
+var personOneReply = ["I don't know of that topic. What other topics are you interested in?", "Can you please pick a topic that I know of?"];
+var randomString = Math.floor(Math.random() * personOneReply.length);
+
+personOneTalk.innerHTML = personOneReply[randomString];
 
 personTwoSays.setAttribute("placeholder", "Type reply...");
 }
