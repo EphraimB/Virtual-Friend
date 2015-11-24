@@ -215,6 +215,12 @@ var topic = "1045";
 topicFeed();
 }
 
+else if((personTwoReply == "can we talk about sports?" && appropiateForConversation == 0) || (personTwoReply == "sports" && appropiateForConversation == 1))
+{
+var topic = "1055";
+topicFeed();
+}
+
 else
 {
 appropiateForConversation = 1;
