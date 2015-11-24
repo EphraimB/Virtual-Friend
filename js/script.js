@@ -233,6 +233,12 @@ var topic = "1053";
 topicFeed();
 }
 
+else if((personTwoReply == "can we talk about music?" && appropiateForConversation == 0) || (personTwoReply == "music" && appropiateForConversation == 1))
+{
+var topic = "1039";
+topicFeed();
+}
+
 else
 {
 appropiateForConversation = 1;
