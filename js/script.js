@@ -185,11 +185,12 @@ var randomString = Math.floor(Math.random() * personOneReply.length);
 personOneTalk.innerHTML = personOneReply[randomString];
 }
 
+personOneTalk.innerHTML += " What are your interests?";
+
 if(condition == true)
 {
 submitButtonTwo.style.display = "none";
 personTwoSays.value = "";
-personTwoSays.setAttribute("placeholder", "Keep the conversation going...");
 
 var submitButtonThree = document.createElement("button");
 
@@ -197,43 +198,41 @@ submitButtonThree.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonThree);
 
-var appropiateForConversation = 0;
-
 submitButtonThree.onclick = function conversationStarter()
 {
 var personTwoReply = personTwoSays.value.toLowerCase();
 
-if((personTwoReply == "can we talk about technology?" && appropiateForConversation == 0) || (personTwoReply == "technology" && appropiateForConversation == 1))
+if(personTwoReply == "technology")
 {
 var topic = "1019";
 topicFeed();
 }
 
-else if((personTwoReply == "can we talk about movies?" && appropiateForConversation == 0) || (personTwoReply == "movies" && appropiateForConversation == 1))
+else if(personTwoReply == "movies")
 {
 var topic = "1045";
 topicFeed();
 }
 
-else if((personTwoReply == "can we talk about sports?" && appropiateForConversation == 0) || (personTwoReply == "sports" && appropiateForConversation == 1))
+else if(personTwoReply == "sports")
 {
 var topic = "1055";
 topicFeed();
 }
 
-else if((personTwoReply == "can we talk about politics?" && appropiateForConversation == 0) || (personTwoReply == "politics" && appropiateForConversation == 1))
+else if(personTwoReply == "politics")
 {
 var topic = "1014";
 topicFeed();
 }
 
-else if((personTwoReply == "can we talk about food?" && appropiateForConversation == 0) || (personTwoReply == "food" && appropiateForConversation == 1))
+else if(personTwoReply == "food")
 {
 var topic = "1053";
 topicFeed();
 }
 
-else if((personTwoReply == "can we talk about music?" && appropiateForConversation == 0) || (personTwoReply == "music" && appropiateForConversation == 1))
+else if(personTwoReply == "music")
 {
 var topic = "1039";
 topicFeed();
@@ -241,14 +240,10 @@ topicFeed();
 
 else
 {
-appropiateForConversation = 1;
-
 var personOneReply = ["I don't know of that topic. What other topics are you interested in?", "Can you please pick a topic that I know of?"];
 var randomString = Math.floor(Math.random() * personOneReply.length);
 
 personOneTalk.innerHTML = personOneReply[randomString];
-
-personTwoSays.setAttribute("placeholder", "Type reply...");
 }
 
 function topicFeed()
@@ -260,9 +255,6 @@ var submitButtonFour = document.createElement("button");
 
 submitButtonFour.innerHTML = "Submit";
 personTwoTalk.appendChild(submitButtonFour);
-personTwoSays.setAttribute("placeholder", "Type reply...");
-
-//Get the latest technology news from the internet
 
 //Fetch the RSS feed
 var request = new XMLHttpRequest();
@@ -281,7 +273,7 @@ var title = xmlDoc.getElementsByTagName("title")[2];
 
 var titleValue = title.childNodes[0];
 
-personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
+personOneTalk.innerHTML = "Have you heard that " + titleValue.nodeValue + "?";
 
 submitButtonFour.onclick = function()
 {
