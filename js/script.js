@@ -227,6 +227,12 @@ var topic = "1014";
 topicFeed();
 }
 
+else if((personTwoReply == "can we talk about food?" && appropiateForConversation == 0) || (personTwoReply == "food" && appropiateForConversation == 1))
+{
+var topic = "1053";
+topicFeed();
+}
+
 else
 {
 appropiateForConversation = 1;
