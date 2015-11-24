@@ -221,6 +221,12 @@ var topic = "1055";
 topicFeed();
 }
 
+else if((personTwoReply == "can we talk about politics?" && appropiateForConversation == 0) || (personTwoReply == "politics" && appropiateForConversation == 1))
+{
+var topic = "1014";
+topicFeed();
+}
+
 else
 {
 appropiateForConversation = 1;
