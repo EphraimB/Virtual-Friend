@@ -208,16 +208,23 @@ submitButtonBored.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonBored);
 
+var boredCondition;
+
 if(personOneTalk.innerHTML == "Why are you bored?")
 {
-submitButtonBored.onclick = function()
-{
-conversationStarter();
-};
+boredCondition = 1;
 
+bored();
 }
 
 else if(personOneTalk.innerHTML == "Is everything okay?")
+{
+boredCondition = 2;
+
+bored();
+}
+
+function bored()
 {
 submitButtonBored.onclick = function()
 {
@@ -236,12 +243,7 @@ personOneTalk.innerHTML = "What's wrong?";
 
 };
 
-}
-
-else
-{
-
-}
+};
 
 }
 
