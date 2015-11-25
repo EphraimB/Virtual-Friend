@@ -153,7 +153,7 @@ personTwoTalk.appendChild(submitButtonTwo);
 
 submitButtonTwo.onclick = function()
 {
-var condition = false;
+var feeling;
 
 var personTwoReply = personTwoSays.value.toLowerCase();
 
@@ -163,8 +163,9 @@ var personOneReply = ["Nice to hear!", "I'm happy for you!"];
 var randomString = Math.floor(Math.random() * personOneReply.length);
 
 personOneTalk.innerHTML = personOneReply[randomString];
+personOneTalk.innerHTML += " What are your interests?";
 
-condition = true;
+feeling = "good";
 }
 
 else if(personTwoReply == "not good" || personTwoReply == "bad")
@@ -173,8 +174,19 @@ var personOneReply = ["I'm sorry to hear that", "Oh well"];
 var randomString = Math.floor(Math.random() * personOneReply.length);
 
 personOneTalk.innerHTML = personOneReply[randomString];
+personOneTalk.innerHTML += " What are your interests?";
 
-condition = true;
+feeling = "bad";
+}
+
+else if(personTwoReply == "bored")
+{
+var personOneReply = ["Why are you bored?", "Is everything okay?"];
+var randomString = Math.floor(Math.random() * personOneReply.length);
+
+personOneTalk.innerHTML = personOneReply[randomString];
+
+feeling = "bored";
 }
 
 else
@@ -185,9 +197,55 @@ var randomString = Math.floor(Math.random() * personOneReply.length);
 personOneTalk.innerHTML = personOneReply[randomString];
 }
 
-personOneTalk.innerHTML += " What are your interests?";
+if(feeling == "bored")
+{
+submitButtonTwo.style.display = "none";
+personTwoSays.value = "";
 
-if(condition == true)
+var submitButtonBored = document.createElement("button");
+
+submitButtonBored.innerHTML = "Submit";
+
+personTwoTalk.appendChild(submitButtonBored);
+
+if(personOneTalk.innerHTML == "Why are you bored?")
+{
+submitButtonBored.onclick = function()
+{
+conversationStarter();
+};
+
+}
+
+else if(personOneTalk.innerHTML == "Is everything okay?")
+{
+submitButtonBored.onclick = function()
+{
+
+if(personTwoSays.value == "yes")
+{
+personOneTalk.innerHTML = "Thank G-D! ";
+
+//conversationStarter();
+}
+
+else if(personTwoSays.value == "no")
+{
+personOneTalk.innerHTML = "What's wrong?";
+}
+
+};
+
+}
+
+else
+{
+
+}
+
+}
+
+else if(feeling == "good" || feeling == "bad")
 {
 submitButtonTwo.style.display = "none";
 personTwoSays.value = "";
@@ -198,7 +256,14 @@ submitButtonThree.innerHTML = "Submit";
 
 personTwoTalk.appendChild(submitButtonThree);
 
-submitButtonThree.onclick = function conversationStarter()
+submitButtonThree.onclick = function()
+{
+conversationStarter();
+};
+
+}
+
+function conversationStarter()
 {
 var personTwoReply = personTwoSays.value.toLowerCase();
 
@@ -290,8 +355,6 @@ else
 {
 
 }
-
-};
 
 };
 
