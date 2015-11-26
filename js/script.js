@@ -137,205 +137,205 @@ document.body.onload = setInterval("updateClock()", 1000);
 
 submitButton.onclick = function howYouDoing()
 {
-//Randomize second greeting
-var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
-var randomString = Math.floor(Math.random() * secondGreeting.length);
+    //Randomize second greeting
+    var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
+    var randomString = Math.floor(Math.random() * secondGreeting.length);
 
-personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
+    personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
 
-submitButton.style.display = "none";
-personTwoSays.value = "";
+    submitButton.style.display = "none";
+    personTwoSays.value = "";
 
-var submitButtonTwo = document.createElement("button");
+    var submitButtonTwo = document.createElement("button");
 
-submitButtonTwo.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonTwo);
+    submitButtonTwo.innerHTML = "Submit";
+    personTwoTalk.appendChild(submitButtonTwo);
 
-submitButtonTwo.onclick = function()
-{
-var feeling;
+    submitButtonTwo.onclick = function()
+    {
+        var feeling;
 
-var personTwoReply = personTwoSays.value.toLowerCase();
+        var personTwoReply = personTwoSays.value.toLowerCase();
 
-if(personTwoReply == "good" || personTwoReply == "awesome")
-{
-var personOneReply = ["Nice to hear!", "I'm happy for you!"];
-var randomString = Math.floor(Math.random() * personOneReply.length);
+        if(personTwoReply == "good" || personTwoReply == "awesome")
+        {
+            var personOneReply = ["Nice to hear!", "I'm happy for you!"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-personOneTalk.innerHTML = personOneReply[randomString];
-personOneTalk.innerHTML += " What are your interests?";
+            personOneTalk.innerHTML = personOneReply[randomString];
+            personOneTalk.innerHTML += " What are your interests?";
 
-feeling = "good";
-}
+            feeling = "good";
+        }
 
-else if(personTwoReply == "not good" || personTwoReply == "bad")
-{
-var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
-var randomString = Math.floor(Math.random() * personOneReply.length);
+        else if(personTwoReply == "not good" || personTwoReply == "bad")
+        {
+            var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-personOneTalk.innerHTML = personOneReply[randomString];
-personOneTalk.innerHTML += " What are your interests?";
+            personOneTalk.innerHTML = personOneReply[randomString];
+            personOneTalk.innerHTML += " What are your interests?";
 
-feeling = "bad";
-}
+            feeling = "bad";
+        }
 
-else if(personTwoReply == "bored")
-{
-var personOneReply = ["Why are you bored?", "Is everything okay?"];
-var randomString = Math.floor(Math.random() * personOneReply.length);
+        else if(personTwoReply == "bored")
+        {
+            var personOneReply = ["Why are you bored?", "Is everything okay?"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-personOneTalk.innerHTML = personOneReply[randomString];
+            personOneTalk.innerHTML = personOneReply[randomString];
 
-feeling = "bored";
-}
+            feeling = "bored";
+        }
 
-else
-{
-var personOneReply = ["Can you please repeat yourself?", "Again please?"];
-var randomString = Math.floor(Math.random() * personOneReply.length);
+        else
+        {
+            var personOneReply = ["Can you please repeat yourself?", "Again please?"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-personOneTalk.innerHTML = personOneReply[randomString];
-}
+            personOneTalk.innerHTML = personOneReply[randomString];
+        }
 
-if(feeling == "bored")
-{
-submitButtonTwo.style.display = "none";
-personTwoSays.value = "";
+        if(feeling == "bored")
+        {
+            submitButtonTwo.style.display = "none";
+            personTwoSays.value = "";
 
-var submitButtonBored = document.createElement("button");
+            var submitButtonBored = document.createElement("button");
 
-submitButtonBored.innerHTML = "Submit";
+            submitButtonBored.innerHTML = "Submit";
 
-personTwoTalk.appendChild(submitButtonBored);
+            personTwoTalk.appendChild(submitButtonBored);
 
-var boredCondition;
+            var boredCondition;
 
-if(personOneTalk.innerHTML == "Why are you bored?")
-{
-boredCondition = 1;
+            if(personOneTalk.innerHTML == "Why are you bored?")
+            {
+                boredCondition = 1;
 
-bored();
-}
+                bored();
+            }
 
-else if(personOneTalk.innerHTML == "Is everything okay?")
-{
-boredCondition = 2;
+            else if(personOneTalk.innerHTML == "Is everything okay?")
+            {
+                boredCondition = 2;
 
-bored();
-}
+                bored();
+            }
 
-var submitButtonMoveOn = document.createElement("button");
+            var submitButtonMoveOn = document.createElement("button");
 
-function bored()
-{
+            function bored()
+            {
 
-if(boredCondition == 1)
-{
-submitButtonBored.onclick = function()
-{
-personOneTalk.innerHTML = "Let's move on! What are your interests?";
+                if(boredCondition == 1)
+                {
+                    submitButtonBored.onclick = function()
+                    {
+                        personOneTalk.innerHTML = "Let's move on! What are your interests?";
 
-personTwoSays.value = "";
-submitButtonBored.style.display = "none";
+                        personTwoSays.value = "";
+                        submitButtonBored.style.display = "none";
 
-submitButtonMoveOn.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonMoveOn);
+                        submitButtonMoveOn.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonMoveOn);
 
-submitButtonMoveOn.onclick = function()
-{
-submitButtonMoveOn.style.display = "none";
+                        submitButtonMoveOn.onclick = function()
+                        {
+                            submitButtonMoveOn.style.display = "none";
 
-conversationStarter();
-};
+                            conversationStarter();
+                        };
 
-};
+                    };
 
-}
+                }
 
-else if(boredCondition == 2)
-{
-submitButtonBored.onclick = function()
-{
+                else if(boredCondition == 2)
+                {
+                    submitButtonBored.onclick = function()
+                    {
 
-if(personTwoSays.value == "yes")
-{
-personOneTalk.innerHTML = "Thank G-D! What are your interests?";
+                        if(personTwoSays.value == "yes")
+                        {
+                            personOneTalk.innerHTML = "Thank G-D! What are your interests?";
 
-personTwoSays.value = "";
-submitButtonBored.style.display = "none";
+                            personTwoSays.value = "";
+                            submitButtonBored.style.display = "none";
 
-submitButtonMoveOn.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonMoveOn);
+                            submitButtonMoveOn.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonMoveOn);
 
-submitButtonMoveOn.onclick = function()
-{
-submitButtonMoveOn.style.display = "none";
+                            submitButtonMoveOn.onclick = function()
+                            {
+                                submitButtonMoveOn.style.display = "none";
 
-conversationStarter();
-};
+                                conversationStarter();
+                            };
 
-}
+                        }
 
-else if(personTwoSays.value == "no")
-{
-personOneTalk.innerHTML = "What's wrong?";
+                        else if(personTwoSays.value == "no")
+                        {
+                            personOneTalk.innerHTML = "What's wrong?";
 
-personTwoSays.value = "";
-submitButtonBored.style.display = "none";
+                            personTwoSays.value = "";
+                            submitButtonBored.style.display = "none";
 
-submitButtonMoveOn.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonMoveOn);
+                            submitButtonMoveOn.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonMoveOn);
 
-submitButtonMoveOn.onclick = function()
-{
-personOneTalk.innerHTML = "Just get over it! What are your interests?";
+                            submitButtonMoveOn.onclick = function()
+                            {
+                                personOneTalk.innerHTML = "Just get over it! What are your interests?";
 
-personTwoSays.value = "";
-submitButtonMoveOn.style.display = "none";
+                                personTwoSays.value = "";
+                                submitButtonMoveOn.style.display = "none";
 
-var submitButtonReallyMoveOn = document.createElement("button");
+                                var submitButtonReallyMoveOn = document.createElement("button");
 
-submitButtonReallyMoveOn.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonReallyMoveOn);
+                                submitButtonReallyMoveOn.innerHTML = "Submit";
+                                personTwoTalk.appendChild(submitButtonReallyMoveOn);
 
-submitButtonReallyMoveOn.onclick = function()
-{
-submitButtonReallyMoveOn.style.display = "none";
+                                submitButtonReallyMoveOn.onclick = function()
+                                {
+                                    submitButtonReallyMoveOn.style.display = "none";
 
-conversationStarter();
-};
+                                    conversationStarter();
+                                };
 
-};
+                            };
 
-}
+                        }
 
-};
+                    };
 
-}
+                }
 
-};
+            };
 
-}
+        }
 
-else if(feeling == "good" || feeling == "bad")
-{
-submitButtonTwo.style.display = "none";
-personTwoSays.value = "";
+        else if(feeling == "good" || feeling == "bad")
+        {
+            submitButtonTwo.style.display = "none";
+            personTwoSays.value = "";
 
-var submitButtonThree = document.createElement("button");
+            var submitButtonThree = document.createElement("button");
 
-submitButtonThree.innerHTML = "Submit";
+            submitButtonThree.innerHTML = "Submit";
 
-personTwoTalk.appendChild(submitButtonThree);
+            personTwoTalk.appendChild(submitButtonThree);
 
-submitButtonThree.onclick = function()
-{
-submitButtonThree.style.display = "none";
+            submitButtonThree.onclick = function()
+            {
+                submitButtonThree.style.display = "none";
 
-conversationStarter();
-};
+                conversationStarter();
+            };
 
-}
+        }
 
 function conversationStarter()
 {
