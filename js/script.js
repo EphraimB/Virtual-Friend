@@ -16,116 +16,116 @@ var greeting;
 
 function updateClock()
 {
-var currentTime = new Date();
-var currentHours = currentTime.getHours();
-var currentMinutes = currentTime.getMinutes();
-var AMOrPM;
+    var currentTime = new Date();
+    var currentHours = currentTime.getHours();
+    var currentMinutes = currentTime.getMinutes();
+    var AMOrPM;
 
-if(currentHours < 12)
-{
-AMOrPM = "AM";
-}
+    if(currentHours < 12)
+    {
+        AMOrPM = "AM";
+    }
 
-else if(currentHours >= 12)
-{
-AMOrPM = "PM";
-}
+    else if(currentHours >= 12)
+    {
+        AMOrPM = "PM";
+    }
 
-else
-{
-AMOrPM = "";
-}
+    else
+    {
+        AMOrPM = "";
+    }
 
-var currentHoursTwelveHourMode;
+    var currentHoursTwelveHourMode;
 
-if((currentHours >= 13) && (currentHours < 24))
-{
-currentHoursTwelveHourMode = currentHours - 12;
-}
+    if((currentHours >= 13) && (currentHours < 24))
+    {
+        currentHoursTwelveHourMode = currentHours - 12;
+    }
 
-else if(currentHours == 0)
-{
-currentHoursTwelveHourMode = currentHours + 12;
-}
+    else if(currentHours == 0)
+    {
+        currentHoursTwelveHourMode = currentHours + 12;
+    }
 
-else
-{
-currentHoursTwelveHourMode = currentHours;
-}
+    else
+    {
+        currentHoursTwelveHourMode = currentHours;
+    }
 
-var currentMinutesCorrectlyFormatted;
+    var currentMinutesCorrectlyFormatted;
 
-if((currentMinutes >= 0) && (currentMinutes < 10))
-{
-currentMinutesCorrectlyFormatted = "0" + currentMinutes;
-}
+    if((currentMinutes >= 0) && (currentMinutes < 10))
+    {
+        currentMinutesCorrectlyFormatted = "0" + currentMinutes;
+    }
 
-else
-{
-currentMinutesCorrectlyFormatted = currentMinutes;
-}
+    else
+    {
+        currentMinutesCorrectlyFormatted = currentMinutes;
+    }
 
-clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutesCorrectlyFormatted + " " + AMOrPM;
+    clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutesCorrectlyFormatted + " " + AMOrPM;
 
-var image;
+    var image;
 
-if((currentHours >= 6) && (currentHours < 12))
-{
-image = "url(images/morning.jpg)";
-}
+    if((currentHours >= 6) && (currentHours < 12))
+    {
+        image = "url(images/morning.jpg)";
+    }
 
-else if((currentHours == 5) && (currentMinutes >= 50))
-{
-image = "url(images/sunrise.jpg)";
-}
+    else if((currentHours == 5) && (currentMinutes >= 50))
+    {
+        image = "url(images/sunrise.jpg)";
+    }
 
-else if((currentHours == 17) && (currentMinutes >= 50))
-{
-image = "url(images/sunset.jpg)";
-}
+    else if((currentHours == 17) && (currentMinutes >= 50))
+    {
+        image = "url(images/sunset.jpg)";
+    }
 
-else if((currentHours >= 12) && (currentHours <= 17))
-{
-image = "url(images/afternoon.jpg)";
-}
+    else if((currentHours >= 12) && (currentHours <= 17))
+    {
+        image = "url(images/afternoon.jpg)";
+    }
 
-else if((currentHours >= 18) && (currentHours < 24))
-{
-image = "url(images/night.jpg)";
-}
+    else if((currentHours >= 18) && (currentHours < 24))
+    {
+        image = "url(images/night.jpg)";
+    }
 
-else if((currentHours >= 0) && (currentHours <= 5))
-{
-image = "url(images/night.jpg)";
-}
+    else if((currentHours >= 0) && (currentHours <= 5))
+    {
+        image = "url(images/night.jpg)";
+    }
 
-else
-{
-image = "";
-}
+    else
+    {
+        image = "";
+    }
 
-document.body.style.background = image + "no-repeat center center fixed";
-document.body.style.backgroundSize = "100% 100%";
+    document.body.style.background = image + "no-repeat center center fixed";
+    document.body.style.backgroundSize = "100% 100%";
 
-if((currentHours >= 0) && (currentHours < 12))
-{
-greeting = "Good morning";
-}
+    if((currentHours >= 0) && (currentHours < 12))
+    {
+        greeting = "Good morning";
+    }
 
-else if((currentHours >= 12) && (currentHours < 18))
-{
-greeting = "Good afternoon";
-}
+    else if((currentHours >= 12) && (currentHours < 18))
+    {
+        greeting = "Good afternoon";
+    }
 
-else if((currentHours >= 18) && (currentHours < 24))
-{
-greeting = "Good evening";
-}
+    else if((currentHours >= 18) && (currentHours < 24))
+    {
+        greeting = "Good evening";
+    }
 
-else
-{
-greeting = "Hello";
-}
+    else
+    {
+        greeting = "Hello";
+    }
 
 };
 
