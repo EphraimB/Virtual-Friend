@@ -398,56 +398,56 @@ submitButton.onclick = function howYouDoing()
 
             }
 
-function topicFeed()
-{
-personTwoSays.value = "";
+            function topicFeed()
+            {
+                personTwoSays.value = "";
 
-var submitButtonFour = document.createElement("button");
+                var submitButtonFour = document.createElement("button");
 
-submitButtonFour.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonFour);
+                submitButtonFour.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonFour);
 
-//Fetch the RSS feed
-var request = new XMLHttpRequest();
+                //Fetch the RSS feed
+                var request = new XMLHttpRequest();
 
-request.open("GET", "http://www.npr.org/rss/rss.php?id=" + topic, true);
-request.send();
+                request.open("GET", "http://www.npr.org/rss/rss.php?id=" + topic, true);
+                request.send();
 
-request.onreadystatechange = function()
-{
+                request.onreadystatechange = function()
+                {
 
-if(request.readyState == 4 && request.status == 200)
-{
-var xmlDoc = request.responseXML;
+                    if(request.readyState == 4 && request.status == 200)
+                    {
+                        var xmlDoc = request.responseXML;
 
-var title = xmlDoc.getElementsByTagName("title")[2];
+                        var title = xmlDoc.getElementsByTagName("title")[2];
 
-var titleValue = title.childNodes[0];
+                        var titleValue = title.childNodes[0];
 
-personOneTalk.innerHTML = "Have you heard that " + titleValue.nodeValue + "?";
+                        personOneTalk.innerHTML = "Have you heard that " + titleValue.nodeValue + "?";
 
-submitButtonFour.onclick = function()
-{
-personTwoSays.value = "";
+                        submitButtonFour.onclick = function()
+                        {
+                            personTwoSays.value = "";
 
-var description = xmlDoc.getElementsByTagName("description")[1];
+                            var description = xmlDoc.getElementsByTagName("description")[1];
 
-personOneTalk.innerHTML = description.childNodes[0].nodeValue;
-};
+                            personOneTalk.innerHTML = description.childNodes[0].nodeValue;
+                        };
 
-}
+                    }
 
-else
-{
+                    else
+                    {
 
-}
+                    }
 
-};
+                };
 
-};
+            };
 
-};
+        };
 
-};
+    };
 
 };
