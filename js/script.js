@@ -191,8 +191,8 @@ submitButton.onclick = function howYouDoing()
 
         else if(personTwoReply == "tired")
         {
-            var personOneReply = ["Why are you tired?", "How much sleep did you get last night?"];
-            var randomString = Math.floor_Math.random() * personOneReply.length);
+            var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
             personOneTalk.innerHTML = personOneReply[randomString];
 
@@ -218,36 +218,61 @@ submitButton.onclick = function howYouDoing()
 
             personTwoTalk.appendChild(submitButtonTired);
 
-            var tiredCondition;
-
-            if(personOneTalk.innerHTML == "Why are you tired?")
+            submitButtonTired.onclick = function()
             {
-                tiredCondition = 1;
+                var tiredCondition;
 
-                tired();
+                if(personOneTalk.innerHTML == "Why are you tired?")
+                {
+                    tiredCondition = 1;
+
+                    tired();
+                }
+
+                else if(personOneTalk.innerHTML == "How many hours of sleep did you get last night?")
+                {
+                    tiredCondition = 2;
+
+                    tired();
+                }
+
+                function tired()
+                {
+
+                    if(tiredCondition == 1)
+                    {
+
+                    }
+
+                    else if(tiredCondition == 2)
+                    {
+                        var normalSleep = 8;
+
+                        if(parseInt(personTwoSays.value, 10) == normalSleep)
+                        {
+                            personOneTalk.innerHTML = personTwoSays.value + " hours of sleep is normal, so nice try! What are your interests?"
+
+                            personTwoSays.value = "";
+                            submitButtonTired.style.display = "none";
+                        }
+
+                        if(parseInt(personTwoSays.value, 10) < normalSleep)
+                        {
+                            var hoursOfSleep = personTwoSays.value;
+                            var extraSleepNeeded = normalSleep - parseInt(hoursOfSleep, 10);
+
+                            personOneTalk.innerHTML = "Make sure to get " + extraSleepNeeded + " more hours of sleep tonight! What are your interests?";
+
+                            personTwoSays.value = "";
+                            submitButtonTired.style.display = "none";
+                        }
+
+                    }
+
+                }
+
             }
 
-            else if(personOneTalk.innerHTML == "How much sleep did you get last night?")
-            {
-                tiredCondition = 2;
-
-                tired();
-            }
-
-            function tired()
-            {
-
-            if(tiredCondition == 1)
-            {
-
-            }
-
-            else if(tiredCondition == 2)
-            {
-
-            }
-
-            };
         }
 
         else if(feeling == "bored")
