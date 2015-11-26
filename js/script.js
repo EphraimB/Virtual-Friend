@@ -170,7 +170,7 @@ feeling = "good";
 
 else if(personTwoReply == "not good" || personTwoReply == "bad")
 {
-var personOneReply = ["I'm sorry to hear that", "Oh well"];
+var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
 var randomString = Math.floor(Math.random() * personOneReply.length);
 
 personOneTalk.innerHTML = personOneReply[randomString];
@@ -224,16 +224,41 @@ boredCondition = 2;
 bored();
 }
 
+var submitButtonMoveOn = document.createElement("button");
+
 function bored()
+{
+
+if(boredCondition == 1)
+{
+submitButtonBored.onclick = function()
+{
+
+
+};
+
+}
+
+else if(boredCondition == 2)
 {
 submitButtonBored.onclick = function()
 {
 
 if(personTwoSays.value == "yes")
 {
-personOneTalk.innerHTML = "Thank G-D! ";
+personOneTalk.innerHTML = "Thank G-D! What are your interests?";
 
-//conversationStarter();
+personTwoSays.value = "";
+submitButtonBored.style.display = "none";
+
+submitButtonMoveOn.innerHTML = "Submit";
+personTwoTalk.appendChild(submitButtonMoveOn);
+
+submitButtonMoveOn.onclick = function()
+{
+conversationStarter();
+};
+
 }
 
 else if(personTwoSays.value == "no")
@@ -242,6 +267,8 @@ personOneTalk.innerHTML = "What's wrong?";
 }
 
 };
+
+}
 
 };
 
@@ -316,7 +343,16 @@ personOneTalk.innerHTML = personOneReply[randomString];
 function topicFeed()
 {
 personTwoSays.value = "";
+
+if(feeling == "good" || feeling == "bad")
+{
 submitButtonThree.style.display = "none";
+}
+
+else if(feeling == "bored")
+{
+submitButtonMoveOn.style.display = "none";
+}
 
 var submitButtonFour = document.createElement("button");
 
