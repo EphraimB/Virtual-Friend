@@ -189,6 +189,12 @@ submitButton.onclick = function howYouDoing()
             feeling = "bored";
         }
 
+        else if(personTwoReply == "tired")
+        {
+            
+            feeling = "tired";
+        }
+
         else
         {
             var personOneReply = ["Can you please repeat yourself?", "Again please?"];
