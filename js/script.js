@@ -191,7 +191,11 @@ submitButton.onclick = function howYouDoing()
 
         else if(personTwoReply == "tired")
         {
-            
+            var personOneReply = ["Why are you tired?", "How much sleep did you get last night?"];
+            var randomString = Math.floor_Math.random() * personOneReply.length);
+
+            personOneTalk.innerHTML = personOneReply[randomString];
+
             feeling = "tired";
         }
 
@@ -203,7 +207,50 @@ submitButton.onclick = function howYouDoing()
             personOneTalk.innerHTML = personOneReply[randomString];
         }
 
-        if(feeling == "bored")
+        if(feeling == "tired")
+        {
+            submitButtonTwo.style.display = "none";
+            personTwoSays.value = "";
+
+            var submitButtonTired = document.createElement("button");
+
+            submitButtonTired.innerHTML = "Submit";
+
+            personTwoTalk.appendChild(submitButtonTired);
+
+            var tiredCondition;
+
+            if(personOneTalk.innerHTML == "Why are you tired?")
+            {
+                tiredCondition = 1;
+
+                tired();
+            }
+
+            else if(personOneTalk.innerHTML == "How much sleep did you get last night?")
+            {
+                tiredCondition = 2;
+
+                tired();
+            }
+
+            function tired()
+            {
+
+            if(tiredCondition == 1)
+            {
+
+            }
+
+            else if(tiredCondition == 2)
+            {
+
+            }
+
+            };
+        }
+
+        else if(feeling == "bored")
         {
             submitButtonTwo.style.display = "none";
             personTwoSays.value = "";
