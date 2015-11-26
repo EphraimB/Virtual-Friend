@@ -233,7 +233,20 @@ if(boredCondition == 1)
 {
 submitButtonBored.onclick = function()
 {
+personOneTalk.innerHTML = "Let's move on! What are your interests?";
 
+personTwoSays.value = "";
+submitButtonBored.style.display = "none";
+
+submitButtonMoveOn.innerHTML = "Submit";
+personTwoTalk.appendChild(submitButtonMoveOn);
+
+submitButtonMoveOn.onclick = function()
+{
+submitButtonMoveOn.style.display = "none";
+
+conversationStarter();
+};
 
 };
 
@@ -370,6 +383,19 @@ var personOneReply = ["I don't know of that topic. What other topics are you int
 var randomString = Math.floor(Math.random() * personOneReply.length);
 
 personOneTalk.innerHTML = personOneReply[randomString];
+
+var submitButtonRestartTopicCondition = document.createElement("button");
+
+submitButtonRestartTopicCondition.innerHTML = "Submit";
+personTwoTalk.appendChild(submitButtonRestartTopicCondition);
+
+submitButtonRestartTopicCondition.onclick = function()
+{
+submitButtonRestartTopicCondition.style.display = "none";
+
+conversationStarter();
+};
+
 }
 
 function topicFeed()
