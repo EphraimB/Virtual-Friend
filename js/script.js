@@ -337,66 +337,66 @@ submitButton.onclick = function howYouDoing()
 
         }
 
-function conversationStarter()
-{
-var personTwoReply = personTwoSays.value.toLowerCase();
+        function conversationStarter()
+        {
+            var personTwoReply = personTwoSays.value.toLowerCase();
 
-if(personTwoReply == "technology")
-{
-var topic = "1019";
-topicFeed();
-}
+            if(personTwoReply == "technology")
+            {
+                var topic = "1019";
+                topicFeed();
+            }
 
-else if(personTwoReply == "movies")
-{
-var topic = "1045";
-topicFeed();
-}
+            else if(personTwoReply == "movies")
+            {
+                var topic = "1045";
+                topicFeed();
+            }
 
-else if(personTwoReply == "sports")
-{
-var topic = "1055";
-topicFeed();
-}
+            else if(personTwoReply == "sports")
+            {
+                var topic = "1055";
+                topicFeed();
+            }
 
-else if(personTwoReply == "politics")
-{
-var topic = "1014";
-topicFeed();
-}
+            else if(personTwoReply == "politics")
+            {
+                var topic = "1014";
+                topicFeed();
+            }
 
-else if(personTwoReply == "food")
-{
-var topic = "1053";
-topicFeed();
-}
+            else if(personTwoReply == "food")
+            {
+                var topic = "1053";
+                topicFeed();
+            }
 
-else if(personTwoReply == "music")
-{
-var topic = "1039";
-topicFeed();
-}
+            else if(personTwoReply == "music")
+            {
+                var topic = "1039";
+                topicFeed();
+            }
 
-else
-{
-var personOneReply = ["I don't know of that topic. What other topics are you interested in?", "Can you please pick a topic that I know of?"];
-var randomString = Math.floor(Math.random() * personOneReply.length);
+            else
+            {
+                var personOneReply = ["I don't know of that topic. What other topics are you interested in?", "Can you please pick a topic that I know of?"];
+                var randomString = Math.floor(Math.random() * personOneReply.length);
 
-personOneTalk.innerHTML = personOneReply[randomString];
+                personOneTalk.innerHTML = personOneReply[randomString];
 
-var submitButtonRestartTopicCondition = document.createElement("button");
+                var submitButtonRestartTopicCondition = document.createElement("button");
 
-submitButtonRestartTopicCondition.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonRestartTopicCondition);
+                submitButtonRestartTopicCondition.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonRestartTopicCondition);
 
-submitButtonRestartTopicCondition.onclick = function()
-{
-submitButtonRestartTopicCondition.style.display = "none";
+                submitButtonRestartTopicCondition.onclick = function()
+                {
+                    submitButtonRestartTopicCondition.style.display = "none";
 
-conversationStarter();
-};
+                    conversationStarter();
+                };
 
-}
+            }
 
 function topicFeed()
 {
