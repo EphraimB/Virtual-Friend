@@ -254,9 +254,22 @@ submitButton.onclick = function howYouDoing()
 
                             personTwoSays.value = "";
                             submitButtonTired.style.display = "none";
+
+                            var submitButtonInterestsYouSilly = document.createElement("button");
+
+                            submitButtonInterestsYouSilly.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonInterestsYouSilly);
+
+                            submitButtonInterestsYouSilly.onclick = function()
+                            {
+                                submitButtonInterestsYouSilly.style.display = "none";
+
+                                conversationStarter();
+                            };
+
                         }
 
-                        if(parseInt(personTwoSays.value, 10) < normalSleep)
+                        else if(parseInt(personTwoSays.value, 10) < normalSleep)
                         {
                             var hoursOfSleep = personTwoSays.value;
                             var extraSleepNeeded = normalSleep - parseInt(hoursOfSleep, 10);
@@ -265,6 +278,19 @@ submitButton.onclick = function howYouDoing()
 
                             personTwoSays.value = "";
                             submitButtonTired.style.display = "none";
+
+                            var submitButtonInterests = document.createElement("button");
+
+                            submitButtonInterests.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonInterests);
+
+                            submitButtonInterests.onclick = function()
+                            {
+                                submitButtonInterests.style.display = "none";
+
+                                conversationStarter();
+                            };
+
                         }
 
                     }
