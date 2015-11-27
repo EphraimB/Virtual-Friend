@@ -245,7 +245,7 @@ submitButton.onclick = function()
 
         var personTwoReply = personTwoSays.value.toLowerCase();
 
-        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("well", personTwoReply))
+        if(keywordInFullSentance("good", personTwoReply) && !(keywordInFullSentance("not", personTwoReply)) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("well", personTwoReply))
         {
             var personOneReply = ["Nice to hear!", "I'm happy for you!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -256,7 +256,7 @@ submitButton.onclick = function()
             feeling = "good";
         }
 
-        else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("bad", personTwoReply))
+        else if(keywordInFullSentance("not", personTwoReply) || keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("bad", personTwoReply))
         {
             var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
