@@ -138,6 +138,12 @@ document.body.onload = setInterval("updateClock()", 1000);
 var conversationPart = 0;
 
 var submitButtonTwo = document.createElement("button");
+var submitButtonTired = document.createElement("button");
+var submitButtonYourInterests = document.createElement("button");
+var submitButtonRestartTopicCondition = document.createElement("button");
+var submitButtonInterestsYouSilly = document.createElement("button");
+var submitButtonInterests = document.createElement("button");
+var submitButtonFour = document.createElement("button");
 
 personTwoSays.onkeypress = function(event)
 {
@@ -150,6 +156,36 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 1)
     {
         submitButtonTwo.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 2)
+    {
+        submitButtonTired.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 3)
+    {
+        submitButtonYourInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 4)
+    {
+        submitButtonRestartTopicCondition.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 5)
+    {
+        submitButtonInterestsYouSilly.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 6)
+    {
+        submitButtonInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 7)
+    {
+        submitButtonFour.click();
     }
 
 };
@@ -172,8 +208,6 @@ submitButton.onclick = function()
 
     submitButtonTwo.onclick = function()
     {
-        conversationPart = 2;
-
         var feeling;
 
         var personTwoReply = personTwoSays.value.toLowerCase();
@@ -230,10 +264,10 @@ submitButton.onclick = function()
 
         if(feeling == "tired")
         {
+            conversationPart = 2;
+
             submitButtonTwo.style.display = "none";
             personTwoSays.value = "";
-
-            var submitButtonTired = document.createElement("button");
 
             submitButtonTired.innerHTML = "Submit";
 
@@ -262,12 +296,12 @@ submitButton.onclick = function()
 
                     if(tiredCondition == 1)
                     {
+                        conversationPart = 3;
+
                         personOneTalk.innerHTML = "I hope you have a better sleep tonight! What are your interests?";
 
                         personTwoSays.value = "";
                         submitButtonTired.style.display = "none";
-
-                        var submitButtonYourInterests = document.createElement("button");
 
                         submitButtonYourInterests.innerHTML = "Submit";
                         personTwoTalk.appendChild(submitButtonYourInterests);
@@ -342,12 +376,12 @@ submitButton.onclick = function()
 
                         if(parseInt(personTwoSays.value, 10) == normalSleep)
                         {
+                            conversationPart = 5;
+
                             personOneTalk.innerHTML = personTwoSays.value + " hours of sleep is normal, so nice try! What are your interests?"
 
                             personTwoSays.value = "";
                             submitButtonTired.style.display = "none";
-
-                            var submitButtonInterestsYouSilly = document.createElement("button");
 
                             submitButtonInterestsYouSilly.innerHTML = "Submit";
                             personTwoTalk.appendChild(submitButtonInterestsYouSilly);
@@ -363,6 +397,8 @@ submitButton.onclick = function()
 
                         else if(parseInt(personTwoSays.value, 10) < normalSleep)
                         {
+                            conversationPart = 6;
+
                             var hoursOfSleep = personTwoSays.value;
                             var extraSleepNeeded = normalSleep - parseInt(hoursOfSleep, 10);
 
@@ -370,8 +406,6 @@ submitButton.onclick = function()
 
                             personTwoSays.value = "";
                             submitButtonTired.style.display = "none";
-
-                            var submitButtonInterests = document.createElement("button");
 
                             submitButtonInterests.innerHTML = "Submit";
                             personTwoTalk.appendChild(submitButtonInterests);
@@ -575,15 +609,17 @@ submitButton.onclick = function()
 
             else
             {
+                conversationPart = 4;
+
                 var personOneReply = ["I don't know of that topic. What other topics are you interested in?", "Can you please pick a topic that I know of?"];
                 var randomString = Math.floor(Math.random() * personOneReply.length);
 
                 personOneTalk.innerHTML = personOneReply[randomString];
 
-                var submitButtonRestartTopicCondition = document.createElement("button");
-
                 submitButtonRestartTopicCondition.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonRestartTopicCondition);
+
+                submitButtonRestartTopicCondition.style.display = "inline";
 
                 submitButtonRestartTopicCondition.onclick = function()
                 {
@@ -597,8 +633,6 @@ submitButton.onclick = function()
             function topicFeed()
             {
                 personTwoSays.value = "";
-
-                var submitButtonFour = document.createElement("button");
 
                 submitButtonFour.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonFour);
@@ -614,6 +648,8 @@ submitButton.onclick = function()
 
                     if(request.readyState == 4 && request.status == 200)
                     {
+                        conversationPart = 7;
+
                         var xmlDoc = request.responseXML;
 
                         var title = xmlDoc.getElementsByTagName("title")[2];
