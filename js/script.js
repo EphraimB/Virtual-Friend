@@ -245,7 +245,7 @@ submitButton.onclick = function()
 
         var personTwoReply = personTwoSays.value.toLowerCase();
 
-        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("awesome", personTwoReply))
+        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("well", personTwoReply))
         {
             var personOneReply = ["Nice to hear!", "I'm happy for you!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -256,7 +256,7 @@ submitButton.onclick = function()
             feeling = "good";
         }
 
-        else if(personTwoReply == "not good" || personTwoReply == "bad")
+        else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("bad", personTwoReply))
         {
             var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -267,7 +267,7 @@ submitButton.onclick = function()
             feeling = "bad";
         }
 
-        else if(personTwoReply == "bored")
+        else if(keywordInFullSentance("bored", personTwoReply))
         {
             var personOneReply = ["Why are you bored?", "Is everything okay?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -277,7 +277,7 @@ submitButton.onclick = function()
             feeling = "bored";
         }
 
-        else if(personTwoReply == "tired")
+        else if(keywordInFullSentance("tired", personTwoReply))
         {
             var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
