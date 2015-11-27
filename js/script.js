@@ -135,12 +135,16 @@ personOneTalk.innerHTML = greeting + "! What's your name?";
 
 document.body.onload = setInterval("updateClock()", 1000);
 
+var conversationPart = 0;
+
 personTwoSays.onkeypress = function(event)
 {
 
-    if(event.keyCode == 13)
+    if(event.keyCode == 13 && conversationPart == 0)
     {
         submitButton.click();
+
+        conversationPart++;
     }
 
 };
