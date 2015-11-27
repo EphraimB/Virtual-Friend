@@ -264,6 +264,61 @@ submitButton.onclick = function howYouDoing()
                     {
                         var normalSleep = 8;
 
+                        if(personTwoSays.value == "zero")
+                        {
+                            personTwoSays.value = 0;
+                        }
+
+                        else if(personTwoSays.value == "one")
+                        {
+                            personTwoSays.value = 1;
+                        }
+
+                        else if(personTwoSays.value == "two")
+                        {
+                            personTwoSays.value = 2;
+                        }
+
+                        else if(personTwoSays.value == "three")
+                        {
+                            personTwoSays.value = 3;
+                        }
+
+                        else if(personTwoSays.value == "four")
+                        {
+                            personTwoSays.value = 4;
+                        }
+
+                        else if(personTwoSays.value == "five")
+                        {
+                            personTwoSays.value = 5;
+                        }
+
+                        else if(personTwoSays.value == "six")
+                        {
+                            personTwoSays.value = 6;
+                        }
+
+                        else if(personTwoSays.value == "seven")
+                        {
+                            personTwoSays.value = 7;
+                        }
+
+                        else if(personTwoSays.value == "eight")
+                        {
+                            personTwoSays.value = 8;
+                        }
+
+                        else if(personTwoSays.value == "nine")
+                        {
+                            personTwoSays.value = 9;
+                        }
+
+                        else if(personTwoSays.value == "ten")
+                        {
+                            personTwoSays.value = 10;
+                        }
+
                         if(parseInt(personTwoSays.value, 10) == normalSleep)
                         {
                             personOneTalk.innerHTML = personTwoSays.value + " hours of sleep is normal, so nice try! What are your interests?"
