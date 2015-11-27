@@ -135,7 +135,17 @@ personOneTalk.innerHTML = greeting + "! What's your name?";
 
 document.body.onload = setInterval("updateClock()", 1000);
 
-submitButton.onclick = function howYouDoing()
+personTwoSays.onkeypress = function(event)
+{
+
+    if(event.keyCode == 13)
+    {
+        submitButton.click();
+    }
+
+};
+
+submitButton.onclick = function()
 {
     //Randomize second greeting
     var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
