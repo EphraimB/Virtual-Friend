@@ -144,6 +144,7 @@ var submitButtonRestartTopicCondition = document.createElement("button");
 var submitButtonInterestsYouSilly = document.createElement("button");
 var submitButtonInterests = document.createElement("button");
 var submitButtonFour = document.createElement("button");
+var submitButtonThree = document.createElement("button");
 
 personTwoSays.onkeypress = function(event)
 {
@@ -186,6 +187,11 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 7)
     {
         submitButtonFour.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 8)
+    {
+        submitButtonThree.click();
     }
 
 };
@@ -549,10 +555,10 @@ submitButton.onclick = function()
 
         else if(feeling == "good" || feeling == "bad")
         {
+            conversationPart = 8;
+
             submitButtonTwo.style.display = "none";
             personTwoSays.value = "";
-
-            var submitButtonThree = document.createElement("button");
 
             submitButtonThree.innerHTML = "Submit";
 
