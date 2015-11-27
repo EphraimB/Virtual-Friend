@@ -216,7 +216,11 @@ personTwoSays.onkeypress = function(event)
 
 function keywordInFullSentance(keyword, fullSentance)
 {
-    return keyword;
+    return fullSentance.split(" ").some(function(findTheKeyword)
+    {
+        return findTheKeyword == keyword;
+    });
+
 };
 
 submitButton.onclick = function()
