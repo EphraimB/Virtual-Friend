@@ -256,7 +256,7 @@ submitButton.onclick = function()
             feeling = "good";
         }
 
-        else if(keywordInFullSentance("not", personTwoReply) || keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("bad", personTwoReply))
+        else if(keywordInFullSentance("not", personTwoReply) && keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("horrible", personTwoReply) && !(keywordInFullSentance("not", personTwoReply)) || keywordInFullSentance("bad", personTwoReply))
         {
             var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
