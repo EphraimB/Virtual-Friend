@@ -137,20 +137,27 @@ document.body.onload = setInterval("updateClock()", 1000);
 
 var conversationPart = 0;
 
+var submitButtonTwo = document.createElement("button");
+
 personTwoSays.onkeypress = function(event)
 {
 
     if(event.keyCode == 13 && conversationPart == 0)
     {
         submitButton.click();
+    }
 
-        conversationPart++;
+    else if(event.keyCode == 13 && conversationPart == 1)
+    {
+        submitButtonTwo.click();
     }
 
 };
 
 submitButton.onclick = function()
 {
+    conversationPart = 1;
+
     //Randomize second greeting
     var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
     var randomString = Math.floor(Math.random() * secondGreeting.length);
@@ -160,13 +167,13 @@ submitButton.onclick = function()
     submitButton.style.display = "none";
     personTwoSays.value = "";
 
-    var submitButtonTwo = document.createElement("button");
-
     submitButtonTwo.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonTwo);
 
     submitButtonTwo.onclick = function()
     {
+        conversationPart = 2;
+
         var feeling;
 
         var personTwoReply = personTwoSays.value.toLowerCase();
