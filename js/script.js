@@ -214,6 +214,11 @@ personTwoSays.onkeypress = function(event)
 
 };
 
+function keywordInFullSentance(keyword, fullSentance)
+{
+    return keyword;
+};
+
 submitButton.onclick = function()
 {
     conversationPart = 1;
@@ -236,7 +241,7 @@ submitButton.onclick = function()
 
         var personTwoReply = personTwoSays.value.toLowerCase();
 
-        if(personTwoReply == "good" || personTwoReply == "awesome")
+        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("awesome", personTwoReply))
         {
             var personOneReply = ["Nice to hear!", "I'm happy for you!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
