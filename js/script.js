@@ -352,57 +352,57 @@ submitButton.onclick = function()
                     {
                         var normalSleep = 8;
 
-                        if(personTwoSays.value == "zero")
+                        if(keywordInFullSentance("zero", personTwoSays.value))
                         {
                             personTwoSays.value = 0;
                         }
 
-                        else if(personTwoSays.value == "one")
+                        else if(keywordInFullSentance("one", personTwoSays.value))
                         {
                             personTwoSays.value = 1;
                         }
 
-                        else if(personTwoSays.value == "two")
+                        else if(keywordInFullSentance("two", personTwoSays.value))
                         {
                             personTwoSays.value = 2;
                         }
 
-                        else if(personTwoSays.value == "three")
+                        else if(keywordInFullSentance("three", personTwoSays.value))
                         {
                             personTwoSays.value = 3;
                         }
 
-                        else if(personTwoSays.value == "four")
+                        else if(keywordInFullSentance("four", personTwoSays.value))
                         {
                             personTwoSays.value = 4;
                         }
 
-                        else if(personTwoSays.value == "five")
+                        else if(keywordInFullSentance("five", personTwoSays.value))
                         {
                             personTwoSays.value = 5;
                         }
 
-                        else if(personTwoSays.value == "six")
+                        else if(keywordInFullSentance("six", personTwoSays.value))
                         {
                             personTwoSays.value = 6;
                         }
 
-                        else if(personTwoSays.value == "seven")
+                        else if(keywordInFullSentance("seven", personTwoSays.value))
                         {
                             personTwoSays.value = 7;
                         }
 
-                        else if(personTwoSays.value == "eight")
+                        else if(keywordInFullSentance("eight", personTwoSays.value))
                         {
                             personTwoSays.value = 8;
                         }
 
-                        else if(personTwoSays.value == "nine")
+                        else if(keywordInFullSentance("nine", personTwoSays.value))
                         {
                             personTwoSays.value = 9;
                         }
 
-                        else if(personTwoSays.value == "ten")
+                        else if(keywordInFullSentance("ten", personTwoSays.value))
                         {
                             personTwoSays.value = 10;
                         }
@@ -610,37 +610,37 @@ submitButton.onclick = function()
         {
             var personTwoReply = personTwoSays.value.toLowerCase();
 
-            if(personTwoReply == "technology")
+            if(keywordInFullSentance("technology", personTwoReply))
             {
                 var topic = "1019";
                 topicFeed();
             }
 
-            else if(personTwoReply == "movies")
+            else if(keywordInFullSentance("movies", personTwoReply))
             {
                 var topic = "1045";
                 topicFeed();
             }
 
-            else if(personTwoReply == "sports")
+            else if(keywordInFullSentance("sports", personTwoReply))
             {
                 var topic = "1055";
                 topicFeed();
             }
 
-            else if(personTwoReply == "politics")
+            else if(keywordInFullSentance("politics", personTwoReply))
             {
                 var topic = "1014";
                 topicFeed();
             }
 
-            else if(personTwoReply == "food")
+            else if(keywordInFullSentance("food", personTwoReply))
             {
                 var topic = "1053";
                 topicFeed();
             }
 
-            else if(personTwoReply == "music")
+            else if(keywordInFullSentance("music", personTwoReply))
             {
                 var topic = "1039";
                 topicFeed();
