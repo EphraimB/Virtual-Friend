@@ -16,116 +16,116 @@ var greeting;
 
 function updateClock()
 {
-var currentTime = new Date();
-var currentHours = currentTime.getHours();
-var currentMinutes = currentTime.getMinutes();
-var AMOrPM;
+    var currentTime = new Date();
+    var currentHours = currentTime.getHours();
+    var currentMinutes = currentTime.getMinutes();
+    var AMOrPM;
 
-if(currentHours < 12)
-{
-AMOrPM = "AM";
-}
+    if(currentHours < 12)
+    {
+        AMOrPM = "AM";
+    }
 
-else if(currentHours >= 12)
-{
-AMOrPM = "PM";
-}
+    else if(currentHours >= 12)
+    {
+        AMOrPM = "PM";
+    }
 
-else
-{
-AMOrPM = "";
-}
+    else
+    {
+        AMOrPM = "";
+    }
 
-var currentHoursTwelveHourMode;
+    var currentHoursTwelveHourMode;
 
-if((currentHours >= 13) && (currentHours < 24))
-{
-currentHoursTwelveHourMode = currentHours - 12;
-}
+    if((currentHours >= 13) && (currentHours < 24))
+    {
+        currentHoursTwelveHourMode = currentHours - 12;
+    }
 
-else if(currentHours == 0)
-{
-currentHoursTwelveHourMode = currentHours + 12;
-}
+    else if(currentHours == 0)
+    {
+        currentHoursTwelveHourMode = currentHours + 12;
+    }
 
-else
-{
-currentHoursTwelveHourMode = currentHours;
-}
+    else
+    {
+        currentHoursTwelveHourMode = currentHours;
+    }
 
-var currentMinutesCorrectlyFormatted;
+    var currentMinutesCorrectlyFormatted;
 
-if((currentMinutes >= 0) && (currentMinutes < 10))
-{
-currentMinutesCorrectlyFormatted = "0" + currentMinutes;
-}
+    if((currentMinutes >= 0) && (currentMinutes < 10))
+    {
+        currentMinutesCorrectlyFormatted = "0" + currentMinutes;
+    }
 
-else
-{
-currentMinutesCorrectlyFormatted = currentMinutes;
-}
+    else
+    {
+        currentMinutesCorrectlyFormatted = currentMinutes;
+    }
 
-clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutesCorrectlyFormatted + " " + AMOrPM;
+    clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutesCorrectlyFormatted + " " + AMOrPM;
 
-var image;
+    var image;
 
-if((currentHours >= 6) && (currentHours < 12))
-{
-image = "url(images/morning.jpg)";
-}
+    if((currentHours >= 6) && (currentHours < 12))
+    {
+        image = "url(images/morning.jpg)";
+    }
 
-else if((currentHours == 5) && (currentMinutes >= 50))
-{
-image = "url(images/sunrise.jpg)";
-}
+    else if((currentHours == 5) && (currentMinutes >= 50))
+    {
+        image = "url(images/sunrise.jpg)";
+    }
 
-else if((currentHours == 17) && (currentMinutes >= 50))
-{
-image = "url(images/sunset.jpg)";
-}
+    else if((currentHours == 17) && (currentMinutes >= 50))
+    {
+        image = "url(images/sunset.jpg)";
+    }
 
-else if((currentHours >= 12) && (currentHours <= 17))
-{
-image = "url(images/afternoon.jpg)";
-}
+    else if((currentHours >= 12) && (currentHours <= 17))
+    {
+        image = "url(images/afternoon.jpg)";
+    }
 
-else if((currentHours >= 18) && (currentHours < 24))
-{
-image = "url(images/night.jpg)";
-}
+    else if((currentHours >= 18) && (currentHours < 24))
+    {
+        image = "url(images/night.jpg)";
+    }
 
-else if((currentHours >= 0) && (currentHours <= 5))
-{
-image = "url(images/night.jpg)";
-}
+    else if((currentHours >= 0) && (currentHours <= 5))
+    {
+        image = "url(images/night.jpg)";
+    }
 
-else
-{
-image = "";
-}
+    else
+    {
+        image = "";
+    }
 
-document.body.style.background = image + "no-repeat center center fixed";
-document.body.style.backgroundSize = "cover";
+    document.body.style.background = image + "no-repeat center center fixed";
+    document.body.style.backgroundSize = "100% 100%";
 
-if((currentHours >= 0) && (currentHours < 12))
-{
-greeting = "Good morning";
-}
+    if((currentHours >= 0) && (currentHours < 12))
+    {
+        greeting = "Good morning";
+    }
 
-else if((currentHours >= 12) && (currentHours < 18))
-{
-greeting = "Good afternoon";
-}
+    else if((currentHours >= 12) && (currentHours < 18))
+    {
+        greeting = "Good afternoon";
+    }
 
-else if((currentHours >= 18) && (currentHours < 24))
-{
-greeting = "Good evening";
-}
+    else if((currentHours >= 18) && (currentHours < 24))
+    {
+        greeting = "Good evening";
+    }
 
-else
-{
-greeting = "Hello";
-}
+    else
+    {
+        greeting = "Hello";
+    }
 
 };
 
@@ -137,140 +137,437 @@ document.body.onload = setInterval("updateClock()", 1000);
 
 submitButton.onclick = function howYouDoing()
 {
-//Randomize second greeting
-var secondGreeting = ["How are you doing?", "What's new?", "What's up?"];
-var randomString = Math.floor(Math.random() * secondGreeting.length);
+    //Randomize second greeting
+    var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
+    var randomString = Math.floor(Math.random() * secondGreeting.length);
 
-personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
+    personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
 
-submitButton.style.display = "none";
-personTwoSays.value = "";
+    submitButton.style.display = "none";
+    personTwoSays.value = "";
 
-var submitButtonTwo = document.createElement("button");
+    var submitButtonTwo = document.createElement("button");
 
-submitButtonTwo.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonTwo);
+    submitButtonTwo.innerHTML = "Submit";
+    personTwoTalk.appendChild(submitButtonTwo);
 
-submitButtonTwo.onclick = function()
-{
-var condition = false;
+    submitButtonTwo.onclick = function()
+    {
+        var feeling;
 
-var personTwoReply = personTwoSays.value.toLowerCase();
+        var personTwoReply = personTwoSays.value.toLowerCase();
 
-if(personTwoReply == "good" || personTwoReply == "awesome")
-{
-personOneTalk.innerHTML = "Nice to hear!";
+        if(personTwoReply == "good" || personTwoReply == "awesome")
+        {
+            var personOneReply = ["Nice to hear!", "I'm happy for you!"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-condition = true;
-}
+            personOneTalk.innerHTML = personOneReply[randomString];
+            personOneTalk.innerHTML += " What are your interests?";
 
-else if(personTwoReply == "not good")
-{
-personOneTalk.innerHTML = "I'm sorry to hear that";
+            feeling = "good";
+        }
 
-condition = true;
-}
+        else if(personTwoReply == "not good" || personTwoReply == "bad")
+        {
+            var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-else
-{
-personOneTalk.innerHTML = "Can you please repeat yourself?";
-}
+            personOneTalk.innerHTML = personOneReply[randomString];
+            personOneTalk.innerHTML += " What are your interests?";
 
-if(condition == true)
-{
-submitButtonTwo.style.display = "none";
-personTwoSays.value = "";
-personTwoSays.setAttribute("placeholder", "Keep the conversation going...");
+            feeling = "bad";
+        }
 
-var submitButtonThree = document.createElement("button");
+        else if(personTwoReply == "bored")
+        {
+            var personOneReply = ["Why are you bored?", "Is everything okay?"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-submitButtonThree.innerHTML = "Submit";
+            personOneTalk.innerHTML = personOneReply[randomString];
 
-personTwoTalk.appendChild(submitButtonThree);
+            feeling = "bored";
+        }
 
-var appropiateForConversation = 0;
+        else if(personTwoReply == "tired")
+        {
+            var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-submitButtonThree.onclick = function conversationStarter()
-{
-var personTwoReply = personTwoSays.value.toLowerCase();
+            personOneTalk.innerHTML = personOneReply[randomString];
 
-if((personTwoReply == "can we talk about technology?" && appropiateForConversation == 0) || (personTwoReply == "technology" && appropiateForConversation == 1))
-{
-var topic = "1019";
-topicFeed();
-}
+            feeling = "tired";
+        }
 
-else if((personTwoReply == "can we talk about movies?" && appropiateForConversation == 0) || (personTwoReply == "movies" && appropiateForConversation == 1))
-{
-var topic = "1045";
-topicFeed();
-}
+        else
+        {
+            var personOneReply = ["Can you please repeat yourself?", "Again please?"];
+            var randomString = Math.floor(Math.random() * personOneReply.length);
 
-else
-{
-appropiateForConversation = 1;
+            personOneTalk.innerHTML = personOneReply[randomString];
+        }
 
-personOneTalk.innerHTML = "I don't know of that topic. What other topics are you interested in?";
+        if(feeling == "tired")
+        {
+            submitButtonTwo.style.display = "none";
+            personTwoSays.value = "";
 
-personTwoSays.setAttribute("placeholder", "Type reply...");
-}
+            var submitButtonTired = document.createElement("button");
 
-function topicFeed()
-{
-personTwoSays.value = "";
-submitButtonThree.style.display = "none";
+            submitButtonTired.innerHTML = "Submit";
 
-var submitButtonFour = document.createElement("button");
+            personTwoTalk.appendChild(submitButtonTired);
 
-submitButtonFour.innerHTML = "Submit";
-personTwoTalk.appendChild(submitButtonFour);
-personTwoSays.setAttribute("placeholder", "Type reply...");
+            submitButtonTired.onclick = function()
+            {
+                var tiredCondition;
 
-//Get the latest technology news from the internet
+                if(personOneTalk.innerHTML == "Why are you tired?")
+                {
+                    tiredCondition = 1;
 
-//Fetch the RSS feed
-var request = new XMLHttpRequest();
+                    tired();
+                }
 
-request.open("GET", "http://www.npr.org/rss/rss.php?id=" + topic, true);
-request.send();
+                else if(personOneTalk.innerHTML == "How many hours of sleep did you get last night?")
+                {
+                    tiredCondition = 2;
 
-request.onreadystatechange = function()
-{
+                    tired();
+                }
 
-if(request.readyState == 4 && request.status == 200)
-{
-var xmlDoc = request.responseXML;
+                function tired()
+                {
 
-var title = xmlDoc.getElementsByTagName("title")[2];
+                    if(tiredCondition == 1)
+                    {
+                        personOneTalk.innerHTML = "I hope you have a better sleep tonight! What are your interests?";
 
-var titleValue = title.childNodes[0];
+                        personTwoSays.value = "";
+                        submitButtonTired.style.display = "none";
 
-personOneTalk.innerHTML = "Sure! Have you heard that " + titleValue.nodeValue + "?";
+                        var submitButtonYourInterests = document.createElement("button");
 
-submitButtonFour.onclick = function()
-{
-personTwoSays.value = "";
+                        submitButtonYourInterests.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonYourInterests);
 
-var description = xmlDoc.getElementsByTagName("description")[1];
+                        submitButtonYourInterests.onclick = function()
+                        {
+                            submitButtonYourInterests.style.display = "none";
 
-personOneTalk.innerHTML = description.childNodes[0].nodeValue;
-};
+                            conversationStarter();
+                        };
 
-}
+                    }
 
-else
-{
+                    else if(tiredCondition == 2)
+                    {
+                        var normalSleep = 8;
 
-}
+                        if(parseInt(personTwoSays.value, 10) == normalSleep)
+                        {
+                            personOneTalk.innerHTML = personTwoSays.value + " hours of sleep is normal, so nice try! What are your interests?"
 
-};
+                            personTwoSays.value = "";
+                            submitButtonTired.style.display = "none";
 
-};
+                            var submitButtonInterestsYouSilly = document.createElement("button");
 
-};
+                            submitButtonInterestsYouSilly.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonInterestsYouSilly);
 
-};
+                            submitButtonInterestsYouSilly.onclick = function()
+                            {
+                                submitButtonInterestsYouSilly.style.display = "none";
 
-};
+                                conversationStarter();
+                            };
+
+                        }
+
+                        else if(parseInt(personTwoSays.value, 10) < normalSleep)
+                        {
+                            var hoursOfSleep = personTwoSays.value;
+                            var extraSleepNeeded = normalSleep - parseInt(hoursOfSleep, 10);
+
+                            personOneTalk.innerHTML = "Make sure to get " + extraSleepNeeded + " more hours of sleep tonight! What are your interests?";
+
+                            personTwoSays.value = "";
+                            submitButtonTired.style.display = "none";
+
+                            var submitButtonInterests = document.createElement("button");
+
+                            submitButtonInterests.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonInterests);
+
+                            submitButtonInterests.onclick = function()
+                            {
+                                submitButtonInterests.style.display = "none";
+
+                                conversationStarter();
+                            };
+
+                        }
+
+                    }
+
+                };
+
+            }
+
+        }
+
+        else if(feeling == "bored")
+        {
+            submitButtonTwo.style.display = "none";
+            personTwoSays.value = "";
+
+            var submitButtonBored = document.createElement("button");
+
+            submitButtonBored.innerHTML = "Submit";
+
+            personTwoTalk.appendChild(submitButtonBored);
+
+            var boredCondition;
+
+            if(personOneTalk.innerHTML == "Why are you bored?")
+            {
+                boredCondition = 1;
+
+                bored();
+            }
+
+            else if(personOneTalk.innerHTML == "Is everything okay?")
+            {
+                boredCondition = 2;
+
+                bored();
+            }
+
+            var submitButtonMoveOn = document.createElement("button");
+
+            function bored()
+            {
+
+                if(boredCondition == 1)
+                {
+                    submitButtonBored.onclick = function()
+                    {
+                        personOneTalk.innerHTML = "Let's move on! What are your interests?";
+
+                        personTwoSays.value = "";
+                        submitButtonBored.style.display = "none";
+
+                        submitButtonMoveOn.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonMoveOn);
+
+                        submitButtonMoveOn.onclick = function()
+                        {
+                            submitButtonMoveOn.style.display = "none";
+
+                            conversationStarter();
+                        };
+
+                    };
+
+                }
+
+                else if(boredCondition == 2)
+                {
+                    submitButtonBored.onclick = function()
+                    {
+
+                        if(personTwoSays.value == "yes")
+                        {
+                            personOneTalk.innerHTML = "Thank G-D! What are your interests?";
+
+                            personTwoSays.value = "";
+                            submitButtonBored.style.display = "none";
+
+                            submitButtonMoveOn.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonMoveOn);
+
+                            submitButtonMoveOn.onclick = function()
+                            {
+                                submitButtonMoveOn.style.display = "none";
+
+                                conversationStarter();
+                            };
+
+                        }
+
+                        else if(personTwoSays.value == "no")
+                        {
+                            personOneTalk.innerHTML = "What's wrong?";
+
+                            personTwoSays.value = "";
+                            submitButtonBored.style.display = "none";
+
+                            submitButtonMoveOn.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonMoveOn);
+
+                            submitButtonMoveOn.onclick = function()
+                            {
+                                personOneTalk.innerHTML = "Just get over it! What are your interests?";
+
+                                personTwoSays.value = "";
+                                submitButtonMoveOn.style.display = "none";
+
+                                var submitButtonReallyMoveOn = document.createElement("button");
+
+                                submitButtonReallyMoveOn.innerHTML = "Submit";
+                                personTwoTalk.appendChild(submitButtonReallyMoveOn);
+
+                                submitButtonReallyMoveOn.onclick = function()
+                                {
+                                    submitButtonReallyMoveOn.style.display = "none";
+
+                                    conversationStarter();
+                                };
+
+                            };
+
+                        }
+
+                    };
+
+                }
+
+            };
+
+        }
+
+        else if(feeling == "good" || feeling == "bad")
+        {
+            submitButtonTwo.style.display = "none";
+            personTwoSays.value = "";
+
+            var submitButtonThree = document.createElement("button");
+
+            submitButtonThree.innerHTML = "Submit";
+
+            personTwoTalk.appendChild(submitButtonThree);
+
+            submitButtonThree.onclick = function()
+            {
+                submitButtonThree.style.display = "none";
+
+                conversationStarter();
+            };
+
+        }
+
+        function conversationStarter()
+        {
+            var personTwoReply = personTwoSays.value.toLowerCase();
+
+            if(personTwoReply == "technology")
+            {
+                var topic = "1019";
+                topicFeed();
+            }
+
+            else if(personTwoReply == "movies")
+            {
+                var topic = "1045";
+                topicFeed();
+            }
+
+            else if(personTwoReply == "sports")
+            {
+                var topic = "1055";
+                topicFeed();
+            }
+
+            else if(personTwoReply == "politics")
+            {
+                var topic = "1014";
+                topicFeed();
+            }
+
+            else if(personTwoReply == "food")
+            {
+                var topic = "1053";
+                topicFeed();
+            }
+
+            else if(personTwoReply == "music")
+            {
+                var topic = "1039";
+                topicFeed();
+            }
+
+            else
+            {
+                var personOneReply = ["I don't know of that topic. What other topics are you interested in?", "Can you please pick a topic that I know of?"];
+                var randomString = Math.floor(Math.random() * personOneReply.length);
+
+                personOneTalk.innerHTML = personOneReply[randomString];
+
+                var submitButtonRestartTopicCondition = document.createElement("button");
+
+                submitButtonRestartTopicCondition.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonRestartTopicCondition);
+
+                submitButtonRestartTopicCondition.onclick = function()
+                {
+                    submitButtonRestartTopicCondition.style.display = "none";
+
+                    conversationStarter();
+                };
+
+            }
+
+            function topicFeed()
+            {
+                personTwoSays.value = "";
+
+                var submitButtonFour = document.createElement("button");
+
+                submitButtonFour.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonFour);
+
+                //Fetch the RSS feed
+                var request = new XMLHttpRequest();
+
+                request.open("GET", "http://www.npr.org/rss/rss.php?id=" + topic, true);
+                request.send();
+
+                request.onreadystatechange = function()
+                {
+
+                    if(request.readyState == 4 && request.status == 200)
+                    {
+                        var xmlDoc = request.responseXML;
+
+                        var title = xmlDoc.getElementsByTagName("title")[2];
+
+                        var titleValue = title.childNodes[0];
+
+                        personOneTalk.innerHTML = "Have you heard that " + titleValue.nodeValue + "?";
+
+                        submitButtonFour.onclick = function()
+                        {
+                            personTwoSays.value = "";
+
+                            var description = xmlDoc.getElementsByTagName("description")[1];
+
+                            personOneTalk.innerHTML = description.childNodes[0].nodeValue;
+                        };
+
+                    }
+
+                    else
+                    {
+
+                    }
+
+                };
+
+            };
+
+        };
+
+    };
 
 };
