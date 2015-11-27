@@ -241,6 +241,22 @@ submitButton.onclick = function howYouDoing()
 
                     if(tiredCondition == 1)
                     {
+                        personOneTalk.innerHTML = "I hope you have a better sleep tonight! What are your interests?";
+
+                        personTwoSays.value = "";
+                        submitButtonTired.style.display = "none";
+
+                        var submitButtonYourInterests = document.createElement("button");
+
+                        submitButtonYourInterests.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonYourInterests);
+
+                        submitButtonYourInterests.onclick = function()
+                        {
+                            submitButtonYourInterests.style.display = "none";
+
+                            conversationStarter();
+                        };
 
                     }
 
@@ -295,7 +311,7 @@ submitButton.onclick = function howYouDoing()
 
                     }
 
-                }
+                };
 
             }
 
