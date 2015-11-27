@@ -145,6 +145,9 @@ var submitButtonInterestsYouSilly = document.createElement("button");
 var submitButtonInterests = document.createElement("button");
 var submitButtonFour = document.createElement("button");
 var submitButtonThree = document.createElement("button");
+var submitButtonBored = document.createElement("button");
+var submitButtonMoveOn = document.createElement("button");
+var submitButtonReallyMoveOn = document.createElement("button");
 
 personTwoSays.onkeypress = function(event)
 {
@@ -192,6 +195,21 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 8)
     {
         submitButtonThree.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 9)
+    {
+        submitButtonBored.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 10)
+    {
+        submitButtonMoveOn.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 11)
+    {
+        submitButtonReallyMoveOn.click();
     }
 
 };
@@ -438,8 +456,6 @@ submitButton.onclick = function()
             submitButtonTwo.style.display = "none";
             personTwoSays.value = "";
 
-            var submitButtonBored = document.createElement("button");
-
             submitButtonBored.innerHTML = "Submit";
 
             personTwoTalk.appendChild(submitButtonBored);
@@ -460,15 +476,17 @@ submitButton.onclick = function()
                 bored();
             }
 
-            var submitButtonMoveOn = document.createElement("button");
-
             function bored()
             {
 
                 if(boredCondition == 1)
                 {
+                    conversationPart = 9;
+
                     submitButtonBored.onclick = function()
                     {
+                        conversationPart = 10;
+
                         personOneTalk.innerHTML = "Let's move on! What are your interests?";
 
                         personTwoSays.value = "";
@@ -490,11 +508,15 @@ submitButton.onclick = function()
 
                 else if(boredCondition == 2)
                 {
+                    conversationPart = 9;
+
                     submitButtonBored.onclick = function()
                     {
 
                         if(personTwoSays.value == "yes")
                         {
+                            conversationPart = 10;
+
                             personOneTalk.innerHTML = "Thank G-D! What are your interests?";
 
                             personTwoSays.value = "";
@@ -514,6 +536,8 @@ submitButton.onclick = function()
 
                         else if(personTwoSays.value == "no")
                         {
+                            conversationPart = 10;
+
                             personOneTalk.innerHTML = "What's wrong?";
 
                             personTwoSays.value = "";
@@ -524,12 +548,12 @@ submitButton.onclick = function()
 
                             submitButtonMoveOn.onclick = function()
                             {
+                                conversationPart = 11;
+
                                 personOneTalk.innerHTML = "Just get over it! What are your interests?";
 
                                 personTwoSays.value = "";
                                 submitButtonMoveOn.style.display = "none";
-
-                                var submitButtonReallyMoveOn = document.createElement("button");
 
                                 submitButtonReallyMoveOn.innerHTML = "Submit";
                                 personTwoTalk.appendChild(submitButtonReallyMoveOn);
