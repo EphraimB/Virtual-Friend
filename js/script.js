@@ -245,7 +245,7 @@ submitButton.onclick = function()
 
         var personTwoReply = personTwoSays.value.toLowerCase();
 
-        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("well", personTwoReply))
+        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("good!", personTwoReply) || keywordInFullSentance("good.", personTwoReply) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("awesome!", personTwoReply) || keywordInFullSentance("awesome.", personTwoReply) || keywordInFullSentance("well", personTwoReply) || keywordInFullSentance("well!", personTwoReply) || keywordInFullSentance("well.", personTwoReply))
         {
             var personOneReply = ["Nice to hear!", "I'm happy for you!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -256,7 +256,7 @@ submitButton.onclick = function()
             feeling = "good";
         }
 
-        else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("bad", personTwoReply))
+        else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("horrible!", personTwoReply) || keywordInFullSentance("horrible.", personTwoReply) || keywordInFullSentance("bad", personTwoReply) || keywordInFullSentance("bad!", personTwoReply) || keywordInFullSentance("bad.", personTwoReply))
         {
             var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -267,7 +267,7 @@ submitButton.onclick = function()
             feeling = "bad";
         }
 
-        else if(keywordInFullSentance("bored", personTwoReply))
+        else if(keywordInFullSentance("bored", personTwoReply) || keywordInFullSentance("bored!", personTwoReply) || keywordInFullSentance("bored.", personTwoReply))
         {
             var personOneReply = ["Why are you bored?", "Is everything okay?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -277,7 +277,7 @@ submitButton.onclick = function()
             feeling = "bored";
         }
 
-        else if(keywordInFullSentance("tired", personTwoReply))
+        else if(keywordInFullSentance("tired", personTwoReply) || keywordInFullSentance("tired!", personTwoReply) || keywordInFullSentance("tired.", personTwoReply))
         {
             var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -326,6 +326,7 @@ submitButton.onclick = function()
 
                 function tired()
                 {
+                    var personTwoReply = personTwoSays.value.toLowerCase();
 
                     if(tiredCondition == 1)
                     {
@@ -352,57 +353,57 @@ submitButton.onclick = function()
                     {
                         var normalSleep = 8;
 
-                        if(keywordInFullSentance("zero", personTwoSays.value))
+                        if(keywordInFullSentance("zero", personTwoReply))
                         {
                             personTwoSays.value = 0;
                         }
 
-                        else if(keywordInFullSentance("one", personTwoSays.value))
+                        else if(keywordInFullSentance("one", personTwoReply))
                         {
                             personTwoSays.value = 1;
                         }
 
-                        else if(keywordInFullSentance("two", personTwoSays.value))
+                        else if(keywordInFullSentance("two", personTwoReply))
                         {
                             personTwoSays.value = 2;
                         }
 
-                        else if(keywordInFullSentance("three", personTwoSays.value))
+                        else if(keywordInFullSentance("three", personTwoReply))
                         {
                             personTwoSays.value = 3;
                         }
 
-                        else if(keywordInFullSentance("four", personTwoSays.value))
+                        else if(keywordInFullSentance("four", personTwoReply))
                         {
                             personTwoSays.value = 4;
                         }
 
-                        else if(keywordInFullSentance("five", personTwoSays.value))
+                        else if(keywordInFullSentance("five", personTwoReply))
                         {
                             personTwoSays.value = 5;
                         }
 
-                        else if(keywordInFullSentance("six", personTwoSays.value))
+                        else if(keywordInFullSentance("six", personTwoReply))
                         {
                             personTwoSays.value = 6;
                         }
 
-                        else if(keywordInFullSentance("seven", personTwoSays.value))
+                        else if(keywordInFullSentance("seven", personTwoReply))
                         {
                             personTwoSays.value = 7;
                         }
 
-                        else if(keywordInFullSentance("eight", personTwoSays.value))
+                        else if(keywordInFullSentance("eight", personTwoReply))
                         {
                             personTwoSays.value = 8;
                         }
 
-                        else if(keywordInFullSentance("nine", personTwoSays.value))
+                        else if(keywordInFullSentance("nine", personTwoReply))
                         {
                             personTwoSays.value = 9;
                         }
 
-                        else if(keywordInFullSentance("ten", personTwoSays.value))
+                        else if(keywordInFullSentance("ten", personTwoReply))
                         {
                             personTwoSays.value = 10;
                         }
@@ -521,8 +522,9 @@ submitButton.onclick = function()
 
                     submitButtonBored.onclick = function()
                     {
+                        var personTwoReply = personTwoSays.value.toLowerCase();
 
-                        if(personTwoSays.value == "yes")
+                        if(personTwoReply == "yes")
                         {
                             conversationPart = 10;
 
@@ -543,7 +545,7 @@ submitButton.onclick = function()
 
                         }
 
-                        else if(personTwoSays.value == "no")
+                        else if(personTwoReply == "no")
                         {
                             conversationPart = 10;
 
@@ -699,6 +701,8 @@ submitButton.onclick = function()
 
                         submitButtonFour.onclick = function()
                         {
+                            conversationPart = 12;
+
                             personTwoSays.value = "";
 
                             var description = xmlDoc.getElementsByTagName("description")[1];
