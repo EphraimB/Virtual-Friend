@@ -135,8 +135,98 @@ personOneTalk.innerHTML = greeting + "! What's your name?";
 
 document.body.onload = setInterval("updateClock()", 1000);
 
-submitButton.onclick = function howYouDoing()
+var conversationPart = 0;
+
+var submitButtonTwo = document.createElement("button");
+var submitButtonTired = document.createElement("button");
+var submitButtonYourInterests = document.createElement("button");
+var submitButtonRestartTopicCondition = document.createElement("button");
+var submitButtonInterestsYouSilly = document.createElement("button");
+var submitButtonInterests = document.createElement("button");
+var submitButtonFour = document.createElement("button");
+var submitButtonThree = document.createElement("button");
+var submitButtonBored = document.createElement("button");
+var submitButtonMoveOn = document.createElement("button");
+var submitButtonReallyMoveOn = document.createElement("button");
+
+personTwoSays.onkeypress = function(event)
 {
+
+    if(event.keyCode == 13 && conversationPart == 0)
+    {
+        submitButton.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 1)
+    {
+        submitButtonTwo.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 2)
+    {
+        submitButtonTired.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 3)
+    {
+        submitButtonYourInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 4)
+    {
+        submitButtonRestartTopicCondition.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 5)
+    {
+        submitButtonInterestsYouSilly.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 6)
+    {
+        submitButtonInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 7)
+    {
+        submitButtonFour.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 8)
+    {
+        submitButtonThree.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 9)
+    {
+        submitButtonBored.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 10)
+    {
+        submitButtonMoveOn.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 11)
+    {
+        submitButtonReallyMoveOn.click();
+    }
+
+};
+
+function keywordInFullSentance(keyword, fullSentance)
+{
+    return fullSentance.split(" ").some(function(findTheKeyword)
+    {
+        return findTheKeyword == keyword;
+    });
+
+};
+
+submitButton.onclick = function()
+{
+    conversationPart = 1;
+
     //Randomize second greeting
     var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
     var randomString = Math.floor(Math.random() * secondGreeting.length);
@@ -145,8 +235,6 @@ submitButton.onclick = function howYouDoing()
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
-
-    var submitButtonTwo = document.createElement("button");
 
     submitButtonTwo.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonTwo);
@@ -157,7 +245,7 @@ submitButton.onclick = function howYouDoing()
 
         var personTwoReply = personTwoSays.value.toLowerCase();
 
-        if(personTwoReply == "good" || personTwoReply == "awesome")
+        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("good!", personTwoReply) || keywordInFullSentance("good.", personTwoReply) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("awesome!", personTwoReply) || keywordInFullSentance("awesome.", personTwoReply) || keywordInFullSentance("well", personTwoReply) || keywordInFullSentance("well!", personTwoReply) || keywordInFullSentance("well.", personTwoReply))
         {
             var personOneReply = ["Nice to hear!", "I'm happy for you!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -168,7 +256,7 @@ submitButton.onclick = function howYouDoing()
             feeling = "good";
         }
 
-        else if(personTwoReply == "not good" || personTwoReply == "bad")
+        else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("horrible!", personTwoReply) || keywordInFullSentance("horrible.", personTwoReply) || keywordInFullSentance("bad", personTwoReply) || keywordInFullSentance("bad!", personTwoReply) || keywordInFullSentance("bad.", personTwoReply))
         {
             var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -179,7 +267,7 @@ submitButton.onclick = function howYouDoing()
             feeling = "bad";
         }
 
-        else if(personTwoReply == "bored")
+        else if(keywordInFullSentance("bored", personTwoReply) || keywordInFullSentance("bored!", personTwoReply) || keywordInFullSentance("bored.", personTwoReply))
         {
             var personOneReply = ["Why are you bored?", "Is everything okay?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -189,7 +277,7 @@ submitButton.onclick = function howYouDoing()
             feeling = "bored";
         }
 
-        else if(personTwoReply == "tired")
+        else if(keywordInFullSentance("tired", personTwoReply) || keywordInFullSentance("tired!", personTwoReply) || keywordInFullSentance("tired.", personTwoReply))
         {
             var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
@@ -209,10 +297,10 @@ submitButton.onclick = function howYouDoing()
 
         if(feeling == "tired")
         {
+            conversationPart = 2;
+
             submitButtonTwo.style.display = "none";
             personTwoSays.value = "";
-
-            var submitButtonTired = document.createElement("button");
 
             submitButtonTired.innerHTML = "Submit";
 
@@ -238,15 +326,16 @@ submitButton.onclick = function howYouDoing()
 
                 function tired()
                 {
+                    var personTwoReply = personTwoSays.value.toLowerCase();
 
                     if(tiredCondition == 1)
                     {
+                        conversationPart = 3;
+
                         personOneTalk.innerHTML = "I hope you have a better sleep tonight! What are your interests?";
 
                         personTwoSays.value = "";
                         submitButtonTired.style.display = "none";
-
-                        var submitButtonYourInterests = document.createElement("button");
 
                         submitButtonYourInterests.innerHTML = "Submit";
                         personTwoTalk.appendChild(submitButtonYourInterests);
@@ -264,14 +353,69 @@ submitButton.onclick = function howYouDoing()
                     {
                         var normalSleep = 8;
 
+                        if(keywordInFullSentance("zero", personTwoReply))
+                        {
+                            personTwoSays.value = 0;
+                        }
+
+                        else if(keywordInFullSentance("one", personTwoReply))
+                        {
+                            personTwoSays.value = 1;
+                        }
+
+                        else if(keywordInFullSentance("two", personTwoReply))
+                        {
+                            personTwoSays.value = 2;
+                        }
+
+                        else if(keywordInFullSentance("three", personTwoReply))
+                        {
+                            personTwoSays.value = 3;
+                        }
+
+                        else if(keywordInFullSentance("four", personTwoReply))
+                        {
+                            personTwoSays.value = 4;
+                        }
+
+                        else if(keywordInFullSentance("five", personTwoReply))
+                        {
+                            personTwoSays.value = 5;
+                        }
+
+                        else if(keywordInFullSentance("six", personTwoReply))
+                        {
+                            personTwoSays.value = 6;
+                        }
+
+                        else if(keywordInFullSentance("seven", personTwoReply))
+                        {
+                            personTwoSays.value = 7;
+                        }
+
+                        else if(keywordInFullSentance("eight", personTwoReply))
+                        {
+                            personTwoSays.value = 8;
+                        }
+
+                        else if(keywordInFullSentance("nine", personTwoReply))
+                        {
+                            personTwoSays.value = 9;
+                        }
+
+                        else if(keywordInFullSentance("ten", personTwoReply))
+                        {
+                            personTwoSays.value = 10;
+                        }
+
                         if(parseInt(personTwoSays.value, 10) == normalSleep)
                         {
+                            conversationPart = 5;
+
                             personOneTalk.innerHTML = personTwoSays.value + " hours of sleep is normal, so nice try! What are your interests?"
 
                             personTwoSays.value = "";
                             submitButtonTired.style.display = "none";
-
-                            var submitButtonInterestsYouSilly = document.createElement("button");
 
                             submitButtonInterestsYouSilly.innerHTML = "Submit";
                             personTwoTalk.appendChild(submitButtonInterestsYouSilly);
@@ -287,6 +431,8 @@ submitButton.onclick = function howYouDoing()
 
                         else if(parseInt(personTwoSays.value, 10) < normalSleep)
                         {
+                            conversationPart = 6;
+
                             var hoursOfSleep = personTwoSays.value;
                             var extraSleepNeeded = normalSleep - parseInt(hoursOfSleep, 10);
 
@@ -294,8 +440,6 @@ submitButton.onclick = function howYouDoing()
 
                             personTwoSays.value = "";
                             submitButtonTired.style.display = "none";
-
-                            var submitButtonInterests = document.createElement("button");
 
                             submitButtonInterests.innerHTML = "Submit";
                             personTwoTalk.appendChild(submitButtonInterests);
@@ -322,8 +466,6 @@ submitButton.onclick = function howYouDoing()
             submitButtonTwo.style.display = "none";
             personTwoSays.value = "";
 
-            var submitButtonBored = document.createElement("button");
-
             submitButtonBored.innerHTML = "Submit";
 
             personTwoTalk.appendChild(submitButtonBored);
@@ -344,15 +486,17 @@ submitButton.onclick = function howYouDoing()
                 bored();
             }
 
-            var submitButtonMoveOn = document.createElement("button");
-
             function bored()
             {
 
                 if(boredCondition == 1)
                 {
+                    conversationPart = 9;
+
                     submitButtonBored.onclick = function()
                     {
+                        conversationPart = 10;
+
                         personOneTalk.innerHTML = "Let's move on! What are your interests?";
 
                         personTwoSays.value = "";
@@ -374,11 +518,16 @@ submitButton.onclick = function howYouDoing()
 
                 else if(boredCondition == 2)
                 {
+                    conversationPart = 9;
+
                     submitButtonBored.onclick = function()
                     {
+                        var personTwoReply = personTwoSays.value.toLowerCase();
 
-                        if(personTwoSays.value == "yes")
+                        if(personTwoReply == "yes")
                         {
+                            conversationPart = 10;
+
                             personOneTalk.innerHTML = "Thank G-D! What are your interests?";
 
                             personTwoSays.value = "";
@@ -396,8 +545,10 @@ submitButton.onclick = function howYouDoing()
 
                         }
 
-                        else if(personTwoSays.value == "no")
+                        else if(personTwoReply == "no")
                         {
+                            conversationPart = 10;
+
                             personOneTalk.innerHTML = "What's wrong?";
 
                             personTwoSays.value = "";
@@ -408,12 +559,12 @@ submitButton.onclick = function howYouDoing()
 
                             submitButtonMoveOn.onclick = function()
                             {
+                                conversationPart = 11;
+
                                 personOneTalk.innerHTML = "Just get over it! What are your interests?";
 
                                 personTwoSays.value = "";
                                 submitButtonMoveOn.style.display = "none";
-
-                                var submitButtonReallyMoveOn = document.createElement("button");
 
                                 submitButtonReallyMoveOn.innerHTML = "Submit";
                                 personTwoTalk.appendChild(submitButtonReallyMoveOn);
@@ -439,10 +590,10 @@ submitButton.onclick = function howYouDoing()
 
         else if(feeling == "good" || feeling == "bad")
         {
+            conversationPart = 8;
+
             submitButtonTwo.style.display = "none";
             personTwoSays.value = "";
-
-            var submitButtonThree = document.createElement("button");
 
             submitButtonThree.innerHTML = "Submit";
 
@@ -461,37 +612,37 @@ submitButton.onclick = function howYouDoing()
         {
             var personTwoReply = personTwoSays.value.toLowerCase();
 
-            if(personTwoReply == "technology")
+            if(keywordInFullSentance("technology", personTwoReply))
             {
                 var topic = "1019";
                 topicFeed();
             }
 
-            else if(personTwoReply == "movies")
+            else if(keywordInFullSentance("movies", personTwoReply))
             {
                 var topic = "1045";
                 topicFeed();
             }
 
-            else if(personTwoReply == "sports")
+            else if(keywordInFullSentance("sports", personTwoReply))
             {
                 var topic = "1055";
                 topicFeed();
             }
 
-            else if(personTwoReply == "politics")
+            else if(keywordInFullSentance("politics", personTwoReply))
             {
                 var topic = "1014";
                 topicFeed();
             }
 
-            else if(personTwoReply == "food")
+            else if(keywordInFullSentance("food", personTwoReply))
             {
                 var topic = "1053";
                 topicFeed();
             }
 
-            else if(personTwoReply == "music")
+            else if(keywordInFullSentance("music", personTwoReply))
             {
                 var topic = "1039";
                 topicFeed();
@@ -499,15 +650,17 @@ submitButton.onclick = function howYouDoing()
 
             else
             {
+                conversationPart = 4;
+
                 var personOneReply = ["I don't know of that topic. What other topics are you interested in?", "Can you please pick a topic that I know of?"];
                 var randomString = Math.floor(Math.random() * personOneReply.length);
 
                 personOneTalk.innerHTML = personOneReply[randomString];
 
-                var submitButtonRestartTopicCondition = document.createElement("button");
-
                 submitButtonRestartTopicCondition.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonRestartTopicCondition);
+
+                submitButtonRestartTopicCondition.style.display = "inline";
 
                 submitButtonRestartTopicCondition.onclick = function()
                 {
@@ -521,8 +674,6 @@ submitButton.onclick = function howYouDoing()
             function topicFeed()
             {
                 personTwoSays.value = "";
-
-                var submitButtonFour = document.createElement("button");
 
                 submitButtonFour.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonFour);
@@ -538,6 +689,8 @@ submitButton.onclick = function howYouDoing()
 
                     if(request.readyState == 4 && request.status == 200)
                     {
+                        conversationPart = 7;
+
                         var xmlDoc = request.responseXML;
 
                         var title = xmlDoc.getElementsByTagName("title")[2];
@@ -548,6 +701,8 @@ submitButton.onclick = function howYouDoing()
 
                         submitButtonFour.onclick = function()
                         {
+                            conversationPart = 12;
+
                             personTwoSays.value = "";
 
                             var description = xmlDoc.getElementsByTagName("description")[1];
