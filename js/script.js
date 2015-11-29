@@ -251,6 +251,12 @@ submitButton.onclick = function()
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
             personOneTalk.innerHTML = personOneReply[randomString];
+
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML += " I'm feeling good too!";
+            }
+
             personOneTalk.innerHTML += " What are your interests?";
 
             feeling = "good";
@@ -262,6 +268,12 @@ submitButton.onclick = function()
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
             personOneTalk.innerHTML = personOneReply[randomString];
+
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML += " I'm feeling good.";
+            }
+
             personOneTalk.innerHTML += " What are your interests?";
 
             feeling = "bad";
@@ -272,7 +284,12 @@ submitButton.onclick = function()
             var personOneReply = ["Why are you bored?", "Is everything okay?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
-            personOneTalk.innerHTML = personOneReply[randomString];
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML = " I'm feeling good. ";
+            }
+
+            personOneTalk.innerHTML += personOneReply[randomString];
 
             feeling = "bored";
         }
@@ -282,7 +299,12 @@ submitButton.onclick = function()
             var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
-            personOneTalk.innerHTML = personOneReply[randomString];
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML = "I'm feeling good. ";
+            }
+
+            personOneTalk.innerHTML += personOneReply[randomString];
 
             feeling = "tired";
         }
