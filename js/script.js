@@ -659,7 +659,12 @@ submitButton.onclick = function()
             var personTwoReply = personTwoSays.value.toLowerCase();
             var yourInterests = [];
 
-            if(keywordInFullSentance("technology", personTwoReply))
+            if(keywordInFullSentance("technology", personTwoReply) && keywordInFullSentance("movies", personTwoReply))
+            {
+                yourInterests.push("technology", "movies");
+            }
+
+            else if(keywordInFullSentance("technology", personTwoReply))
             {
                 yourInterests.push("technology");
             }
