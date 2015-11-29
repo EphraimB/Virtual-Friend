@@ -798,7 +798,44 @@ submitButton.onclick = function()
 
                         var titleValue = title.childNodes[0];
 
-                        personOneTalk.innerHTML = "Have you heard that " + titleValue.nodeValue + "?";
+                        var topicStarter = titleValue.nodeValue.toLowerCase();
+
+                        function topicKeywordInFullSentance(keyword)
+                        {
+                            return topicStarter.split(" ").some(function(findTheKeyword)
+                            {
+                                return findTheKeyword == keyword;
+                            });
+
+                        };
+
+                        function topicKeyCharacterInFullSentance(keyCharacter)
+                        {
+                            return topicStarter.split("").some(function(findTheKeyCharacter)
+                            {
+                                return findTheKeyCharacter == keyCharacter;
+                            });
+
+                        };
+
+                        if(topicKeyCharacterInFullSentance("?"))
+                        {
+                            titleValue.deleteData(topicStarter.length - 1, 1);
+                        }
+
+                        if(topicKeywordInFullSentance("and"))
+                        {
+                            var start = topicStarter.search("and");
+
+                            titleValue.deleteData(start - 1, topicStarter.length - start);
+                        }
+
+                        if(topicKeywordInFullSentance("what") && topicKeywordInFullSentance("is"))
+                        {
+                            titleValue.deleteData(0, 7);
+                        }
+
+                        personOneTalk.innerHTML = "Have you heard about " + titleValue.nodeValue + "?";
 
                         submitButtonFour.onclick = function()
                         {
