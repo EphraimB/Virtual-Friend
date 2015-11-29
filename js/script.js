@@ -337,6 +337,8 @@ submitButton.onclick = function()
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
             personOneTalk.innerHTML = personOneReply[randomString];
+
+            personTwoSays.value = "";
         }
 
         if(feeling == "tired")
@@ -754,6 +756,8 @@ submitButton.onclick = function()
 
                 personOneTalk.innerHTML = personOneReply[randomString];
 
+                personTwoSays.value = "";
+
                 submitButtonRestartTopicCondition.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonRestartTopicCondition);
 
@@ -806,11 +810,6 @@ submitButton.onclick = function()
 
                             personOneTalk.innerHTML = description.childNodes[0].nodeValue;
                         };
-
-                    }
-
-                    else
-                    {
 
                     }
 
