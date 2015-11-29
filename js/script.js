@@ -659,37 +659,32 @@ submitButton.onclick = function()
             var personTwoReply = personTwoSays.value.toLowerCase();
             var yourInterests = [];
 
-            if(keywordInFullSentance("technology", personTwoReply) && keywordInFullSentance("movies", personTwoReply))
-            {
-                yourInterests.push("technology", "movies");
-            }
-
-            else if(keywordInFullSentance("technology", personTwoReply))
+            if(keywordInFullSentance("technology", personTwoReply))
             {
                 yourInterests.push("technology");
             }
 
-            else if(keywordInFullSentance("movies", personTwoReply))
+            if(keywordInFullSentance("movies", personTwoReply))
             {
                 yourInterests.push("movies");
             }
 
-            else if(keywordInFullSentance("sports", personTwoReply))
+            if(keywordInFullSentance("sports", personTwoReply))
             {
                 yourInterests.push("sports");
             }
 
-            else if(keywordInFullSentance("politics", personTwoReply))
+            if(keywordInFullSentance("politics", personTwoReply))
             {
                 yourInterests.push("politics");
             }
 
-            else if(keywordInFullSentance("food", personTwoReply))
+            if(keywordInFullSentance("food", personTwoReply))
             {
                 yourInterests.push("food");
             }
 
-            else if(keywordInFullSentance("music", personTwoReply))
+            if(keywordInFullSentance("music", personTwoReply))
             {
                 yourInterests.push("music");
             }
