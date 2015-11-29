@@ -148,6 +148,9 @@ var submitButtonThree = document.createElement("button");
 var submitButtonBored = document.createElement("button");
 var submitButtonMoveOn = document.createElement("button");
 var submitButtonReallyMoveOn = document.createElement("button");
+var submitButtonYourStoredInterests = document.createElement("button");
+var submitButtonAnyInterests = document.createElement("button");
+var submitButtonInterestsAgain = document.createElement("button");
 
 personTwoSays.onkeypress = function(event)
 {
@@ -210,6 +213,21 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 11)
     {
         submitButtonReallyMoveOn.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 12)
+    {
+        submitButtonYourStoredInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 13)
+    {
+        submitButtonAnyInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 14)
+    {
+        submitButtonInterestsAgain.click();
     }
 
 };
@@ -284,6 +302,8 @@ submitButton.onclick = function()
             var personOneReply = ["Why are you bored?", "Is everything okay?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
+            personOneTalk.innerHTML = "";
+
             if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
             {
                 personOneTalk.innerHTML = "I'm feeling good. ";
@@ -298,6 +318,8 @@ submitButton.onclick = function()
         {
             var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
+
+            personOneTalk.innerHTML = "";
 
             if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
             {
@@ -366,7 +388,7 @@ submitButton.onclick = function()
                         {
                             submitButtonYourInterests.style.display = "none";
 
-                            conversationStarter();
+                            interests();
                         };
 
                     }
@@ -446,7 +468,7 @@ submitButton.onclick = function()
                             {
                                 submitButtonInterestsYouSilly.style.display = "none";
 
-                                conversationStarter();
+                                interests();
                             };
 
                         }
@@ -470,7 +492,7 @@ submitButton.onclick = function()
                             {
                                 submitButtonInterests.style.display = "none";
 
-                                conversationStarter();
+                                interests();
                             };
 
                         }
@@ -531,7 +553,7 @@ submitButton.onclick = function()
                         {
                             submitButtonMoveOn.style.display = "none";
 
-                            conversationStarter();
+                            interests();
                         };
 
                     };
@@ -562,7 +584,7 @@ submitButton.onclick = function()
                             {
                                 submitButtonMoveOn.style.display = "none";
 
-                                conversationStarter();
+                                interests();
                             };
 
                         }
@@ -595,7 +617,7 @@ submitButton.onclick = function()
                                 {
                                     submitButtonReallyMoveOn.style.display = "none";
 
-                                    conversationStarter();
+                                    interests();
                                 };
 
                             };
@@ -625,10 +647,63 @@ submitButton.onclick = function()
             {
                 submitButtonThree.style.display = "none";
 
-                conversationStarter();
+                interests();
             };
 
         }
+
+        function interests()
+        {
+            conversationPart = 12;
+
+            var personTwoReply = personTwoSays.value.toLowerCase();
+            var yourInterests = [];
+
+            if(keywordInFullSentance("technology", personTwoReply))
+            {
+                yourInterests.push("technology");
+            }
+
+            else if(keywordInFullSentance("movies", personTwoReply))
+            {
+                yourInterests.push("movies");
+            }
+
+            else if(keywordInFullSentance("sports", personTwoReply))
+            {
+                yourInterests.push("sports");
+            }
+
+            else if(keywordInFullSentance("politics", personTwoReply))
+            {
+                yourInterests.push("politics");
+            }
+
+            else if(keywordInFullSentance("food", personTwoReply))
+            {
+                yourInterests.push("food");
+            }
+
+            else if(keywordInFullSentance("music", personTwoReply))
+            {
+                yourInterests.push("music");
+            }
+
+            personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which do you want to talk about first?";
+
+            personTwoSays.value = "";
+
+            submitButtonYourStoredInterests.innerHTML = "Submit";
+            personTwoTalk.appendChild(submitButtonYourStoredInterests);
+
+            submitButtonYourStoredInterests.onclick = function()
+            {
+                submitButtonYourStoredInterests.style.display = "none";
+
+                conversationStarter();
+            };
+
+        };
 
         function conversationStarter()
         {
@@ -723,7 +798,7 @@ submitButton.onclick = function()
 
                         submitButtonFour.onclick = function()
                         {
-                            conversationPart = 12;
+                            conversationPart = 16;
 
                             personTwoSays.value = "";
 
