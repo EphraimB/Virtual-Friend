@@ -710,40 +710,47 @@ submitButton.onclick = function()
         function conversationStarter()
         {
             var personTwoReply = personTwoSays.value.toLowerCase();
+            var grammer;
 
             if(keywordInFullSentance("technology", personTwoReply))
             {
                 var topic = "1019";
+                grammer = "about ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("movies", personTwoReply))
             {
                 var topic = "1045";
+                grammer = "about ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("sports", personTwoReply))
             {
                 var topic = "1055";
+                grammer = "that ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("politics", personTwoReply))
             {
                 var topic = "1014";
+                grammer = "about the ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("food", personTwoReply))
             {
                 var topic = "1053";
+                grammer = "that ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("music", personTwoReply))
             {
                 var topic = "1039";
+                grammer = "about ";
                 topicFeed();
             }
 
@@ -832,10 +839,12 @@ submitButton.onclick = function()
 
                         if(topicKeywordInFullSentance("what") && topicKeywordInFullSentance("is"))
                         {
-                            titleValue.deleteData(0, 7);
+                            var startTwo = topicStarter.search("what");
+
+                            titleValue.deleteData(startTwo, 7);
                         }
 
-                        personOneTalk.innerHTML = "Have you heard about " + titleValue.nodeValue + "?";
+                        personOneTalk.innerHTML = "Have you heard " + grammer + titleValue.nodeValue + "?";
 
                         submitButtonFour.onclick = function()
                         {
