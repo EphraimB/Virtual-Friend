@@ -659,32 +659,32 @@ submitButton.onclick = function()
             var personTwoReply = personTwoSays.value.toLowerCase();
             var yourInterests = [];
 
-            if(keywordInFullSentance("technology", personTwoReply))
+            if(keywordInFullSentance("technology", personTwoReply) || keywordInFullSentance("technology,", personTwoReply))
             {
                 yourInterests.push("technology");
             }
 
-            if(keywordInFullSentance("movies", personTwoReply))
+            if(keywordInFullSentance("movies", personTwoReply) || keywordInFullSentance("movies,", personTwoReply))
             {
                 yourInterests.push("movies");
             }
 
-            if(keywordInFullSentance("sports", personTwoReply))
+            if(keywordInFullSentance("sports", personTwoReply) || keywordInFullSentance("sports,", personTwoReply))
             {
                 yourInterests.push("sports");
             }
 
-            if(keywordInFullSentance("politics", personTwoReply))
+            if(keywordInFullSentance("politics", personTwoReply) || keywordInFullSentance("politics,", personTwoReply))
             {
                 yourInterests.push("politics");
             }
 
-            if(keywordInFullSentance("food", personTwoReply))
+            if(keywordInFullSentance("food", personTwoReply) || keywordInFullSentance("food,", personTwoReply))
             {
                 yourInterests.push("food");
             }
 
-            if(keywordInFullSentance("music", personTwoReply))
+            if(keywordInFullSentance("music", personTwoReply) || keywordInFullSentance("music,", personTwoReply))
             {
                 yourInterests.push("music");
             }
