@@ -258,7 +258,7 @@ submitButton.onclick = function()
         name = name.slice(beforeName + 3, name.length);
     }
 
-    //Todo: Capitalize the name
+    //Todo: Capitalize the name - Issue #18
 
     personOneTalk.innerHTML = "Hi, " + name + "! " + secondGreeting[randomString];
 
