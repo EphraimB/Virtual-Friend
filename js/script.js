@@ -249,7 +249,18 @@ submitButton.onclick = function()
     var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
     var randomString = Math.floor(Math.random() * secondGreeting.length);
 
-    personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
+    var name = personTwoSays.value.toLowerCase();
+
+    if(keywordInFullSentance("is", name))
+    {
+        var beforeName = name.search("is");
+
+        name = name.slice(beforeName + 3, name.length);
+    }
+
+    //Todo: Capitalize the name
+
+    personOneTalk.innerHTML = "Hi, " + name + "! " + secondGreeting[randomString];
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
