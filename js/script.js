@@ -261,11 +261,20 @@ submitButton.onclick = function()
         var beforeName = name.search("is");
 
         name = name.slice(beforeName + 3, name.length);
+    }
 
+    if(keywordInFullSentance(" ", name))
+    {
         var nameSplit = name.search(" ");
 
         var firstName = name.slice(0, nameSplit);
         var lastName = name.slice(nameSplit + 1, name.length);
+    }
+
+    else
+    {
+        var firstName = name;
+        var lastName = "";
     }
 
     personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + " " + capitalize(lastName) + "! " + secondGreeting[randomString];
