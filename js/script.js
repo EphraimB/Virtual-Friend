@@ -151,6 +151,7 @@ var submitButtonReallyMoveOn = document.createElement("button");
 var submitButtonYourStoredInterests = document.createElement("button");
 var submitButtonAnyInterests = document.createElement("button");
 var submitButtonInterestsAgain = document.createElement("button");
+var submitButtonOnlyInterestConfirm = document.createElement("button");
 
 personTwoSays.onkeypress = function(event)
 {
@@ -228,6 +229,11 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 14)
     {
         submitButtonInterestsAgain.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 15)
+    {
+        submitButtonOnlyInterestConfirm.click();
     }
 
 };
@@ -731,12 +737,41 @@ submitButton.onclick = function()
                 yourInterests.push("music");
             }
 
-            personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which do you want to talk about first?";
+            if(yourInterests.length > 1)
+            {
+                personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which is your favorite?";
 
-            personTwoSays.value = "";
+                personTwoSays.value = "";
 
-            submitButtonYourStoredInterests.innerHTML = "Submit";
-            personTwoTalk.appendChild(submitButtonYourStoredInterests);
+                submitButtonYourStoredInterests.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonYourStoredInterests);
+            }
+
+            else if(yourInterests.length == 1)
+            {
+                conversationPart = 15;
+
+                personOneTalk.innerHTML = "Is " + yourInterests + " your only interest?";
+
+                personTwoSays.value = "";
+
+                submitButtonOnlyInterestConfirm.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonOnlyInterestConfirm);
+
+                submitButtonOnlyInterestConfirm.onclick = function()
+                {
+                    submitButtonOnlyInterestConfirm.style.display = "none";
+
+                    if(keywordInFullSentance("yes", personTwoReply))
+                    {
+                        personTwoSays.value = "";
+
+                        conversationStarter();
+                    }
+
+                };
+
+            }
 
             submitButtonYourStoredInterests.onclick = function()
             {
