@@ -260,7 +260,7 @@ submitButton.onclick = function()
     {
         var beforeName = name.search("is");
 
-        name = name.slice(beforeName + 3, name.length);
+        name = name.slice(beforeName + 3);
     }
 
     if(keywordInFullSentance(" ", name))
@@ -268,7 +268,7 @@ submitButton.onclick = function()
         var nameSplit = name.search(" ");
 
         var firstName = name.slice(0, nameSplit);
-        var lastName = name.slice(nameSplit + 1, name.length);
+        var lastName = name.slice(nameSplit + 1);
     }
 
     else
