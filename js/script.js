@@ -277,7 +277,7 @@ submitButton.onclick = function()
         var lastName = "";
     }
 
-    personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + " " + capitalize(lastName) + "! " + secondGreeting[randomString];
+    personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + capitalize(lastName) + "! " + secondGreeting[randomString];
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
