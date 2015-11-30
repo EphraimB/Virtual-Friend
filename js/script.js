@@ -152,6 +152,7 @@ var submitButtonYourStoredInterests = document.createElement("button");
 var submitButtonAnyInterests = document.createElement("button");
 var submitButtonInterestsAgain = document.createElement("button");
 var submitButtonOnlyInterestConfirm = document.createElement("button");
+var submitButtonOnlyInterestConfirmYes = document.createElement("button");
 
 personTwoSays.onkeypress = function(event)
 {
@@ -234,6 +235,11 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 15)
     {
         submitButtonOnlyInterestConfirm.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 16)
+    {
+        submitButtonOnlyInterestConfirmYes.click();
     }
 
 };
@@ -765,9 +771,32 @@ submitButton.onclick = function()
 
                     if(keywordInFullSentance("yes", personTwoReply))
                     {
+                        conversationPart = 16;
+
                         personTwoSays.value = "";
 
-                        conversationStarter();
+                        submitButtonOnlyInterestConfirmYes.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonOnlyInterestConfirmYes);
+
+                        submitButtonOnlyInterestConfirmYes.onclick = function()
+                        {
+                            conversationStarter();
+                        };
+
+                    }
+
+                    else if(keywordInFullSentance("no", personTwoReply))
+                    {
+                        personTwoSays.value = "";
+
+                        
+                    }
+
+                    else
+                    {
+                        personTwoSays.value = "";
+
+                        
                     }
 
                 };
@@ -924,7 +953,7 @@ submitButton.onclick = function()
 
                         submitButtonFour.onclick = function()
                         {
-                            conversationPart = 16;
+                            conversationPart = 17;
 
                             personTwoSays.value = "";
 
