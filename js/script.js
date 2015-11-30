@@ -261,9 +261,14 @@ submitButton.onclick = function()
         var beforeName = name.search("is");
 
         name = name.slice(beforeName + 3, name.length);
+
+        var nameSplit = name.search(" ");
+
+        var firstName = name.slice(0, nameSplit);
+        var lastName = name.slice(nameSplit + 1, name.length);
     }
 
-    personOneTalk.innerHTML = "Hi, " + capitalize(name) + "! " + secondGreeting[randomString];
+    personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + " " + capitalize(lastName) + "! " + secondGreeting[randomString];
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
