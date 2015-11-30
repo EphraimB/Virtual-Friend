@@ -241,6 +241,15 @@ function keywordInFullSentance(keyword, fullSentance)
 
 };
 
+function keyCharacterInFullSentance(keyCharacter, fullSentance)
+{
+    return fullSentance.split("").some(function(findTheKeyCharacter)
+    {
+        return findTheKeyCharacter == keyCharacter;
+    });
+
+};
+
 function capitalize(word)
 {
     return word.charAt(0).toUpperCase() + word.slice(1);
@@ -255,6 +264,7 @@ submitButton.onclick = function()
     var randomString = Math.floor(Math.random() * secondGreeting.length);
 
     var name = personTwoSays.value.toLowerCase();
+    var space;
 
     if(keywordInFullSentance("is", name))
     {
@@ -263,21 +273,23 @@ submitButton.onclick = function()
         name = name.slice(beforeName + 3);
     }
 
-    if(keywordInFullSentance(" ", name))
+    if(keyCharacterInFullSentance(" ", name))
     {
         var nameSplit = name.search(" ");
 
         var firstName = name.slice(0, nameSplit);
         var lastName = name.slice(nameSplit + 1);
+        space = " ";
     }
 
     else
     {
         var firstName = name;
         var lastName = "";
+        space = "";
     }
 
-    personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + capitalize(lastName) + "! " + secondGreeting[randomString];
+    personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + space + capitalize(lastName) + "! " + secondGreeting[randomString];
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
