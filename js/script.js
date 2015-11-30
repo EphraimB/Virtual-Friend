@@ -761,6 +761,7 @@ submitButton.onclick = function()
                 submitButtonOnlyInterestConfirm.onclick = function()
                 {
                     submitButtonOnlyInterestConfirm.style.display = "none";
+                    var personTwoReply = personTwoSays.value.toLowerCase();
 
                     if(keywordInFullSentance("yes", personTwoReply))
                     {
