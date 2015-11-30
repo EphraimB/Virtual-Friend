@@ -241,6 +241,11 @@ function keywordInFullSentance(keyword, fullSentance)
 
 };
 
+function capitalize(word)
+{
+    return word.charAt(0).toUpperCase() + word.slice(1);
+};
+
 submitButton.onclick = function()
 {
     conversationPart = 1;
@@ -258,9 +263,7 @@ submitButton.onclick = function()
         name = name.slice(beforeName + 3, name.length);
     }
 
-    //Todo: Capitalize the name - Issue #18
-
-    personOneTalk.innerHTML = "Hi, " + name + "! " + secondGreeting[randomString];
+    personOneTalk.innerHTML = "Hi, " + capitalize(name) + "! " + secondGreeting[randomString];
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
