@@ -148,6 +148,16 @@ var submitButtonThree = document.createElement("button");
 var submitButtonBored = document.createElement("button");
 var submitButtonMoveOn = document.createElement("button");
 var submitButtonReallyMoveOn = document.createElement("button");
+var submitButtonYourStoredInterests = document.createElement("button");
+var submitButtonAnyInterests = document.createElement("button");
+var submitButtonInterestsAgain = document.createElement("button");
+var submitButtonOnlyInterestConfirm = document.createElement("button");
+var submitButtonRestartInterestCondition = document.createElement("button");
+var submitButtonOtherInterests = document.createElement("button");
+var submitButtonOnlyInterestConfirmYesOrNo = document.createElement("button");
+
+var yourInterests = [];
+var otherInterestsOn = false;
 
 personTwoSays.onkeypress = function(event)
 {
@@ -212,6 +222,41 @@ personTwoSays.onkeypress = function(event)
         submitButtonReallyMoveOn.click();
     }
 
+    else if(event.keyCode == 13 && conversationPart == 12)
+    {
+        submitButtonYourStoredInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 13)
+    {
+        submitButtonAnyInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 14)
+    {
+        submitButtonInterestsAgain.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 15)
+    {
+        submitButtonOnlyInterestConfirm.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 16)
+    {
+        submitButtonRestartInterestCondition.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 17)
+    {
+        submitButtonOtherInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 18)
+    {
+        submitButtonOnlyInterestConfirmYesOrNo.click();
+    }
+
 };
 
 function keywordInFullSentance(keyword, fullSentance)
@@ -223,6 +268,20 @@ function keywordInFullSentance(keyword, fullSentance)
 
 };
 
+function keyCharacterInFullSentance(keyCharacter, fullSentance)
+{
+    return fullSentance.split("").some(function(findTheKeyCharacter)
+    {
+        return findTheKeyCharacter == keyCharacter;
+    });
+
+};
+
+function capitalize(word)
+{
+    return word.charAt(0).toUpperCase() + word.slice(1);
+};
+
 submitButton.onclick = function()
 {
     conversationPart = 1;
@@ -231,7 +290,33 @@ submitButton.onclick = function()
     var secondGreeting = ["How are you doing?", "How are you feeling?", "What's up?"];
     var randomString = Math.floor(Math.random() * secondGreeting.length);
 
-    personOneTalk.innerHTML = "Hi, " + personTwoSays.value + "! " + secondGreeting[randomString];
+    var name = personTwoSays.value.toLowerCase();
+    var space;
+
+    if(keywordInFullSentance("is", name))
+    {
+        var beforeName = name.search("is");
+
+        name = name.slice(beforeName + 3);
+    }
+
+    if(keyCharacterInFullSentance(" ", name))
+    {
+        var nameSplit = name.search(" ");
+
+        var firstName = name.slice(0, nameSplit);
+        var lastName = name.slice(nameSplit + 1);
+        space = " ";
+    }
+
+    else
+    {
+        var firstName = name;
+        var lastName = "";
+        space = "";
+    }
+
+    personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + space + capitalize(lastName) + "! " + secondGreeting[randomString];
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
@@ -245,44 +330,70 @@ submitButton.onclick = function()
 
         var personTwoReply = personTwoSays.value.toLowerCase();
 
-        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("good!", personTwoReply) || keywordInFullSentance("good.", personTwoReply) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("awesome!", personTwoReply) || keywordInFullSentance("awesome.", personTwoReply) || keywordInFullSentance("well", personTwoReply) || keywordInFullSentance("well!", personTwoReply) || keywordInFullSentance("well.", personTwoReply))
+        if(keywordInFullSentance("good", personTwoReply) || keywordInFullSentance("good!", personTwoReply) || keywordInFullSentance("good.", personTwoReply) || keywordInFullSentance("good,", personTwoReply) || keywordInFullSentance("awesome", personTwoReply) || keywordInFullSentance("awesome!", personTwoReply) || keywordInFullSentance("awesome.", personTwoReply) || keywordInFullSentance("awesome,", personTwoReply) || keywordInFullSentance("well", personTwoReply) || keywordInFullSentance("well!", personTwoReply) || keywordInFullSentance("well.", personTwoReply) || keywordInFullSentance("well,", personTwoReply) || keywordInFullSentance("ok", personTwoReply) || keywordInFullSentance("ok!", personTwoReply) || keywordInFullSentance("ok.", personTwoReply) || keywordInFullSentance("okay", personTwoReply) || keywordInFullSentance("okay!", personTwoReply) || keywordInFullSentance("okay.", personTwoReply))
         {
             var personOneReply = ["Nice to hear!", "I'm happy for you!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
             personOneTalk.innerHTML = personOneReply[randomString];
+
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML += " I'm feeling good too!";
+            }
+
             personOneTalk.innerHTML += " What are your interests?";
 
             feeling = "good";
         }
 
-        else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("horrible!", personTwoReply) || keywordInFullSentance("horrible.", personTwoReply) || keywordInFullSentance("bad", personTwoReply) || keywordInFullSentance("bad!", personTwoReply) || keywordInFullSentance("bad.", personTwoReply))
+        else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("horrible!", personTwoReply) || keywordInFullSentance("horrible.", personTwoReply) || keywordInFullSentance("horrible,", personTwoReply) || keywordInFullSentance("bad", personTwoReply) || keywordInFullSentance("bad!", personTwoReply) || keywordInFullSentance("bad.", personTwoReply) || keywordInFullSentance("bad,", personTwoReply))
         {
             var personOneReply = ["I'm sorry to hear that!", "Oh well!"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
             personOneTalk.innerHTML = personOneReply[randomString];
+
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML += " I'm feeling good.";
+            }
+
             personOneTalk.innerHTML += " What are your interests?";
 
             feeling = "bad";
         }
 
-        else if(keywordInFullSentance("bored", personTwoReply) || keywordInFullSentance("bored!", personTwoReply) || keywordInFullSentance("bored.", personTwoReply))
+        else if(keywordInFullSentance("bored", personTwoReply) || keywordInFullSentance("bored!", personTwoReply) || keywordInFullSentance("bored.", personTwoReply) || keywordInFullSentance("bored,", personTwoReply))
         {
             var personOneReply = ["Why are you bored?", "Is everything okay?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
-            personOneTalk.innerHTML = personOneReply[randomString];
+            personOneTalk.innerHTML = "";
+
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML = "I'm feeling good. ";
+            }
+
+            personOneTalk.innerHTML += personOneReply[randomString];
 
             feeling = "bored";
         }
 
-        else if(keywordInFullSentance("tired", personTwoReply) || keywordInFullSentance("tired!", personTwoReply) || keywordInFullSentance("tired.", personTwoReply))
+        else if(keywordInFullSentance("tired", personTwoReply) || keywordInFullSentance("tired!", personTwoReply) || keywordInFullSentance("tired.", personTwoReply) || keywordInFullSentance("tired,", personTwoReply))
         {
             var personOneReply = ["Why are you tired?", "How many hours of sleep did you get last night?"];
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
-            personOneTalk.innerHTML = personOneReply[randomString];
+            personOneTalk.innerHTML = "";
+
+            if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
+            {
+                personOneTalk.innerHTML = "I'm feeling good. ";
+            }
+
+            personOneTalk.innerHTML += personOneReply[randomString];
 
             feeling = "tired";
         }
@@ -293,6 +404,8 @@ submitButton.onclick = function()
             var randomString = Math.floor(Math.random() * personOneReply.length);
 
             personOneTalk.innerHTML = personOneReply[randomString];
+
+            personTwoSays.value = "";
         }
 
         if(feeling == "tired")
@@ -344,7 +457,7 @@ submitButton.onclick = function()
                         {
                             submitButtonYourInterests.style.display = "none";
 
-                            conversationStarter();
+                            interests();
                         };
 
                     }
@@ -424,7 +537,7 @@ submitButton.onclick = function()
                             {
                                 submitButtonInterestsYouSilly.style.display = "none";
 
-                                conversationStarter();
+                                interests();
                             };
 
                         }
@@ -448,7 +561,7 @@ submitButton.onclick = function()
                             {
                                 submitButtonInterests.style.display = "none";
 
-                                conversationStarter();
+                                interests();
                             };
 
                         }
@@ -509,7 +622,7 @@ submitButton.onclick = function()
                         {
                             submitButtonMoveOn.style.display = "none";
 
-                            conversationStarter();
+                            interests();
                         };
 
                     };
@@ -540,7 +653,7 @@ submitButton.onclick = function()
                             {
                                 submitButtonMoveOn.style.display = "none";
 
-                                conversationStarter();
+                                interests();
                             };
 
                         }
@@ -573,7 +686,7 @@ submitButton.onclick = function()
                                 {
                                     submitButtonReallyMoveOn.style.display = "none";
 
-                                    conversationStarter();
+                                    interests();
                                 };
 
                             };
@@ -603,48 +716,204 @@ submitButton.onclick = function()
             {
                 submitButtonThree.style.display = "none";
 
-                conversationStarter();
+                interests();
             };
 
         }
 
+        function interests()
+        {
+            conversationPart = 12;
+
+            var personTwoReply = personTwoSays.value.toLowerCase();
+
+            if(keywordInFullSentance("technology", personTwoReply) || keywordInFullSentance("technology,", personTwoReply))
+            {
+                yourInterests.push("technology");
+            }
+
+            if(keywordInFullSentance("movies", personTwoReply) || keywordInFullSentance("movies,", personTwoReply))
+            {
+                yourInterests.push("movies");
+            }
+
+            if(keywordInFullSentance("sports", personTwoReply) || keywordInFullSentance("sports,", personTwoReply))
+            {
+                yourInterests.push("sports");
+            }
+
+            if(keywordInFullSentance("politics", personTwoReply) || keywordInFullSentance("politics,", personTwoReply))
+            {
+                yourInterests.push("politics");
+            }
+
+            if(keywordInFullSentance("food", personTwoReply) || keywordInFullSentance("food,", personTwoReply))
+            {
+                yourInterests.push("food");
+            }
+
+            if(keywordInFullSentance("music", personTwoReply) || keywordInFullSentance("music,", personTwoReply))
+            {
+                yourInterests.push("music");
+            }
+
+            if(yourInterests.length > 1)
+            {
+                personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which is your favorite?";
+
+                personTwoSays.value = "";
+
+                submitButtonYourStoredInterests.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonYourStoredInterests);
+
+                submitButtonYourStoredInterests.onclick = function()
+                {
+                    submitButtonYourStoredInterests.style.display = "none";
+
+                    conversationStarter();
+                };
+
+            }
+
+            else if(yourInterests.length == 1 && otherInterestsOn == false)
+            {
+                conversationPart = 15;
+
+                personOneTalk.innerHTML = "Is " + yourInterests + " your only interest?";
+
+                personTwoSays.value = "";
+
+                submitButtonOnlyInterestConfirm.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonOnlyInterestConfirm);
+
+                submitButtonOnlyInterestConfirm.onclick = function interestConfirm()
+                {
+                    submitButtonOnlyInterestConfirm.style.display = "none";
+                    var personTwoReply = personTwoSays.value.toLowerCase();
+
+                    if(keywordInFullSentance("yes", personTwoReply))
+                    {
+                            personTwoSays.value = yourInterests;
+
+                            conversationStarter();
+                    }
+
+                    else if(keywordInFullSentance("no", personTwoReply))
+                    {
+                        conversationPart = 17;
+
+                        personTwoSays.value = "";
+
+                        personOneTalk.innerHTML = "Then what other interests do you have?";
+
+                        submitButtonOtherInterests.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonOtherInterests);
+
+                        submitButtonOtherInterests.onclick = function()
+                        {
+                            submitButtonOtherInterests.style.display = "none";
+
+                            otherInterestsOn = true;
+
+                            interests();
+                        };
+
+                    }
+
+                    else
+                    {
+                        conversationPart = 18;
+
+                        personTwoSays.value = "";
+
+                        personOneTalk.innerHTML = "Either yes or no.";
+
+                        submitButtonOnlyInterestConfirmYesOrNo.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonOnlyInterestConfirmYesOrNo);
+
+                        submitButtonOnlyInterestConfirmYesOrNo.style.display = "inline";
+
+                        submitButtonOnlyInterestConfirmYesOrNo.onclick = function()
+                        {
+                            submitButtonOnlyInterestConfirmYesOrNo.style.display = "none";
+
+                            interestConfirm();
+                        };
+
+                    }
+
+                };
+
+            }
+
+            else
+            {
+                conversationPart = 16;
+
+                personTwoSays.value = "";
+
+                personOneTalk.innerHTML = "Please pick a topic that I know of";
+
+                submitButtonRestartInterestCondition.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonRestartInterestCondition);
+
+                submitButtonRestartInterestCondition.style.display = "inline";
+
+                submitButtonRestartInterestCondition.onclick = function()
+                {
+                    submitButtonRestartInterestCondition.style.display = "none";
+
+                    interests();
+                };
+
+            }
+
+        };
+
         function conversationStarter()
         {
             var personTwoReply = personTwoSays.value.toLowerCase();
+            var grammer;
 
             if(keywordInFullSentance("technology", personTwoReply))
             {
                 var topic = "1019";
+                grammer = "about ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("movies", personTwoReply))
             {
                 var topic = "1045";
+                grammer = "about ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("sports", personTwoReply))
             {
                 var topic = "1055";
+                grammer = "that ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("politics", personTwoReply))
             {
                 var topic = "1014";
+                grammer = "about the ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("food", personTwoReply))
             {
                 var topic = "1053";
+                grammer = "that ";
                 topicFeed();
             }
 
             else if(keywordInFullSentance("music", personTwoReply))
             {
                 var topic = "1039";
+                grammer = "about ";
                 topicFeed();
             }
 
@@ -656,6 +925,8 @@ submitButton.onclick = function()
                 var randomString = Math.floor(Math.random() * personOneReply.length);
 
                 personOneTalk.innerHTML = personOneReply[randomString];
+
+                personTwoSays.value = "";
 
                 submitButtonRestartTopicCondition.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonRestartTopicCondition);
@@ -697,11 +968,50 @@ submitButton.onclick = function()
 
                         var titleValue = title.childNodes[0];
 
-                        personOneTalk.innerHTML = "Have you heard that " + titleValue.nodeValue + "?";
+                        var topicStarter = titleValue.nodeValue.toLowerCase();
+
+                        function topicKeywordInFullSentance(keyword)
+                        {
+                            return topicStarter.split(" ").some(function(findTheKeyword)
+                            {
+                                return findTheKeyword == keyword;
+                            });
+
+                        };
+
+                        function topicKeyCharacterInFullSentance(keyCharacter)
+                        {
+                            return topicStarter.split("").some(function(findTheKeyCharacter)
+                            {
+                                return findTheKeyCharacter == keyCharacter;
+                            });
+
+                        };
+
+                        if(topicKeyCharacterInFullSentance("?"))
+                        {
+                            titleValue.deleteData(topicStarter.length - 1, 1);
+                        }
+
+                        if(topicKeywordInFullSentance("and"))
+                        {
+                            var start = topicStarter.search("and");
+
+                            titleValue.deleteData(start - 1, topicStarter.length - start);
+                        }
+
+                        if(topicKeywordInFullSentance("what") && topicKeywordInFullSentance("is"))
+                        {
+                            var startTwo = topicStarter.search("what");
+
+                            titleValue.deleteData(startTwo, 7);
+                        }
+
+                        personOneTalk.innerHTML = "Have you heard " + grammer + titleValue.nodeValue + "?";
 
                         submitButtonFour.onclick = function()
                         {
-                            conversationPart = 12;
+                            conversationPart = 19;
 
                             personTwoSays.value = "";
 
@@ -709,11 +1019,6 @@ submitButton.onclick = function()
 
                             personOneTalk.innerHTML = description.childNodes[0].nodeValue;
                         };
-
-                    }
-
-                    else
-                    {
 
                     }
 
