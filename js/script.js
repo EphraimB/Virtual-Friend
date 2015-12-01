@@ -154,6 +154,7 @@ var submitButtonInterestsAgain = document.createElement("button");
 var submitButtonOnlyInterestConfirm = document.createElement("button");
 var submitButtonRestartInterestCondition = document.createElement("button");
 var submitButtonOtherInterests = document.createElement("button");
+var submitButtonOnlyInterestConfirmYesOrNo = document.createElement("button");
 
 var yourInterests = [];
 var otherInterestsOn = false;
@@ -249,6 +250,11 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 17)
     {
         submitButtonOtherInterests.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 18)
+    {
+        submitButtonOnlyInterestConfirmYesOrNo.click();
     }
 
 };
@@ -780,7 +786,7 @@ submitButton.onclick = function()
                 submitButtonOnlyInterestConfirm.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonOnlyInterestConfirm);
 
-                submitButtonOnlyInterestConfirm.onclick = function()
+                submitButtonOnlyInterestConfirm.onclick = function interestConfirm()
                 {
                     submitButtonOnlyInterestConfirm.style.display = "none";
                     var personTwoReply = personTwoSays.value.toLowerCase();
@@ -816,9 +822,24 @@ submitButton.onclick = function()
 
                     else
                     {
+                        conversationPart = 18;
+
                         personTwoSays.value = "";
 
-                        
+                        personOneTalk.innerHTML = "Either yes or no.";
+
+                        submitButtonOnlyInterestConfirmYesOrNo.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonOnlyInterestConfirmYesOrNo);
+
+                        submitButtonOnlyInterestConfirmYesOrNo.style.display = "inline";
+
+                        submitButtonOnlyInterestConfirmYesOrNo.onclick = function()
+                        {
+                            submitButtonOnlyInterestConfirmYesOrNo.style.display = "none";
+
+                            interestConfirm();
+                        };
+
                     }
 
                 };
@@ -990,7 +1011,7 @@ submitButton.onclick = function()
 
                         submitButtonFour.onclick = function()
                         {
-                            conversationPart = 18;
+                            conversationPart = 19;
 
                             personTwoSays.value = "";
 
