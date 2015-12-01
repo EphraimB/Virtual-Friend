@@ -751,7 +751,7 @@ submitButton.onclick = function()
                 yourInterests.push("music");
             }
 
-            if((yourInterests.length > 1 && otherInterestsOn == false) || ((yourInterests.length - 1) > 1 && otherInterestsOn == true))
+            if(yourInterests.length > 1)
             {
                 personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which is your favorite?";
 
