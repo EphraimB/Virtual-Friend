@@ -759,6 +759,14 @@ submitButton.onclick = function()
 
                 submitButtonYourStoredInterests.innerHTML = "Submit";
                 personTwoTalk.appendChild(submitButtonYourStoredInterests);
+
+                submitButtonYourStoredInterests.onclick = function()
+                {
+                    submitButtonYourStoredInterests.style.display = "none";
+
+                    conversationStarter();
+                };
+
             }
 
             else if(yourInterests.length == 1 && otherInterestsOn == false)
@@ -838,13 +846,6 @@ submitButton.onclick = function()
                 };
 
             }
-
-            submitButtonYourStoredInterests.onclick = function()
-            {
-                submitButtonYourStoredInterests.style.display = "none";
-
-                conversationStarter();
-            };
 
         };
 
