@@ -156,6 +156,7 @@ var submitButtonRestartInterestCondition = document.createElement("button");
 var submitButtonOtherInterests = document.createElement("button");
 
 var yourInterests = [];
+var otherInterestsOn = false;
 
 personTwoSays.onkeypress = function(event)
 {
@@ -750,7 +751,7 @@ submitButton.onclick = function()
                 yourInterests.push("music");
             }
 
-            if(yourInterests.length > 1)
+            if((yourInterests.length > 1 && otherInterestsOn == false) || ((yourInterests.length - 1) > 1 && otherInterestsOn == true))
             {
                 personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which is your favorite?";
 
@@ -760,7 +761,7 @@ submitButton.onclick = function()
                 personTwoTalk.appendChild(submitButtonYourStoredInterests);
             }
 
-            else if(yourInterests.length == 1)
+            else if(yourInterests.length == 1 && otherInterestsOn == false)
             {
                 conversationPart = 15;
 
@@ -797,6 +798,8 @@ submitButton.onclick = function()
                         submitButtonOtherInterests.onclick = function()
                         {
                             submitButtonOtherInterests.style.display = "none";
+
+                            otherInterestsOn = true;
 
                             interests();
                         };
