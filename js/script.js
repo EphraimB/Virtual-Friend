@@ -153,6 +153,9 @@ var submitButtonAnyInterests = document.createElement("button");
 var submitButtonInterestsAgain = document.createElement("button");
 var submitButtonOnlyInterestConfirm = document.createElement("button");
 var submitButtonRestartInterestCondition = document.createElement("button");
+var submitButtonOtherInterests = document.createElement("button");
+
+var yourInterests = [];
 
 personTwoSays.onkeypress = function(event)
 {
@@ -240,6 +243,11 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 16)
     {
         submitButtonRestartInterestCondition.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 17)
+    {
+        submitButtonOtherInterests.click();
     }
 
 };
@@ -711,7 +719,6 @@ submitButton.onclick = function()
             conversationPart = 12;
 
             var personTwoReply = personTwoSays.value.toLowerCase();
-            var yourInterests = [];
 
             if(keywordInFullSentance("technology", personTwoReply) || keywordInFullSentance("technology,", personTwoReply))
             {
@@ -778,9 +785,22 @@ submitButton.onclick = function()
 
                     else if(keywordInFullSentance("no", personTwoReply))
                     {
+                        conversationPart = 17;
+
                         personTwoSays.value = "";
 
-                        
+                        personOneTalk.innerHTML = "Then what other interests do you have?";
+
+                        submitButtonOtherInterests.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonOtherInterests);
+
+                        submitButtonOtherInterests.onclick = function()
+                        {
+                            submitButtonOtherInterests.style.display = "none";
+
+                            interests();
+                        };
+
                     }
 
                     else
