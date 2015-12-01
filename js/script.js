@@ -152,7 +152,7 @@ var submitButtonYourStoredInterests = document.createElement("button");
 var submitButtonAnyInterests = document.createElement("button");
 var submitButtonInterestsAgain = document.createElement("button");
 var submitButtonOnlyInterestConfirm = document.createElement("button");
-var submitButtonOnlyInterestConfirmYes = document.createElement("button");
+var submitButtonRestartInterestCondition = document.createElement("button");
 
 personTwoSays.onkeypress = function(event)
 {
@@ -239,7 +239,7 @@ personTwoSays.onkeypress = function(event)
 
     else if(event.keyCode == 13 && conversationPart == 16)
     {
-        submitButtonOnlyInterestConfirmYes.click();
+        submitButtonRestartInterestCondition.click();
     }
 
 };
@@ -771,18 +771,9 @@ submitButton.onclick = function()
 
                     if(keywordInFullSentance("yes", personTwoReply))
                     {
-                        conversationPart = 16;
+                            personTwoSays.value = yourInterests;
 
-                        personTwoSays.value = "";
-
-                        submitButtonOnlyInterestConfirmYes.innerHTML = "Submit";
-                        personTwoTalk.appendChild(submitButtonOnlyInterestConfirmYes);
-
-                        submitButtonOnlyInterestConfirmYes.onclick = function()
-                        {
                             conversationStarter();
-                        };
-
                     }
 
                     else if(keywordInFullSentance("no", personTwoReply))
@@ -799,6 +790,28 @@ submitButton.onclick = function()
                         
                     }
 
+                };
+
+            }
+
+            else
+            {
+                conversationPart = 16;
+
+                personTwoSays.value = "";
+
+                personOneTalk.innerHTML = "Please pick a topic that I know of";
+
+                submitButtonRestartInterestCondition.innerHTML = "Submit";
+                personTwoTalk.appendChild(submitButtonRestartInterestCondition);
+
+                submitButtonRestartInterestCondition.style.display = "inline";
+
+                submitButtonRestartInterestCondition.onclick = function()
+                {
+                    submitButtonRestartInterestCondition.style.display = "none";
+
+                    interests();
                 };
 
             }
@@ -953,7 +966,7 @@ submitButton.onclick = function()
 
                         submitButtonFour.onclick = function()
                         {
-                            conversationPart = 17;
+                            conversationPart = 18;
 
                             personTwoSays.value = "";
 
