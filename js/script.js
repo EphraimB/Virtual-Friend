@@ -1043,8 +1043,22 @@ submitButton.onclick = function()
                                     var query = personTwoReply.slice(begin + 3);
 
                                     //Request answers from Duck Duck Go
+                                    var answersRequest = new XMLHttpRequest();
+                                    answersRequest.open("GET", "http://www.duckduckgo.com/?q=" + query + "ia=about&iax=1", true);
+                                    answersRequest.send();
 
-                                    personOneTalk.innerHTML = query;
+                                    answersRequest.onreadystatechange = function()
+                                    {
+
+                                        if(answersRequest.readyState == 4 && answersRequest.status == 200)
+                                        {
+                                            var queryAnswer = answersRequest.responseText;
+
+                                            personOneTalk.innerHTML = queryAnswer;
+                                        }
+
+                                    };
+
                                 }
 
                             };
