@@ -155,6 +155,7 @@ var submitButtonOnlyInterestConfirm = document.createElement("button");
 var submitButtonRestartInterestCondition = document.createElement("button");
 var submitButtonOtherInterests = document.createElement("button");
 var submitButtonOnlyInterestConfirmYesOrNo = document.createElement("button");
+var submitButtonQuestions = document.createElement("button");
 
 var yourInterests = [];
 var otherInterestsOn = false;
@@ -255,6 +256,11 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 18)
     {
         submitButtonOnlyInterestConfirmYesOrNo.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 19)
+    {
+        submitButtonQuestions.click();
     }
 
 };
@@ -1013,11 +1019,36 @@ submitButton.onclick = function()
                         {
                             conversationPart = 19;
 
+                            submitButtonFour.style.display = "none";
                             personTwoSays.value = "";
 
                             var description = xmlDoc.getElementsByTagName("description")[1];
 
                             personOneTalk.innerHTML = description.childNodes[0].nodeValue;
+
+                            submitButtonQuestions.innerHTML = "Submit";
+                            personTwoTalk.appendChild(submitButtonQuestions);
+
+                            submitButtonQuestions.onclick = function()
+                            {
+                                conversationPart = 20;
+
+                                var personTwoReply = personTwoSays.value.toLowerCase();
+
+                                submitButtonQuestions.style.display = "none";
+
+                                if(keywordInFullSentance("what", personTwoReply) && keywordInFullSentance("is", personTwoReply))
+                                {
+                                    var begin = personTwoReply.search("is");
+                                    var query = personTwoReply.slice(begin + 3);
+
+                                    //Request answers from Duck Duck Go
+
+                                    personOneTalk.innerHTML = query;
+                                }
+
+                            };
+
                         };
 
                     }
