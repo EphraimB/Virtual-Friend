@@ -1042,9 +1042,9 @@ submitButton.onclick = function()
                                     var begin = personTwoReply.search("is");
                                     var query = personTwoReply.slice(begin + 3);
 
-                                    //Request answers from Duck Duck Go
+                                    //Request instant answers
                                     var answersRequest = new XMLHttpRequest();
-                                    answersRequest.open("GET", "http://www.duckduckgo.com/?q=" + query + "ia=about&iax=1", true);
+                                    answersRequest.open("GET", "http://api.bing.net/search?q=" + query, true);
                                     answersRequest.send();
 
                                     answersRequest.onreadystatechange = function()

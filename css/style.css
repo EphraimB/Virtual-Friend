@@ -16,7 +16,7 @@
 #personOneLeftArm{position: absolute; left: 4%; top: 41%; width: 7%; height: 4%; background-color: grey;}
 #personOneRightArm{position: absolute; left: 18%; top: 41%; width: 7%; height: 4%; background-color: grey;}
 
-#personOneTalk{position: absolute; left: 15%; top: 19%; width: auto; max-width: 20%; height: auto; padding: 1%; border-radius: 25%; background-color: green; text-align: center;}
+#personOneTalk{position: absolute; left: 15%; top: 19%; width: auto; max-width: 20%; height: auto; padding: 1%; border-radius: 25%; background-color: green; opacity: 0.6; text-align: center;}
 
 #personTwoBody{position: absolute; left: 49%; top: 23%; width: 9%; height: 40%; border-radius: 25%; background-color: grey;}
 
@@ -26,8 +26,8 @@
 #personTwoLeftArm{position: absolute; left: 42%; top: 41%; width: 7%; height: 4%; background-color: grey;}
 #personTwoRightArm{position: absolute; left: 57%; top: 41%; width: 7%; height: 4%; background-color: grey;}
 
-#personTwoTalk{position: absolute; left: 54%; top: 19%; width: auto; height: auto; padding: 1%; border-radius: 25%; background-color: green; text-align: center;}
+#personTwoTalk{position: absolute; left: 54%; top: 19%; width: auto; height: auto; padding: 1%; border-radius: 25%; background-color: green; opacity: 0.6; text-align: center;}
 
-#clock{position: absolute; left: 78%; top: 34%; width: auto; height: auto; padding: 1%; background-color: black; color: white; text-align: center; font-size: 19pt;}
+#clock{position: absolute; left: 78%; top: 34%; width: auto; height: auto; padding: 1%; background-color: black; color: white; opacity: 0.6; text-align: center; font-size: 159%;}
 
-#version{position: absolute; left: 25%; top: 90%; color: red; font-size: 20pt; font-weight: bold;}
+#version{position: absolute; left: 25%; top: 90%; color: red; opacity: 0.6; font-size: 160%; font-weight: bold;}
