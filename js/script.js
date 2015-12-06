@@ -149,7 +149,48 @@ function updateClock()
 
 };
 
+function personOneEyeContact()
+{
+    personOneFace.style.transform = "rotate(-10deg)";
+
+    personOneBody.style.transform = "rotate(-10deg)";
+    personOneBody.style.left = "13%";
+    personOneBody.style.top = "22%";
+
+    personOneLeftLeg.style.transform = "rotate(-10deg)";
+    personOneLeftLeg.style.left = "17.5%";
+    personOneLeftLeg.style.top = "62%";
+
+    personOneRightLeg.style.transform = "rotate(-10deg)";
+    personOneRightLeg.style.left = "22.5%";
+    personOneRightLeg.style.top = "60%";
+
+    personOneLeftArm.style.transform = "rotate(-10deg)";
+    personOneLeftArm.style.left = "6%";
+    personOneLeftArm.style.top = "39%";
+
+    personOneRightArm.style.transform = "rotate(-10deg)";
+    personOneRightArm.style.left = "21%";
+    personOneRightArm.style.top = "35%";
+
+    personOneTalk.style.transform = "rotate(-10deg)";
+    personOneTalk.style.left = "16%";
+    personOneTalk.style.top = "16%";
+};
+
+function personOneNoEyeContact()
+{
+    personOneFace.style.transform = "rotate(0deg)";
+    personOneBody.style.transform = "rotate(0deg) translate(0%)";
+    personOneLeftLeg.style.transform = "rotate(0deg) translate(0%, 0%)";
+    personOneRightLeg.style.transform = "rotate(0deg) translate(0%)";
+    personOneLeftArm.style.transform = "rotate(0deg) translate(0%)";
+    personOneRightArm.style.transform = "rotate(0deg) translate(0%, 0%)";
+    personOneTalk.style.transform = "rotate(0deg) translate(0%, 0%)";
+};
+
 updateClock();
+personOneEyeContact();
 
 personOneTalk.innerHTML = greeting + "! What's your name?";
 
