@@ -32,5 +32,5 @@
 
 #version{position: absolute; left: 25%; top: 90%; color: yellow; opacity: 0.6; font-size: 160%; font-weight: bold;}
 
-#submitButton{border: 1px solid red; background-color: rgb(128, 0, 0); color: white; width: auto; height: auto; padding: 5%;}
-#submitButton:hover{background-color: red;}
+.submitButton{border: 1px solid red; background-color: rgb(128, 0, 0); color: white; width: auto; height: auto; padding: 5%; margin: 1%;}
+.submitButton:hover{background-color: red;}
