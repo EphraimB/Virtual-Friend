@@ -155,15 +155,15 @@ function personOneEyeContact()
 
     personOneBody.style.transform = "rotate(-10deg)";
     personOneBody.style.left = "13%";
-    personOneBody.style.top = "22%";
+    personOneBody.style.top = "22.5%";
 
     personOneLeftLeg.style.transform = "rotate(-10deg)";
     personOneLeftLeg.style.left = "17.5%";
-    personOneLeftLeg.style.top = "62%";
+    personOneLeftLeg.style.top = "62.5%";
 
     personOneRightLeg.style.transform = "rotate(-10deg)";
     personOneRightLeg.style.left = "22.5%";
-    personOneRightLeg.style.top = "60%";
+    personOneRightLeg.style.top = "60.5%";
 
     personOneLeftArm.style.transform = "rotate(-10deg)";
     personOneLeftArm.style.left = "6%";
