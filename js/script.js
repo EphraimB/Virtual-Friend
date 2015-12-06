@@ -181,12 +181,32 @@ function personOneEyeContact()
 function personOneNoEyeContact()
 {
     personOneFace.style.transform = "rotate(0deg)";
-    personOneBody.style.transform = "rotate(0deg) translate(0%)";
-    personOneLeftLeg.style.transform = "rotate(0deg) translate(0%, 0%)";
-    personOneRightLeg.style.transform = "rotate(0deg) translate(0%)";
-    personOneLeftArm.style.transform = "rotate(0deg) translate(0%)";
-    personOneRightArm.style.transform = "rotate(0deg) translate(0%, 0%)";
-    personOneTalk.style.transform = "rotate(0deg) translate(0%, 0%)";
+    personOneFace.style.left = "11%";
+    personOneFace.style.top = "10%";
+
+    personOneBody.style.transform = "rotate(0deg)";
+    personOneBody.style.left = "10%";
+    personOneBody.style.top = "23%";
+
+    personOneLeftLeg.style.transform = "rotate(0deg)";
+    personOneLeftLeg.style.left = "11%";
+    personOneLeftLeg.style.top = "63%";
+
+    personOneRightLeg.style.transform = "rotate(0deg)";
+    personOneRightLeg.style.left = "16%";
+    personOneRightLeg.style.top = "63%";
+
+    personOneLeftArm.style.transform = "rotate(0deg)";
+    personOneLeftArm.style.left = "4%";
+    personOneLeftArm.style.top = "41%";
+
+    personOneRightArm.style.transform = "rotate(0deg)";
+    personOneRightArm.style.left = "18%";
+    personOneRightArm.style.top = "41%";
+
+    personOneTalk.style.transform = "rotate(0deg)";
+    personOneTalk.style.left = "15%";
+    personOneTalk.style.top = "19%";
 };
 
 updateClock();
