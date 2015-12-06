@@ -11,6 +11,9 @@ var personTwoRightArm = document.getElementById("personTwoRightArm");
 var personTwoLeftLeg = document.getElementById("personTwoLeftLeg");
 var personTwoRightLeg = document.getElementById("personTwoRightLeg");
 var clock = document.getElementById("clock");
+var sky = document.getElementById("sky");
+var ground = document.getElementById("ground");
+var star = document.getElementById("star");
 
 var greeting;
 
@@ -67,45 +70,62 @@ function updateClock()
 
     clock.innerHTML = currentHoursTwelveHourMode + ":" + currentMinutesCorrectlyFormatted + " " + AMOrPM;
 
-    var image;
+    var skyColor;
+    var groundColor;
+    var starType;
 
     if((currentHours >= 6) && (currentHours < 12))
     {
-        image = "url(images/morning.jpg)";
+        skyColor = "light blue";
+        groundColor = "light green";
+        starType = "yellow";
     }
 
     else if((currentHours == 5) && (currentMinutes >= 50))
     {
-        image = "url(images/sunrise.jpg)";
+        skyColor = "pink";
+        groundColor = "light green";
+        starType = "light yellow";
     }
 
     else if((currentHours == 17) && (currentMinutes >= 50))
     {
-        image = "url(images/sunset.jpg)";
+        skyColor = "pink";
+        groundColor = "light green";
+        starType = "red";
     }
 
     else if((currentHours >= 12) && (currentHours <= 17))
     {
-        image = "url(images/afternoon.jpg)";
+        skyColor = "blue";
+        groundColor = "rgb(0, 127, 0)";
+        starType = "yellow";
     }
 
     else if((currentHours >= 18) && (currentHours < 24))
     {
-        image = "url(images/night.jpg)";
+        skyColor = "black";
+        groundColor = "rgb(0, 75, 0)";
+        starType = "white";
     }
 
     else if((currentHours >= 0) && (currentHours <= 5))
     {
-        image = "url(images/night.jpg)";
+        skyColor = "black";
+        groundColor = "rgb(0, 75, 0)";
+        starType = "white";
     }
 
     else
     {
-        image = "";
+        skyColor = "";
+        groundColor = "";
+        starType = "";
     }
 
-    document.body.style.background = image + "no-repeat center center fixed";
-    document.body.style.backgroundSize = "100% 100%";
+    sky.style.background = skyColor;
+    ground.style.background = groundColor;
+    star.style.background = starType;
 
     if((currentHours >= 0) && (currentHours < 12))
     {
