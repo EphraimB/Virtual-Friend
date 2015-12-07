@@ -76,28 +76,28 @@ function updateClock()
 
     if((currentHours >= 6) && (currentHours < 12))
     {
-        skyColor = "light blue";
-        groundColor = "light green";
+        skyColor = "rgb(0, 0, 255)";
+        groundColor = "rgb(0, 255, 0)";
         starType = "yellow";
     }
 
     else if((currentHours == 5) && (currentMinutes >= 50))
     {
         skyColor = "pink";
-        groundColor = "light green";
+        groundColor = "rgb(0, 255, 0)";
         starType = "light yellow";
     }
 
     else if((currentHours == 17) && (currentMinutes >= 50))
     {
         skyColor = "pink";
-        groundColor = "light green";
-        starType = "red";
+        groundColor = "rgb(0, 255, 0)";
+        starType = "rgb(175, 0, 0)";
     }
 
     else if((currentHours >= 12) && (currentHours <= 17))
     {
-        skyColor = "blue";
+        skyColor = "rgb(0, 0, 127)";
         groundColor = "rgb(0, 127, 0)";
         starType = "yellow";
     }
@@ -151,66 +151,37 @@ function updateClock()
 
 function personOneEyeContact()
 {
-    personOneFace.style.transform = "rotate(-10deg)";
+    personOneFace.style.boxShadow = "-10px 2px 20px grey";
+    personOneBody.style.boxShadow = "-10px 2px 20px grey";
+    personOneLeftLeg.style.boxShadow = "-10px 2px 20px grey";
+    personOneRightLeg.style.boxShadow = "-10px 2px 20px grey";
+    personOneLeftArm.style.boxShadow = "-10px 2px 20px grey";
+};
 
-    personOneBody.style.transform = "rotate(-10deg)";
-    personOneBody.style.left = "13%";
-    personOneBody.style.top = "22.5%";
+function personOneShakingHead()
+{
+    personOneFace.style.transform = "rotate(-30deg)";
+    personOneFace.style.transform = "rotate(0deg)";
+    personOneFace.style.transform = "rotate(30deg)";
+    personOneFace.style.transform = "rotate(0deg)";
+};
 
-    personOneLeftLeg.style.transform = "rotate(-10deg)";
-    personOneLeftLeg.style.left = "17.5%";
-    personOneLeftLeg.style.top = "62.5%";
+function personOneNodingHead()
+{
 
-    personOneRightLeg.style.transform = "rotate(-10deg)";
-    personOneRightLeg.style.left = "22.5%";
-    personOneRightLeg.style.top = "60.5%";
-
-    personOneLeftArm.style.transform = "rotate(-10deg)";
-    personOneLeftArm.style.left = "6%";
-    personOneLeftArm.style.top = "39%";
-
-    personOneRightArm.style.transform = "rotate(-10deg)";
-    personOneRightArm.style.left = "21%";
-    personOneRightArm.style.top = "35%";
-
-    personOneTalk.style.transform = "rotate(-10deg)";
-    personOneTalk.style.left = "16%";
-    personOneTalk.style.top = "16%";
 };
 
 function personOneNoEyeContact()
 {
-    personOneFace.style.transform = "rotate(0deg)";
-    personOneFace.style.left = "11%";
-    personOneFace.style.top = "10%";
-
-    personOneBody.style.transform = "rotate(0deg)";
-    personOneBody.style.left = "10%";
-    personOneBody.style.top = "23%";
-
-    personOneLeftLeg.style.transform = "rotate(0deg)";
-    personOneLeftLeg.style.left = "11%";
-    personOneLeftLeg.style.top = "63%";
-
-    personOneRightLeg.style.transform = "rotate(0deg)";
-    personOneRightLeg.style.left = "16%";
-    personOneRightLeg.style.top = "63%";
-
-    personOneLeftArm.style.transform = "rotate(0deg)";
-    personOneLeftArm.style.left = "4%";
-    personOneLeftArm.style.top = "41%";
-
-    personOneRightArm.style.transform = "rotate(0deg)";
-    personOneRightArm.style.left = "18%";
-    personOneRightArm.style.top = "41%";
-
-    personOneTalk.style.transform = "rotate(0deg)";
-    personOneTalk.style.left = "15%";
-    personOneTalk.style.top = "19%";
+    personOneFace.style.boxShadow = "0px 0px 0px";
+    personOneBody.style.boxShadow = "0px 0px 0px";
+    personOneLeftLeg.style.boxShadow = "0px 0px 0px";
+    personOneRightLeg.style.boxShadow = "0px 0px 0px";
+    personOneLeftArm.style.boxShadow = "0px 0px 0px";
+    personOneRightArm.style.boxShadow = "0px 0px 0px";
 };
 
 updateClock();
-personOneEyeContact();
 
 personOneTalk.innerHTML = greeting + "! What's your name?";
 
@@ -220,40 +191,58 @@ var conversationPart = 0;
 
 var submitButtonTwo = document.createElement("div");
 submitButtonTwo.setAttribute("class", "submitButton");
+
 var submitButtonTired = document.createElement("div");
 submitButtonTired.setAttribute("class", "submitButton");
+
 var submitButtonYourInterests = document.createElement("div");
 submitButtonYourInterests.setAttribute("class", "submitButton");
+
 var submitButtonRestartTopicCondition = document.createElement("div");
 submitButtonRestartTopicCondition.setAttribute("class", "submitButton");
+
 var submitButtonInterestsYouSilly = document.createElement("div");
 submitButtonInterestsYouSilly.setAttribute("class", "submitButton");
+
 var submitButtonInterests = document.createElement("div");
 submitButtonInterests.setAttribute("class", "submitButton");
+
 var submitButtonFour = document.createElement("div");
 submitButtonFour.setAttribute("class", "submitButton");
+
 var submitButtonThree = document.createElement("div");
 submitButtonThree.setAttribute("class", "submitButton");
+
 var submitButtonBored = document.createElement("div");
 submitButtonBored.setAttribute("class", "submitButton");
+
 var submitButtonMoveOn = document.createElement("div");
 submitButtonMoveOn.setAttribute("class", "submitButton");
+
 var submitButtonReallyMoveOn = document.createElement("div");
 submitButtonReallyMoveOn.setAttribute("class", "submitButton");
+
 var submitButtonYourStoredInterests = document.createElement("div");
 submitButtonYourStoredInterests.setAttribute("class", "submitButton");
+
 var submitButtonAnyInterests = document.createElement("div");
 submitButtonAnyInterests.setAttribute("class", "submitButton");
+
 var submitButtonInterestsAgain = document.createElement("div");
 submitButtonInterestsAgain.setAttribute("class", "submitButton");
+
 var submitButtonOnlyInterestConfirm = document.createElement("div");
 submitButtonOnlyInterestConfirm.setAttribute("class", "submitButton");
+
 var submitButtonRestartInterestCondition = document.createElement("div");
 submitButtonRestartInterestCondition.setAttribute("class", "submitButton");
+
 var submitButtonOtherInterests = document.createElement("div");
 submitButtonOtherInterests.setAttribute("class", "submitButton");
+
 var submitButtonOnlyInterestConfirmYesOrNo = document.createElement("div");
 submitButtonOnlyInterestConfirmYesOrNo.setAttribute("class", "submitButton");
+
 var submitButtonQuestions = document.createElement("div");
 submitButtonQuestions.setAttribute("class", "submitButton");
 
