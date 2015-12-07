@@ -384,6 +384,40 @@ function capitalize(word)
     return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
+function multipleInterests(interests)
+{
+    var firstInterest;
+
+    if(keywordInFullSentance("is", interests))
+    {
+        var findInterestInFullSentance = interest.search("is");
+
+        firstInterest = interest.slice(findInterestInFullSentance + 3)
+    }
+
+    else
+    {
+        firstInterest = interests;
+    }
+
+    if(keyCharacterInFullSentance(" ", firstInterest))
+    {
+        var recognizeMultipleInterests = interests.search(" ");
+
+        firstInterest = interests.slice(findInterestInFullSentance + 3, recognizeMultipleInterests);
+
+        var secondInterest = interests.slice(recognizeMultipleInterests + 1);
+
+        return firstInterest + "," + secondInterest;
+    }
+
+    else
+    {
+        return firstInterest;
+    }
+
+};
+
 submitButton.onclick = function()
 {
     conversationPart = 1;
@@ -829,35 +863,10 @@ submitButton.onclick = function()
 
             var personTwoReply = personTwoSays.value.toLowerCase();
 
-            if(keywordInFullSentance("technology", personTwoReply) || keywordInFullSentance("technology,", personTwoReply))
-            {
-                yourInterests.push("technology");
-            }
+            yourInterests.push(multipleInterests(personTwoReply));
 
-            if(keywordInFullSentance("movies", personTwoReply) || keywordInFullSentance("movies,", personTwoReply))
-            {
-                yourInterests.push("movies");
-            }
-
-            if(keywordInFullSentance("sports", personTwoReply) || keywordInFullSentance("sports,", personTwoReply))
-            {
-                yourInterests.push("sports");
-            }
-
-            if(keywordInFullSentance("politics", personTwoReply) || keywordInFullSentance("politics,", personTwoReply))
-            {
-                yourInterests.push("politics");
-            }
-
-            if(keywordInFullSentance("food", personTwoReply) || keywordInFullSentance("food,", personTwoReply))
-            {
-                yourInterests.push("food");
-            }
-
-            if(keywordInFullSentance("music", personTwoReply) || keywordInFullSentance("music,", personTwoReply))
-            {
-                yourInterests.push("music");
-            }
+            alert(yourInterests);
+            alert(yourInterests.length);
 
             if(yourInterests.length > 1)
             {
