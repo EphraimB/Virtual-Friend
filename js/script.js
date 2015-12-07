@@ -386,36 +386,21 @@ function capitalize(word)
 
 function multipleInterests(interests)
 {
-    var firstInterest;
 
     if(keywordInFullSentance("is", interests))
     {
         var findInterestInFullSentance = interest.search("is");
 
-        firstInterest = interest.slice(findInterestInFullSentance + 3)
+        interests = interests.slice(findInterestInFullSentance + 3);
     }
 
-    else
+    if(keyCharacterInFullSentance(",", interests) || keyCharacterInFullSentance(" ", interests))
     {
-        firstInterest = interests;
+        //Find a way to change the comma in a string to a regular function comma
+        
     }
 
-    if(keyCharacterInFullSentance(" ", firstInterest))
-    {
-        var recognizeMultipleInterests = interests.search(" ");
-
-        firstInterest = interests.slice(findInterestInFullSentance + 3, recognizeMultipleInterests);
-
-        var secondInterest = interests.slice(recognizeMultipleInterests + 1);
-
-        return firstInterest + "," + secondInterest;
-    }
-
-    else
-    {
-        return firstInterest;
-    }
-
+    return interests;
 };
 
 submitButton.onclick = function()
