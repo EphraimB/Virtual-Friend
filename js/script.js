@@ -73,12 +73,14 @@ function updateClock()
     var skyColor;
     var groundColor;
     var starType;
+    var starShadow;
 
     if((currentHours >= 6) && (currentHours < 12))
     {
         skyColor = "rgb(0, 0, 255)";
         groundColor = "rgb(0, 255, 0)";
         starType = "yellow";
+        starShadow = "yellow";
     }
 
     else if((currentHours == 5) && (currentMinutes >= 50))
@@ -100,6 +102,7 @@ function updateClock()
         skyColor = "rgb(0, 0, 127)";
         groundColor = "rgb(0, 127, 0)";
         starType = "yellow";
+        starShadow = "yellow";
     }
 
     else if((currentHours >= 18) && (currentHours < 24))
@@ -107,6 +110,7 @@ function updateClock()
         skyColor = "black";
         groundColor = "rgb(0, 75, 0)";
         starType = "white";
+        starShadow = "white";
     }
 
     else if((currentHours >= 0) && (currentHours <= 5))
@@ -114,6 +118,7 @@ function updateClock()
         skyColor = "black";
         groundColor = "rgb(0, 75, 0)";
         starType = "white";
+        starShadow = "white";
     }
 
     else
@@ -121,11 +126,13 @@ function updateClock()
         skyColor = "";
         groundColor = "";
         starType = "";
+        starShadow = "";
     }
 
     sky.style.background = skyColor;
     ground.style.background = groundColor;
     star.style.background = starType;
+    star.style.boxShadow = "0px 0px 20px 5px " + starShadow;
 
     if((currentHours >= 0) && (currentHours < 12))
     {
