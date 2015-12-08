@@ -16,6 +16,9 @@ var ground = document.getElementById("ground");
 var star = document.getElementById("star");
 var accountMenu = document.getElementById("accountMenu");
 var account = document.getElementById("account");
+var registrationForm = document.getElementById("registrationForm");
+var closeRegistrationForm = document.getElementById("closeRegistrationForm");
+var register = document.getElementById("register");
 
 var greeting;
 
@@ -211,6 +214,18 @@ account.onclick = function accountMenuToggle()
 
     };
 
+};
+
+closeRegistrationForm.onclick = function()
+{
+    registrationForm.style.display = "none";
+    closeRegistrationForm.style.display = "none";
+};
+
+register.onclick = function()
+{
+    registrationForm.style.display = "inline";
+    closeRegistrationForm.style.display = "inline";
 };
 
 var conversationPart = 0;

@@ -8,6 +8,27 @@
 </head>
 <body>
 <div id="register">Register</div>
+
+<div id="closeRegistrationForm">X</div>
+
+<div id="registrationForm">
+<form method="post" action="php/register.php">
+<fieldset id="profileSection">
+<legend>Profile</legend>
+<div id="avatar"></div>
+<label for="avaterInput">Upload photo of yourself</label>
+<input type="file" id="avatarInput" required>
+</fieldset>
+
+<fieldset id="passwordSection">
+<legend>Password</legend>
+<input type="password" id="passwordInput" placeholder="Password" required>
+<input type="password" id="confirmPasswordInput" placeholder="Confirm Password" required>
+</fieldset>
+<input type="submit" id="submitForm">
+</form>
+</div>
+
 <div id="logIn">Log In</div>
 <div id="account">
 
