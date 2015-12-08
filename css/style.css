@@ -68,7 +68,15 @@
 #passwordInput{position: absolute; left: 30%; top: 50%;}
 #confirmPasswordInput{position: absolute; left: 55%; top: 50%;}
 
-label{position: absolute; color: green; top: 20%; left: 42.5%;}
+#genderSection{position: absolute; left: 2%; top: 58%; width: 93%; height: 20%; color: white; font-weight: bold;}
+
+#avatarInputLabel{position: absolute; color: green; top: 20%; left: 42.5%;}
+
+#maleInputLabel{position: absolute; color: green; top: 20%; left: 29%;}
+#femaleInputLabel{position: absolute; color: green; top: 20%; left: 53.5%;}
+
+#male{position: absolute; top: 50%; left: 30%;}
+#female{position: absolute; top: 50%; left: 55%;}
 
 #submitRegistrationForm{position: absolute; bottom: 5%; left: 45%;}
 
