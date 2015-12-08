@@ -14,6 +14,8 @@ var clock = document.getElementById("clock");
 var sky = document.getElementById("sky");
 var ground = document.getElementById("ground");
 var star = document.getElementById("star");
+var accountMenu = document.getElementById("accountMenu");
+var account = document.getElementById("account");
 
 var greeting;
 
@@ -193,6 +195,23 @@ updateClock();
 personOneTalk.innerHTML = greeting + "! What's your name?";
 
 document.body.onload = setInterval("updateClock()", 1000);
+
+account.onclick = function accountMenuToggle()
+{
+    accountMenu.style.display = "inline";
+
+    account.onclick = function()
+    {
+        accountMenu.style.display = "none";
+
+        account.onclick = function()
+        {
+            accountMenuToggle();
+        };
+
+    };
+
+};
 
 var conversationPart = 0;
 
