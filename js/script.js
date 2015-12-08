@@ -19,6 +19,9 @@ var account = document.getElementById("account");
 var registrationForm = document.getElementById("registrationForm");
 var closeRegistrationForm = document.getElementById("closeRegistrationForm");
 var register = document.getElementById("register");
+var logInForm = document.getElementById("logInForm");
+var closeLogInForm = document.getElementById("closeLogInForm");
+var logIn = document.getElementById("logIn");
 
 var greeting;
 
@@ -226,6 +229,18 @@ register.onclick = function()
 {
     registrationForm.style.display = "inline";
     closeRegistrationForm.style.display = "inline";
+};
+
+closeLogInForm.onclick = function()
+{
+    logInForm.style.display = "none";
+    closeLogInForm.style.display = "none";
+};
+
+logIn.onclick = function()
+{
+    logInForm.style.display = "inline";
+    closeLogInForm.style.display = "inline";
 };
 
 var conversationPart = 0;

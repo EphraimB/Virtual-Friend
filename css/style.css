@@ -70,4 +70,15 @@
 
 label{position: absolute; color: green; top: 20%; left: 42.5%;}
 
-#submitForm{position: absolute; bottom: 5%; left: 45%;}
+#submitRegistrationForm{position: absolute; bottom: 5%; left: 45%;}
+
+#logInForm{position: absolute; left: 30%; top: 30%; width: 50%; height: 50%; background-color: black; box-shadow: 0px 0px 5px 5px grey; z-index: 2; display: none;}
+#closeLogInForm{position: absolute; right: 18.5%; top: 27.5%; width: 3%; height: 5%; text-align: center; font-size: 175%; border-radius: 100%; background-color: purple; color: white; z-index: 3; display: none;}
+#closeLogInForm:hover{cursor: pointer;}
+
+#accountIdInput{position: absolute; left: 40%; top: 40%;}
+#accountPasswordInput{position: absolute; left: 40%; top: 60%;}
+
+#formTitle{position: absolute; left: 45%; top: 0%; color: green; font-size: 150%; font-weight: bold; text-align: center;}
+
+#submitLogInForm{position: absolute; bottom: 5%; left: 43%;}
