@@ -22,6 +22,8 @@ var register = document.getElementById("register");
 var logInForm = document.getElementById("logInForm");
 var closeLogInForm = document.getElementById("closeLogInForm");
 var logIn = document.getElementById("logIn");
+var avatarInput = document.getElementById("avatarInput");
+var avatar = document.getElementById("avatar");
 
 var greeting;
 
@@ -107,7 +109,7 @@ function updateClock()
 
     else if((currentHours >= 12) && (currentHours <= 17))
     {
-        skyColor = "rgb(0, 0, 127)";
+        skyColor = "rgb(0, 0, 200)";
         groundColor = "rgb(0, 127, 0)";
         starType = "yellow";
         starShadow = "yellow";
@@ -115,7 +117,7 @@ function updateClock()
 
     else if((currentHours >= 18) && (currentHours < 24))
     {
-        skyColor = "black";
+        skyColor = "rgb(0, 0, 100)";
         groundColor = "rgb(0, 75, 0)";
         starType = "white";
         starShadow = "white";
@@ -123,7 +125,7 @@ function updateClock()
 
     else if((currentHours >= 0) && (currentHours <= 5))
     {
-        skyColor = "black";
+        skyColor = "rgb(0, 0, 100)";
         groundColor = "rgb(0, 75, 0)";
         starType = "white";
         starShadow = "white";
@@ -229,6 +231,8 @@ register.onclick = function()
 {
     registrationForm.style.display = "inline";
     closeRegistrationForm.style.display = "inline";
+
+    avatar.style.backgroundImage = "url(" + avatarInput.value + ")";
 };
 
 closeLogInForm.onclick = function()
