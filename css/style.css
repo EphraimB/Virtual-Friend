@@ -91,4 +91,4 @@
 
 #submitLogInForm{position: absolute; bottom: 5%; left: 43%;}
 
-#personOneSmartphone{position: absolute; left: 25%; top: 40%;}
+#personOneSmartphone{position: absolute; left: 25%; top: 40%; display: none;}
