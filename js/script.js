@@ -200,7 +200,10 @@ function personOneNoEyeContact()
 
 updateClock();
 
-personOneTalk.innerHTML = greeting + "! What's your name?";
+if(localStorage.getItem("firstName") == null)
+{
+    personOneTalk.innerHTML = greeting + "! What's your name?";
+}
 
 document.body.onload = setInterval("updateClock()", 1000);
 
@@ -305,6 +308,9 @@ submitButtonOnlyInterestConfirmYesOrNo.setAttribute("class", "submitButton");
 
 var submitButtonQuestions = document.createElement("div");
 submitButtonQuestions.setAttribute("class", "submitButton");
+
+var submitButtonNameRemembered = document.createElement("div");
+submitButtonNameRemembered.setAttribute("class", "submitButton");
 
 var yourInterests = [];
 var otherInterestsOn = false;
@@ -456,6 +462,22 @@ function multipleInterests(interests)
     return interests;
 };
 
+if(localStorage.getItem("firstName") !== null)
+{
+    submitButton.style.display = "none";
+
+    personOneTalk.innerHTML = greeting + " " + localStorage.getItem("firstName") + localStorage.getItem("space") + localStorage.getItem("lastName") + "! How are you doing?";
+
+    submitButtonNameRemembered.innerHTML = "Submit";
+    personTwoTalk.appendChild(submitButtonNameRemembered);
+
+    submitButtonNameRemembered.onclick = function()
+    {
+        
+    };
+
+}
+
 submitButton.onclick = function()
 {
     conversationPart = 1;
@@ -501,6 +523,7 @@ submitButton.onclick = function()
 
     submitButton.style.display = "none";
     personTwoSays.value = "";
+
 
     submitButtonTwo.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonTwo);
