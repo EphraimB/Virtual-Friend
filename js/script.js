@@ -468,7 +468,7 @@ if(localStorage.getItem("firstName") !== null)
 
     submitButton.style.display = "none";
 
-    personOneTalk.innerHTML = greeting + " " + localStorage.getItem("firstName") + localStorage.getItem("space") + localStorage.getItem("lastName") + "! How are you doing?";
+    personOneTalk.innerHTML = greeting + ", " + localStorage.getItem("firstName") + localStorage.getItem("space") + localStorage.getItem("lastName") + "! How are you doing?";
 
     submitButtonNameRemembered.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonNameRemembered);
