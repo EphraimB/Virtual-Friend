@@ -951,6 +951,8 @@ function feeling()
 
         multipleInterests(personTwoReply);
 
+        localStorage.setItem("yourInterests", yourInterests);
+
         if(yourInterests.length > 1)
         {
             personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which is your favorite?";
