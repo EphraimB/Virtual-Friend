@@ -453,13 +453,20 @@ function multipleInterests(interests)
         interests = interests.slice(findInterestInFullSentance + 3);
     }
 
-    if(keyCharacterInFullSentance(",", interests) || keyCharacterInFullSentance(" ", interests))
+    if(keyCharacterInFullSentance(",", interests) || keyCharacterInFullSentance(" ", interests) || keywordInFullSentance("and", interests))
     {
-        //Find a way to change the comma in a string to a regular function comma
-        
+        var interestSeperator = interests.search(",");
+
+        yourInterests.push(interests.slice(0, interestSeperator));
+        yourInterests.push(interests.slice(interestSeperator + 2));
     }
 
-    return interests;
+    else
+    {
+        yourInterests.push(interests);
+    }
+
+    return yourInterests;
 };
 
 if(localStorage.getItem("firstName") !== null)
@@ -942,7 +949,7 @@ function feeling()
 
         var personTwoReply = personTwoSays.value.toLowerCase();
 
-        yourInterests.push(multipleInterests(personTwoReply));
+        multipleInterests(personTwoReply);
 
         if(yourInterests.length > 1)
         {
