@@ -492,7 +492,7 @@ submitButton.onclick = function()
 
     personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + space + capitalize(lastName) + "! " + secondGreeting[randomString];
 
-    localStorage.setItem("firstName", "Testing");
+    localStorage.setItem("firstName", firstName);
     localStorage.setItem("space", space);
     localStorage.setItem("lastName", lastName);
 
