@@ -492,6 +492,10 @@ submitButton.onclick = function()
 
     personOneTalk.innerHTML = "Hi, " + capitalize(firstName) + space + capitalize(lastName) + "! " + secondGreeting[randomString];
 
+    localStorage.setItem("firstName", "Testing");
+    localStorage.setItem("space", space);
+    localStorage.setItem("lastName", lastName);
+
     submitButton.style.display = "none";
     personTwoSays.value = "";
 
