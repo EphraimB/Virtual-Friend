@@ -418,6 +418,11 @@ personTwoSays.onkeypress = function(event)
         submitButtonNameRemembered.click();
     }
 
+    else if(event.keyCode == 13 && conversationPart == 20)
+    {
+        
+    }
+
 };
 
 function keywordInFullSentance(keyword, fullSentance)
@@ -1146,7 +1151,9 @@ function feeling()
 
     function conversationStarter()
     {
-        personOneTalk.innerHTML += localStorage.getItem("favoriteInterest");
+        conversationPart = 20;
+
+        personOneTalk.innerHTML += " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
     };
 
 };
