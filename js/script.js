@@ -200,7 +200,7 @@ function personOneNoEyeContact()
 
 updateClock();
 
-if(localStorage.getItem("firstName") == undefined)
+if(localStorage.getItem("firstName") == null)
 {
     personOneTalk.innerHTML = greeting + "! What's your name?";
 }
@@ -469,7 +469,7 @@ function multipleInterests(interests)
     return yourInterests;
 };
 
-if(localStorage.getItem("firstName") !== undefined)
+if(localStorage.getItem("firstName") !== null)
 {
     conversationPart = 19;
 
@@ -564,7 +564,7 @@ function feeling()
             personOneTalk.innerHTML += " I'm feeling good too!";
         }
 
-        if(localStorage.getItem("yourInterests") == undefined)
+        if(localStorage.getItem("yourInterests") == null)
         {
             personOneTalk.innerHTML += " What are your interests?";
         }
@@ -584,7 +584,7 @@ function feeling()
             personOneTalk.innerHTML += " I'm feeling good.";
         }
 
-        if(localStorage.getItem("yourInterests") == undefined)
+        if(localStorage.getItem("yourInterests") == null)
         {
             personOneTalk.innerHTML += " What are your interests?";
         }
@@ -675,7 +675,7 @@ function feeling()
 
                     personOneTalk.innerHTML = "I hope you have a better sleep tonight!";
 
-                    if(localStorage.getItem("yourInterests") == undefined)
+                    if(localStorage.getItem("yourInterests") == null)
                     {
                         personOneTalk.innerHTML += "What are your interests?";
                     }
@@ -683,7 +683,7 @@ function feeling()
                     personTwoSays.value = "";
                     submitButtonTired.style.display = "none";
 
-                    if(localStorage.getItem("yourInterests") !== undefined)
+                    if(localStorage.getItem("yourInterests") !== null)
                     {
                         conversationStarter();
                     }
@@ -765,7 +765,7 @@ function feeling()
 
                         personOneTalk.innerHTML = personTwoSays.value + " hours of sleep is normal, so nice try!";
 
-                        if(localStorage.getItem("yourInterests") == undefined)
+                        if(localStorage.getItem("yourInterests") == null)
                         {
                             personOneTalk.innerHTML += " What are your interests?";
                         }
@@ -773,7 +773,7 @@ function feeling()
                         personTwoSays.value = "";
                         submitButtonTired.style.display = "none";
 
-                        if(localStorage.getItem("yourInterests") !== undefined)
+                        if(localStorage.getItem("yourInterests") !== null)
                         {
                             conversationStarter();
                         }
@@ -799,7 +799,7 @@ function feeling()
 
                         personOneTalk.innerHTML = "Make sure to get " + extraSleepNeeded + " more hours of sleep tonight!";
 
-                        if(localStorage.getItem("yourInterests") == undefined)
+                        if(localStorage.getItem("yourInterests") == null)
                         {
                             personOneTalk.innerHTML += " What are your interests?";
                         }
@@ -807,7 +807,7 @@ function feeling()
                         personTwoSays.value = "";
                         submitButtonTired.style.display = "none";
 
-                        if(localStorage.getItem("yourInterests") !== undefined)
+                        if(localStorage.getItem("yourInterests") !== null)
                         {
                             conversationStarter();
                         }
@@ -870,7 +870,7 @@ function feeling()
 
                     personOneTalk.innerHTML = "Let's move on!";
 
-                    if(localStorage.getItem("yourInterests") == undefined)
+                    if(localStorage.getItem("yourInterests") == null)
                     {
                         personOneTalk.innerHTML += " What are your interests?";
                     }
@@ -878,7 +878,7 @@ function feeling()
                     personTwoSays.value = "";
                     submitButtonBored.style.display = "none";
 
-                    if(localStorage.getItem("yourInterests") !== undefined)
+                    if(localStorage.getItem("yourInterests") !== null)
                     {
                         conversationStarter();
                     }
@@ -911,7 +911,7 @@ function feeling()
 
                         personOneTalk.innerHTML = "Thank G-D!";
 
-                        if(localStorage.getItem("yourInterests") == undefined)
+                        if(localStorage.getItem("yourInterests") == null)
                         {
                             personOneTalk.innerHTML += " What are your interests?";
                         }
@@ -919,7 +919,7 @@ function feeling()
                         personTwoSays.value = "";
                         submitButtonBored.style.display = "none";
 
-                        if(localStorage.getItem("yourInterests") !== undefined)
+                        if(localStorage.getItem("yourInterests") !== null)
                         {
                             conversationStarter();
                         }
@@ -954,7 +954,7 @@ function feeling()
 
                             personOneTalk.innerHTML = "Just get over it!";
 
-                            if(localStorage.getItem("yourInterests") == undefined)
+                            if(localStorage.getItem("yourInterests") == null)
                             {
                                 personOneTalk.innerHTML += " What are your interests?";
                             }
@@ -962,7 +962,7 @@ function feeling()
                             personTwoSays.value = "";
                             submitButtonMoveOn.style.display = "none";
 
-                            if(localStorage.getItem("yourInterests") !== undefined)
+                            if(localStorage.getItem("yourInterests") !== null)
                             {
                                 conversationStarter();
                             }
@@ -992,7 +992,7 @@ function feeling()
     else if(feeling == "good" || feeling == "bad")
     {
 
-        if(localStorage.getItem("yourInterests") !== undefined)
+        if(localStorage.getItem("yourInterests") !== null)
         {
             conversationStarter();
         }
@@ -1036,6 +1036,8 @@ function feeling()
 
             submitButtonYourStoredInterests.onclick = function()
             {
+                var personTwoReply = personTwoSays.value.toLowerCase();
+
                 submitButtonYourStoredInterests.style.display = "none";
 
                 localStorage.setItem("favoriteInterest", personTwoReply);
@@ -1144,7 +1146,7 @@ function feeling()
 
     function conversationStarter()
     {
-        alert(localStorage.getItem("yourInterests"));
+        personOneTalk.innerHTML += localStorage.getItem("favoriteInterest");
     };
 
 };
