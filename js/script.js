@@ -570,12 +570,6 @@ function feeling()
         }
 
         feeling = "good";
-
-        if(localStorage.getItem("yourInterests") !== undefined)
-        {
-            conversationStarter();
-        }
-
     }
 
     else if(keywordInFullSentance("horrible", personTwoReply) || keywordInFullSentance("horrible!", personTwoReply) || keywordInFullSentance("horrible.", personTwoReply) || keywordInFullSentance("horrible,", personTwoReply) || keywordInFullSentance("bad", personTwoReply) || keywordInFullSentance("bad!", personTwoReply) || keywordInFullSentance("bad.", personTwoReply) || keywordInFullSentance("bad,", personTwoReply))
@@ -689,6 +683,11 @@ function feeling()
                     personTwoSays.value = "";
                     submitButtonTired.style.display = "none";
 
+                    if(localStorage.getItem("yourInterests") !== undefined)
+                    {
+                        conversationStarter();
+                    }
+
                     submitButtonYourInterests.innerHTML = "Submit";
                     personTwoTalk.appendChild(submitButtonYourInterests);
 
@@ -774,6 +773,11 @@ function feeling()
                         personTwoSays.value = "";
                         submitButtonTired.style.display = "none";
 
+                        if(localStorage.getItem("yourInterests") !== undefined)
+                        {
+                            conversationStarter();
+                        }
+
                         submitButtonInterestsYouSilly.innerHTML = "Submit";
                         personTwoTalk.appendChild(submitButtonInterestsYouSilly);
 
@@ -802,6 +806,11 @@ function feeling()
 
                         personTwoSays.value = "";
                         submitButtonTired.style.display = "none";
+
+                        if(localStorage.getItem("yourInterests") !== undefined)
+                        {
+                            conversationStarter();
+                        }
 
                         submitButtonInterests.innerHTML = "Submit";
                         personTwoTalk.appendChild(submitButtonInterests);
@@ -869,6 +878,11 @@ function feeling()
                     personTwoSays.value = "";
                     submitButtonBored.style.display = "none";
 
+                    if(localStorage.getItem("yourInterests") !== undefined)
+                    {
+                        conversationStarter();
+                    }
+
                     submitButtonMoveOn.innerHTML = "Submit";
                     personTwoTalk.appendChild(submitButtonMoveOn);
 
@@ -904,6 +918,11 @@ function feeling()
 
                         personTwoSays.value = "";
                         submitButtonBored.style.display = "none";
+
+                        if(localStorage.getItem("yourInterests") !== undefined)
+                        {
+                            conversationStarter();
+                        }
 
                         submitButtonMoveOn.innerHTML = "Submit";
                         personTwoTalk.appendChild(submitButtonMoveOn);
@@ -943,6 +962,11 @@ function feeling()
                             personTwoSays.value = "";
                             submitButtonMoveOn.style.display = "none";
 
+                            if(localStorage.getItem("yourInterests") !== undefined)
+                            {
+                                conversationStarter();
+                            }
+
                             submitButtonReallyMoveOn.innerHTML = "Submit";
                             personTwoTalk.appendChild(submitButtonReallyMoveOn);
 
@@ -967,6 +991,12 @@ function feeling()
 
     else if(feeling == "good" || feeling == "bad")
     {
+
+        if(localStorage.getItem("yourInterests") !== undefined)
+        {
+            conversationStarter();
+        }
+
         conversationPart = 8;
 
         submitButtonTwo.style.display = "none";
