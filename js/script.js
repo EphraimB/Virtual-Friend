@@ -997,26 +997,30 @@ function feeling()
     else if(feeling == "good" || feeling == "bad")
     {
 
-        if(localStorage.getItem("yourInterests") !== null)
-        {
-            conversationStarter();
-        }
-
         conversationPart = 8;
 
         submitButtonTwo.style.display = "none";
         personTwoSays.value = "";
 
-        submitButtonThree.innerHTML = "Submit";
-
-        personTwoTalk.appendChild(submitButtonThree);
-
-        submitButtonThree.onclick = function()
+        if(localStorage.getItem("yourInterests") !== null)
         {
-            submitButtonThree.style.display = "none";
+            conversationStarter();
+        }
 
-            interests();
-        };
+        else
+        {
+            submitButtonThree.innerHTML = "Submit";
+
+            personTwoTalk.appendChild(submitButtonThree);
+
+            submitButtonThree.onclick = function()
+            {
+                submitButtonThree.style.display = "none";
+
+                interests();
+            };
+
+        }
 
     }
 
@@ -1153,7 +1157,10 @@ function feeling()
     {
         conversationPart = 20;
 
-        personOneTalk.innerHTML += " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
+        //Todo: Make a small delay
+
+        personOneTalk.innerHTML = " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
+
     };
 
 };
