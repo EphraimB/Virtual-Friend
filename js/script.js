@@ -1158,8 +1158,10 @@ function feeling()
         conversationPart = 20;
 
         //Todo: Make a small delay
-
-        personOneTalk.innerHTML = " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
+        setTimeout(function()
+        {
+            personOneTalk.innerHTML = " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
+        }, 2000);
 
     };
 
