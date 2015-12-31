@@ -25,6 +25,8 @@ var logIn = document.getElementById("logIn");
 var avatarInput = document.getElementById("avatarInput");
 var avatar = document.getElementById("avatar");
 
+var threeDimension = document.getElementById("threeDimension");
+
 var greeting;
 
 function updateClock()
@@ -211,6 +213,16 @@ if(localStorage.getItem("firstName") == null)
 }
 
 document.body.onload = setInterval("updateClock()", 1000);
+
+threeDimension.onclick = function()
+{
+    var enableThreeDimensionalStyleSheet = document.createElement("link");
+
+    enableThreeDimensionalStyleSheet.setAttribute("rel", "stylesheet");
+    enableThreeDimensionalStyleSheet.setAttribute("href", "css/3D.css");
+
+    document.head.appendChild(enableThreeDimensionalStyleSheet);
+};
 
 account.onclick = function accountMenuToggle()
 {
