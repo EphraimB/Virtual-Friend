@@ -198,6 +198,11 @@ function personOneNoEyeContact()
     personOneRightArm.style.boxShadow = "0px 0px 0px";
 };
 
+function speechToText()
+{
+
+};
+
 updateClock();
 
 if(localStorage.getItem("firstName") == null)
@@ -254,6 +259,9 @@ var conversationPart = 0;
 
 var submitButtonTwo = document.createElement("div");
 submitButtonTwo.setAttribute("class", "submitButton");
+
+var submitButtonTwoSpeech = document.createElement("div");
+submitButtonTwoSpeech.setAttribute("class", "submitButtonSpeech");
 
 var submitButtonTired = document.createElement("div");
 submitButtonTired.setAttribute("class", "submitButton");
@@ -543,6 +551,14 @@ submitButton.onclick = function()
 
     submitButtonTwo.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonTwo);
+
+    submitButtonTwoSpeech.innerHTML = "Talk";
+    personTwoTalk.appendChild(submitButtonTwoSpeech);
+
+    submitButtonTwoSpeech.onclick = function()
+    {
+        speechToText();
+    };
 
     submitButtonTwo.onclick = function()
     {
