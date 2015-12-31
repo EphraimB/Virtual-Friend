@@ -1,1 +1,11 @@
 #threeDimension{color: rgba(0, 255, 255, 0.5) !important; text-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+
+#personOneFace{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+#personOneBody{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+
+#personOneLeftArm{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+#personOneRightArm{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+
+#personOneLeftLeg{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+#personOneRightLeg{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+
