@@ -1,11 +1,15 @@
-#threeDimension{color: rgba(0, 255, 255, 0.5) !important; text-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+#threeDimension{color: rgba(0, 255, 255, 0.5) !important; text-shadow: rgba(255, 0, 0, 0.5) -4px 0px 0px !important; padding-left: 4px !important;}
 
-#personOneFace{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
-#personOneBody{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+#personOneFace{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -4px 0px 0px !important; padding-left: 4px !important;}
+#personOneBody{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -2px 0px 0px !important; padding-left: 2px !important;}
 
-#personOneLeftArm{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
-#personOneRightArm{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+#personOneLeftArm{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -2px 0px 0px !important; padding-left: 2px !important;}
+#personOneRightArm{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -2px 0px 0px !important; padding-left: 2px !important;}
 
-#personOneLeftLeg{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
-#personOneRightLeg{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) 4px 0px 0px !important;}
+#personOneLeftLeg{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -2px 0px 0px !important; padding-left: 2px !important;}
+#personOneRightLeg{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -2px 0px 0px !important; padding-left: 2px !important;}
+
+#personOneTalk{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -8px 0px 0px !important; padding-left: 8px !important;}
+
+#personTwoTalk{background-color: rgba(0, 255, 255, 0.5) !important; box-shadow: rgba(255, 0, 0, 0.5) -8px 0px 0px !important; padding-left: 8px !important;}
 

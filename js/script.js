@@ -214,7 +214,7 @@ if(localStorage.getItem("firstName") == null)
 
 document.body.onload = setInterval("updateClock()", 1000);
 
-threeDimension.onclick = function()
+threeDimension.onclick = function enableThreeDimension()
 {
     var enableThreeDimensionalStyleSheet = document.createElement("link");
 
@@ -222,6 +222,18 @@ threeDimension.onclick = function()
     enableThreeDimensionalStyleSheet.setAttribute("href", "css/3D.css");
 
     document.head.appendChild(enableThreeDimensionalStyleSheet);
+
+    threeDimension.onclick = function()
+    {
+        document.head.removeChild(enableThreeDimensionalStyleSheet);
+
+        threeDimension.onclick = function()
+        {
+            enableThreeDimension();
+        };
+
+    };
+
 };
 
 account.onclick = function accountMenuToggle()
