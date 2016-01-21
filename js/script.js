@@ -213,6 +213,11 @@ function textToSpeech(textToSpeak)
     speechSynthesis.speak(personOneTalking);
 };
 
+function speechToText()
+{
+    
+};
+
 updateClock();
 
 if(localStorage.getItem("firstName") == null)
@@ -524,6 +529,8 @@ if(localStorage.getItem("firstName") !== null)
 
     personOneTalk.innerHTML = greeting + ", " + localStorage.getItem("firstName") + localStorage.getItem("space") + localStorage.getItem("lastName") + "! How are you doing?";
 
+    textToSpeech(personOneTalk.innerHTML);
+
     submitButtonNameRemembered.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonNameRemembered);
 
@@ -575,6 +582,8 @@ submitButton.onclick = function()
 
     personOneTalk.innerHTML = "Hi, " + firstName + space + lastName + "! " + secondGreeting[randomString];
 
+    textToSpeech(personOneTalk.innerHTML);
+
     localStorage.setItem("firstName", firstName);
     localStorage.setItem("space", space);
     localStorage.setItem("lastName", lastName);
@@ -617,11 +626,15 @@ function feeling()
         if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
         {
             personOneTalk.innerHTML += " I'm feeling good too!";
+
+            textToSpeech(personOneTalk.innerHTML);
         }
 
         if(localStorage.getItem("yourInterests") == null)
         {
             personOneTalk.innerHTML += " What are your interests?";
+
+            textToSpeech(personOneTalk.innerHTML);
         }
 
         feeling = "good";
@@ -637,11 +650,15 @@ function feeling()
         if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
         {
             personOneTalk.innerHTML += " I'm feeling good.";
+
+            textToSpeech(personOneTalk.innerHTML);
         }
 
         if(localStorage.getItem("yourInterests") == null)
         {
             personOneTalk.innerHTML += " What are your interests?";
+
+            textToSpeech(personOneTalk.innerHTML);
         }
 
         feeling = "bad";
@@ -657,9 +674,13 @@ function feeling()
         if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
         {
             personOneTalk.innerHTML = "I'm feeling good. ";
+
+            textToSpeech(personOneTalk.innerHTML);
         }
 
         personOneTalk.innerHTML += personOneReply[randomString];
+
+        textToSpeech(personOneTalk.innerHTML);
 
         feeling = "bored";
     }
@@ -674,9 +695,13 @@ function feeling()
         if(keywordInFullSentance("you", personTwoReply) || keywordInFullSentance("you?", personTwoReply))
         {
             personOneTalk.innerHTML = "I'm feeling good. ";
+
+            textToSpeech(personOneTalk.innerHTML);
         }
 
         personOneTalk.innerHTML += personOneReply[randomString];
+
+        textToSpeech(personOneTalk.innerHTML);
 
         feeling = "tired";
     }
@@ -687,6 +712,8 @@ function feeling()
         var randomString = Math.floor(Math.random() * personOneReply.length);
 
         personOneTalk.innerHTML = personOneReply[randomString];
+
+        textToSpeech(personOneTalk.innerHTML);
 
         personTwoSays.value = "";
         }
@@ -733,6 +760,8 @@ function feeling()
                     if(localStorage.getItem("yourInterests") == null)
                     {
                         personOneTalk.innerHTML += "What are your interests?";
+
+                        textToSpeech(personOneTalk.innerHTML);
                     }
 
                     personTwoSays.value = "";
@@ -740,6 +769,8 @@ function feeling()
 
                     if(localStorage.getItem("yourInterests") !== null)
                     {
+                        textToSpeech(personOneTalk.innerHTML);
+
                         conversationStarter();
                     }
 
@@ -823,6 +854,8 @@ function feeling()
                         if(localStorage.getItem("yourInterests") == null)
                         {
                             personOneTalk.innerHTML += " What are your interests?";
+
+                            textToSpeech(personOneTalk.innerHTML);
                         }
 
                         personTwoSays.value = "";
@@ -830,6 +863,8 @@ function feeling()
 
                         if(localStorage.getItem("yourInterests") !== null)
                         {
+                            textToSpeech(personOneTalk.innerHTML);
+
                             conversationStarter();
                         }
 
@@ -857,6 +892,8 @@ function feeling()
                         if(localStorage.getItem("yourInterests") == null)
                         {
                             personOneTalk.innerHTML += " What are your interests?";
+
+                            textToSpeech(personOneTalk.innerHTML);
                         }
 
                         personTwoSays.value = "";
@@ -864,6 +901,8 @@ function feeling()
 
                         if(localStorage.getItem("yourInterests") !== null)
                         {
+                            textToSpeech(personOneTalk.innerHTML);
+
                             conversationStarter();
                         }
 
@@ -928,6 +967,8 @@ function feeling()
                     if(localStorage.getItem("yourInterests") == null)
                     {
                         personOneTalk.innerHTML += " What are your interests?";
+
+                        textToSpeech(personOneTalk.innerHTML);
                     }
 
                     personTwoSays.value = "";
@@ -935,6 +976,7 @@ function feeling()
 
                     if(localStorage.getItem("yourInterests") !== null)
                     {
+                        textToSpeech(personOneTalk.innerHTML);
                         conversationStarter();
                     }
 
@@ -969,6 +1011,8 @@ function feeling()
                         if(localStorage.getItem("yourInterests") == null)
                         {
                             personOneTalk.innerHTML += " What are your interests?";
+
+                            textToSpeech(personOneTalk.innerHTML);
                         }
 
                         personTwoSays.value = "";
@@ -976,6 +1020,8 @@ function feeling()
 
                         if(localStorage.getItem("yourInterests") !== null)
                         {
+                            textToSpeech(personOneTalk.innerHTML);
+
                             conversationStarter();
                         }
 
@@ -997,6 +1043,8 @@ function feeling()
 
                         personOneTalk.innerHTML = "What's wrong?";
 
+                        textToSpeech(personOneTalk.innerHTML);
+
                         personTwoSays.value = "";
                         submitButtonBored.style.display = "none";
 
@@ -1012,6 +1060,8 @@ function feeling()
                             if(localStorage.getItem("yourInterests") == null)
                             {
                                 personOneTalk.innerHTML += " What are your interests?";
+
+                                textToSpeech(personOneTalk.innerHTML);
                             }
 
                             personTwoSays.value = "";
@@ -1019,6 +1069,8 @@ function feeling()
 
                             if(localStorage.getItem("yourInterests") !== null)
                             {
+                                textToSpeech(personOneTalk.innerHTML);
+
                                 conversationStarter();
                             }
 
@@ -1054,6 +1106,7 @@ function feeling()
 
         if(localStorage.getItem("yourInterests") !== null)
         {
+            textToSpeech(personOneTalk.innerHTML);
             conversationStarter();
         }
 
@@ -1088,6 +1141,8 @@ function feeling()
         {
             personOneTalk.innerHTML = "Out of your " + yourInterests.length + " interests, which is your favorite?";
 
+            textToSpeech(personOneTalk.innerHTML);
+
             personTwoSays.value = "";
 
             submitButtonYourStoredInterests.innerHTML = "Submit";
@@ -1111,6 +1166,8 @@ function feeling()
             conversationPart = 15;
 
             personOneTalk.innerHTML = "Is " + yourInterests + " your only interest?";
+
+            textToSpeech(personOneTalk.innerHTML);
 
             personTwoSays.value = "";
 
@@ -1139,6 +1196,8 @@ function feeling()
 
                     personOneTalk.innerHTML = "Then what other interests do you have?";
 
+                    textToSpeech(personOneTalk.innerHTML);
+
                     submitButtonOtherInterests.innerHTML = "Submit";
                     personTwoTalk.appendChild(submitButtonOtherInterests);
 
@@ -1160,6 +1219,8 @@ function feeling()
                     personTwoSays.value = "";
 
                     personOneTalk.innerHTML = "Either yes or no.";
+
+                    textToSpeech(personOneTalk.innerHTML);
 
                     submitButtonOnlyInterestConfirmYesOrNo.innerHTML = "Submit";
                     personTwoTalk.appendChild(submitButtonOnlyInterestConfirmYesOrNo);
@@ -1187,6 +1248,8 @@ function feeling()
 
             personOneTalk.innerHTML = "Please pick a topic that I know of";
 
+            textToSpeech(personOneTalk.innerHTML);
+
             submitButtonRestartInterestCondition.innerHTML = "Submit";
             personTwoTalk.appendChild(submitButtonRestartInterestCondition);
 
@@ -1211,6 +1274,8 @@ function feeling()
         setTimeout(function()
         {
             personOneTalk.innerHTML = " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
+
+            textToSpeech(personOneTalk.innerHTML);
         }, 2000);
 
     };
