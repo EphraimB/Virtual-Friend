@@ -25,6 +25,8 @@ var logIn = document.getElementById("logIn");
 var avatarInput = document.getElementById("avatarInput");
 var avatar = document.getElementById("avatar");
 
+var personOneTalking = new SpeechSynthesisUtterance();
+
 var threeDimension = document.getElementById("threeDimension");
 
 var greeting;
@@ -200,9 +202,15 @@ function personOneNoEyeContact()
     personOneRightArm.style.boxShadow = "0px 0px 0px";
 };
 
-function speechToText()
+function textToSpeech(textToSpeak)
 {
+    personOneTalking.voiceURI = "native";
 
+    personOneTalking.text = textToSpeak;
+
+    personOneTalking.lang = "en-US";
+
+    speechSynthesis.speak(personOneTalking);
 };
 
 updateClock();
@@ -210,6 +218,8 @@ updateClock();
 if(localStorage.getItem("firstName") == null)
 {
     personOneTalk.innerHTML = greeting + "! What's your name?";
+
+    textToSpeech(personOneTalk.innerHTML);
 }
 
 document.body.onload = setInterval("updateClock()", 1000);
