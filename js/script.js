@@ -27,6 +27,8 @@ var avatar = document.getElementById("avatar");
 
 var personOneTalking = new SpeechSynthesisUtterance();
 
+var personTwoTalking = new webkitSpeechRecognition();
+
 var threeDimension = document.getElementById("threeDimension");
 
 var greeting;
@@ -213,9 +215,50 @@ function textToSpeech(textToSpeak)
     speechSynthesis.speak(personOneTalking);
 };
 
-function speechToText()
+function speechToText(event)
 {
-    
+    personTwoTalking.continuous = true;
+    personTwoTalking.interimResults = true;
+
+    personTwoTalking.start();
+
+    personTwoTalking.onstart = function()
+    {
+        
+    };
+
+    personTwoTalking.onresult = function(event)
+    {
+        var interim_transcript = "";
+
+        for(var i = event.resultIndex; i < event.results.length; ++i)
+        {
+
+            if(event.results[i].isFinal)
+            {
+                final_transcript += event.results[i][0].transcript;
+            }
+
+            else
+            {
+                interim_transcript += event.results[i][0].transcript;
+            }
+
+        }
+
+        
+    };
+
+    personTwoTalking.onerror = function(event)
+    {
+        
+    };
+
+    personTwoTalking.onend = function()
+    {
+        
+    };
+
 };
 
 updateClock();
@@ -530,6 +573,8 @@ if(localStorage.getItem("firstName") !== null)
     personOneTalk.innerHTML = greeting + ", " + localStorage.getItem("firstName") + localStorage.getItem("space") + localStorage.getItem("lastName") + "! How are you doing?";
 
     textToSpeech(personOneTalk.innerHTML);
+
+    speechToText();
 
     submitButtonNameRemembered.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonNameRemembered);
