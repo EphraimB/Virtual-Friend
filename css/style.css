@@ -39,9 +39,6 @@
 .submitButton{border: 1px solid red; background-color: rgb(128, 0, 0); color: white; width: auto; height: auto; padding: 5%; margin: 1%; cursor: pointer;}
 .submitButton:hover{background-color: red;}
 
-.submitButtonSpeech{border: 1px solid purple; background-color: red; color: white; width: auto; height: auto; padding: 5% margin: 1%; cursor: pointer;}
-.submitButtonSpeech:hover{background-color: purple;}
-
 #account{position: absolute; right: 5%; bottom: 2%; width: 8%; height: 12%; border-radius: 100%; background-color: black; z-index: 1; display: none;}
 #account:hover{cursor: pointer;}
 

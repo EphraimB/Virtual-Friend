@@ -342,9 +342,6 @@ var conversationPart = 0;
 var submitButtonTwo = document.createElement("div");
 submitButtonTwo.setAttribute("class", "submitButton");
 
-var submitButtonTwoSpeech = document.createElement("div");
-submitButtonTwoSpeech.setAttribute("class", "submitButtonSpeech");
-
 var submitButtonTired = document.createElement("div");
 submitButtonTired.setAttribute("class", "submitButton");
 
@@ -386,9 +383,6 @@ submitButtonInterestsAgain.setAttribute("class", "submitButton");
 
 var submitButtonOnlyInterestConfirm = document.createElement("div");
 submitButtonOnlyInterestConfirm.setAttribute("class", "submitButton");
-
-var submitButtonRestartInterestCondition = document.createElement("div");
-submitButtonRestartInterestCondition.setAttribute("class", "submitButton");
 
 var submitButtonOtherInterests = document.createElement("div");
 submitButtonOtherInterests.setAttribute("class", "submitButton");
@@ -486,11 +480,6 @@ personTwoSays.onkeypress = function(event)
     else if(event.keyCode == 13 && conversationPart == 15)
     {
         submitButtonOnlyInterestConfirm.click();
-    }
-
-    else if(event.keyCode == 13 && conversationPart == 16)
-    {
-        submitButtonRestartInterestCondition.click();
     }
 
     else if(event.keyCode == 13 && conversationPart == 17)
@@ -639,14 +628,6 @@ submitButton.onclick = function()
 
     submitButtonTwo.innerHTML = "Submit";
     personTwoTalk.appendChild(submitButtonTwo);
-
-    submitButtonTwoSpeech.innerHTML = "Talk";
-    personTwoTalk.appendChild(submitButtonTwoSpeech);
-
-    submitButtonTwoSpeech.onclick = function()
-    {
-        speechToText();
-    };
 
     submitButtonTwo.onclick = function()
     {
@@ -1201,6 +1182,8 @@ function feeling()
 
                 localStorage.setItem("favoriteInterest", personTwoReply);
 
+                personTwoSays.value = "";
+
                 conversationStarter();
             };
 
@@ -1229,6 +1212,8 @@ function feeling()
                     personTwoSays.value = yourInterests;
 
                     localStorage.setItem("favoriteInterest", yourInterests);
+
+                    personTwoSays.value = "";
 
                     conversationStarter();
                 }
@@ -1285,37 +1270,12 @@ function feeling()
 
         }
 
-        else
-        {
-            conversationPart = 16;
-
-            personTwoSays.value = "";
-
-            personOneTalk.innerHTML = "Please pick a topic that I know of";
-
-            textToSpeech(personOneTalk.innerHTML);
-
-            submitButtonRestartInterestCondition.innerHTML = "Submit";
-            personTwoTalk.appendChild(submitButtonRestartInterestCondition);
-
-            submitButtonRestartInterestCondition.style.display = "inline";
-
-            submitButtonRestartInterestCondition.onclick = function()
-            {
-                submitButtonRestartInterestCondition.style.display = "none";
-
-                interests();
-            };
-
-        }
-
     };
 
     function conversationStarter()
     {
         conversationPart = 20;
 
-        //Todo: Make a small delay
         setTimeout(function()
         {
             personOneTalk.innerHTML = " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
