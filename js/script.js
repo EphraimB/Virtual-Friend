@@ -396,6 +396,9 @@ submitButtonQuestions.setAttribute("class", "submitButton");
 var submitButtonNameRemembered = document.createElement("div");
 submitButtonNameRemembered.setAttribute("class", "submitButton");
 
+var submitButtonFive = document.createElement("div");
+submitButtonFive.setAttribute("class", "submitButton");
+
 var yourInterests = [];
 var otherInterestsOn = false;
 
@@ -1255,8 +1258,6 @@ function feeling()
                     submitButtonOnlyInterestConfirmYesOrNo.innerHTML = "Submit";
                     personTwoTalk.appendChild(submitButtonOnlyInterestConfirmYesOrNo);
 
-                    submitButtonOnlyInterestConfirmYesOrNo.style.display = "inline";
-
                     submitButtonOnlyInterestConfirmYesOrNo.onclick = function()
                     {
                         submitButtonOnlyInterestConfirmYesOrNo.style.display = "none";
@@ -1281,6 +1282,16 @@ function feeling()
             personOneTalk.innerHTML = " I know that your favorite interest is " + localStorage.getItem("favoriteInterest") + ". Can you please tell me the latest stuff you know of in " + localStorage.getItem("favoriteInterest") + "?";
 
             textToSpeech(personOneTalk.innerHTML);
+
+            //Todo: Display a Submit Button
+            submitButtonFive.innerHTML = "Submit";
+            personTwoTalk.appendChild(submitButtonFive);
+
+            submitButtonFive.onclick = function()
+            {
+                alert("Testing");
+            };
+
         }, 2000);
 
     };
