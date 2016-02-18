@@ -485,6 +485,11 @@ personTwoSays.onkeypress = function(event)
         submitButtonOnlyInterestConfirm.click();
     }
 
+    else if(event.keyCode == 13 && conversationPart == 16)
+    {
+        submitButtonFive.click();
+    }
+
     else if(event.keyCode == 13 && conversationPart == 17)
     {
         submitButtonOtherInterests.click();
@@ -1275,7 +1280,7 @@ function feeling()
 
     function conversationStarter()
     {
-        conversationPart = 20;
+        conversationPart = 16;
 
         setTimeout(function()
         {
@@ -1283,13 +1288,31 @@ function feeling()
 
             textToSpeech(personOneTalk.innerHTML);
 
-            //Todo: Display a Submit Button
             submitButtonFive.innerHTML = "Submit";
             personTwoTalk.appendChild(submitButtonFive);
 
             submitButtonFive.onclick = function()
             {
-                alert("Testing");
+                conversationPart = 20;
+
+                submitButtonFive.style.display = "none";
+
+                if(personTwoSays.value == "sure!")
+                {
+                    personTwoSays.value = "";
+
+                    personOneTalk.innerHTML = "Please tell me what's new in " + localStorage.getItem("favoriteInterest");
+
+                    //Add a Submit Button and store information about the conversation in brain.js or Local Storage
+                }
+
+                else
+                {
+                    personTwoSays.value = "";
+
+                    personOneTalk.innerHTML = "Not in the mood? Okay! See you later, " + localStorage.getItem("firstName") + "!";
+                }
+
             };
 
         }, 2000);
