@@ -399,6 +399,12 @@ submitButtonNameRemembered.setAttribute("class", "submitButton");
 var submitButtonFive = document.createElement("div");
 submitButtonFive.setAttribute("class", "submitButton");
 
+var submitButtonSix = document.createElement("div");
+submitButtonSix.setAttribute("class", "submitButton");
+
+var submitButtonSeven = document.createElement("div");
+submitButtonSeven.setAttribute("class", "submitButton");
+
 var yourInterests = [];
 var otherInterestsOn = false;
 
@@ -506,6 +512,21 @@ personTwoSays.onkeypress = function(event)
     }
 
     else if(event.keyCode == 13 && conversationPart == 20)
+    {
+        submitButtonSix.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 21)
+    {
+        
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 22)
+    {
+        submitButtonSeven.click();
+    }
+
+    else if(event.keyCode == 13 && conversationPart == 23)
     {
         
     }
@@ -1293,21 +1314,48 @@ function feeling()
 
             submitButtonFive.onclick = function()
             {
-                conversationPart = 20;
-
                 submitButtonFive.style.display = "none";
 
                 if(personTwoSays.value == "sure!")
                 {
+                    conversationPart = 20;
+
                     personTwoSays.value = "";
 
                     personOneTalk.innerHTML = "Please tell me what's new in " + localStorage.getItem("favoriteInterest");
 
                     //Add a Submit Button and store information about the conversation in brain.js or Local Storage
+                    submitButtonSix.innerHTML = "Submit";
+                    personTwoTalk.appendChild(submitButtonSix);
+
+                    submitButtonSix.onclick = function()
+                    {
+                        conversationPart = 22;
+
+                        submitButtonSix.style.display = "none";
+
+                        localStorage.setItem("conversation", personTwoSays.value);
+
+                        personTwoSays.value = "";
+
+                        personOneTalk.innerHTML = "Can you please tell me the new things about " + localStorage.getItem("conversation") + "?";
+
+                        submitButtonSeven.innerHTML = "Submit";
+                        personTwoTalk.appendChild(submitButtonSeven);
+
+                        submitButtonSeven.onclick = function()
+                        {
+                            alert("Testing");
+                        };
+
+                    };
+
                 }
 
                 else
                 {
+                    conversationPart = 21;
+
                     personTwoSays.value = "";
 
                     personOneTalk.innerHTML = "Not in the mood? Okay! See you later, " + localStorage.getItem("firstName") + "!";
