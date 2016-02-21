@@ -172,20 +172,20 @@ updateClock();
 
 setInterval(updateClock, 500);
 
-function keywordInFullSentance(keyword, fullSentance)
+function wordInFullSentance(word, fullSentance)
 {
-    return fullSentance.split(" ").some(function(findTheKeyword)
+    return fullSentance.split(" ").some(function(findTheWord)
     {
-        return findTheKeyword == keyword;
+        return findTheWord == word;
     });
 
 };
 
-function keyCharacterInFullSentance(keyCharacter, fullSentance)
+function letterInFullSentance(letter, fullSentance)
 {
-    return fullSentance.split("").some(function(findTheKeyCharacter)
+    return fullSentance.split("").some(function(findTheLetter)
     {
-        return findTheKeyCharacter == keyCharacter;
+        return findTheLetter == letter;
     });
 
 };
@@ -194,3 +194,15 @@ function capitalize(word)
 {
     return word.charAt(0).toUpperCase() + word.slice(1);
 };
+
+function personOneShouldSay(text)
+{
+    return personOneTalk.innerHTML = text;
+};
+
+function clearPersonTwoTextField()
+{
+    personTwoSays.value = "";
+};
+
+personOneShouldSay(greeting);
