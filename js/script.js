@@ -25,6 +25,22 @@ var logIn = document.getElementById("logIn");
 var avatarInput = document.getElementById("avatarInput");
 var avatar = document.getElementById("avatar");
 
+var virtualFriend = {
+                        talk: function(text)
+                              {
+                                  return personOneTalk.innerHTML = text;
+                              }
+
+                    };
+
+var you = {
+              clearTextField: function()
+                     {
+                         return personTwoSays.value = "";
+                     }
+
+          };
+
 var threeDimension = document.getElementById("threeDimension");
 
 var greeting;
@@ -195,14 +211,4 @@ function capitalize(word)
     return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
-function personOneShouldSay(text)
-{
-    return personOneTalk.innerHTML = text;
-};
-
-function clearPersonTwoTextField()
-{
-    personTwoSays.value = "";
-};
-
-personOneShouldSay(greeting);
+virtualFriend.talk(greeting);
