@@ -37,7 +37,12 @@ var you = {
               clearTextField: function()
                      {
                          return personTwoSays.value = "";
-                     }
+                     },
+
+              says: function()
+                    {
+                        return personTwoSays.value;
+                    }
 
           };
 
@@ -211,4 +216,9 @@ function capitalize(word)
     return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
-virtualFriend.talk(greeting);
+virtualFriend.talk(greeting + "! What's your name?");
+
+submitButton.onclick = function()
+{
+    virtualFriend.talk("Hi, " + you.says() + "! How are you doing?");
+};
