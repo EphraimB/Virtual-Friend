@@ -220,5 +220,6 @@ virtualFriend.talk(greeting + "! What's your name?");
 
 submitButton.onclick = function()
 {
-    virtualFriend.talk("Hi, " + you.says() + "! How are you doing?");
+    virtualFriend.talk("Hi, " + capitalize(you.says()) + "! How are you doing?");
+    you.clearTextField();
 };
