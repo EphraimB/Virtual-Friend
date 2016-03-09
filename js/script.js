@@ -35,14 +35,39 @@ var virtualFriend = {
 
 var you = {
               clearTextField: function()
-                     {
-                         return personTwoSays.value = "";
-                     },
+                              {
+                                  return personTwoSays.value = "";
+                              },
 
               says: function()
                     {
                         return personTwoSays.value;
-                    }
+                    },
+
+              firstName: function()
+                         {
+                             
+                         },
+
+              middleName: function()
+                          {
+                              
+                          },
+
+              lastName: function()
+                        {
+                            
+                        },
+
+              fullName: function()
+                        {
+                            
+                        },
+
+              age: function()
+                   {
+                       
+                   }
 
           };
 
@@ -220,6 +245,6 @@ virtualFriend.talk(greeting + "! What's your name?");
 
 submitButton.onclick = function()
 {
-    virtualFriend.talk("Hi, " + capitalize(you.says()) + "! How are you doing?");
+    virtualFriend.talk("Hi, " + capitalize(you.name()) + "! How are you doing?");
     you.clearTextField();
 };
