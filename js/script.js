@@ -44,30 +44,15 @@ var you = {
                         return personTwoSays.value;
                     },
 
-              firstName: function()
-                         {
-                             
-                         },
+              firstName: "",
 
-              middleName: function()
-                          {
-                              
-                          },
+              middleName: "",
 
-              lastName: function()
-                        {
-                            
-                        },
+              lastName: "",
 
-              fullName: function()
-                        {
-                            
-                        },
+              fullName: "",
 
-              age: function()
-                   {
-                       
-                   }
+              age: 0
 
           };
 
@@ -241,10 +226,38 @@ function capitalize(word)
     return word.charAt(0).toUpperCase() + word.slice(1);
 };
 
+function nameSort(sentance)
+{
+    var start;
+
+    if(wordInFullSentance("is", sentance))
+    {
+        start = sentance.search("is");
+
+        you.fullName = sentance.slice(start + 3);
+    }
+
+    else
+    {
+        you.fullName = sentance;
+    }
+
+    if(letterInFullSentance(" ", you.fullName))
+    {
+        start = you.fullName.search(" ");
+
+        you.firstName = you.fullName.slice(0, start);
+        you.lastName = you.fullName.slice(start + 1);
+    }
+
+};
+
 virtualFriend.talk(greeting + "! What's your name?");
 
 submitButton.onclick = function()
 {
-    virtualFriend.talk("Hi, " + capitalize(you.name()) + "! How are you doing?");
+    nameSort(you.says());
+
+    virtualFriend.talk("Hi, " + capitalize(you.firstName) + " " + capitalize(you.lastName) + "! How are you doing?");
     you.clearTextField();
 };
