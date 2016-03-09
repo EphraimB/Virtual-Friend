@@ -25,6 +25,8 @@ var logIn = document.getElementById("logIn");
 var avatarInput = document.getElementById("avatarInput");
 var avatar = document.getElementById("avatar");
 
+var space = "";
+
 var virtualFriend = {
                         talk: function(text)
                               {
@@ -245,11 +247,18 @@ function nameSort(sentance)
     if(letterInFullSentance(" ", you.fullName))
     {
         start = you.fullName.search(" ");
+        space = " ";
 
-        you.firstName = you.fullName.slice(0, start);
-        you.lastName = you.fullName.slice(start + 1);
+        you.firstName = capitalize(you.fullName.slice(0, start));
+        you.lastName = capitalize(you.fullName.slice(start + 1));
     }
 
+    else
+    {
+        you.firstName = capitalize(you.fullName);
+    }
+
+    you.fullName = you.firstName + space + you.lastName;
 };
 
 virtualFriend.talk(greeting + "! What's your name?");
@@ -258,6 +267,6 @@ submitButton.onclick = function()
 {
     nameSort(you.says());
 
-    virtualFriend.talk("Hi, " + capitalize(you.firstName) + " " + capitalize(you.lastName) + "! How are you doing?");
+    virtualFriend.talk("Hi, " + you.firstName + space + you.lastName + "! How are you doing?");
     you.clearTextField();
 };
