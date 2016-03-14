@@ -39,7 +39,11 @@ var virtualFriend = {
 
                         personality: localStorage.virtualFriendPersonality,
 
-                        interests: localStorage.virtualFriendInterests
+                        interests: localStorage.virtualFriendInterests,
+
+                        flexible: localStorage.virtualFriendFlexible,
+
+                        disorder: localStorage.virtualFriendDisorder
 
                     };
 
@@ -68,7 +72,11 @@ var you = {
 
               personality: localStorage.personality,
 
-              interests: localStorage.interests
+              interests: localStorage.interests,
+
+              flexible: localStorage.flexible,
+
+              disorder: localStorage.disorder
 
           };
 
