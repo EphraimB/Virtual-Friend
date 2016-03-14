@@ -46,15 +46,15 @@ var you = {
                         return personTwoSays.value;
                     },
 
-              firstName: "",
+              firstName: localStorage.firstName,
 
-              middleName: "",
+              middleName: localStorage.middleName,
 
-              lastName: "",
+              lastName: localStorage.lastName,
 
-              fullName: "",
+              fullName: localStorage.fullName,
 
-              age: 0
+              age: localStorage.age
 
           };
 
@@ -236,29 +236,33 @@ function nameSort(sentance)
     {
         start = sentance.search("is");
 
-        you.fullName = sentance.slice(start + 3);
+        localStorage.fullName = sentance.slice(start + 3);
     }
 
     else
     {
-        you.fullName = sentance;
+        localStorage.fullName = sentance;
     }
 
-    if(letterInFullSentance(" ", you.fullName))
+    if(letterInFullSentance(" ", localStorage.fullName))
     {
-        start = you.fullName.search(" ");
+        start = localStorage.fullName.search(" ");
         space = " ";
 
-        you.firstName = capitalize(you.fullName.slice(0, start));
-        you.lastName = capitalize(you.fullName.slice(start + 1));
+        localStorage.firstName = capitalize(localStorage.fullName.slice(0, start));
+        localStorage.lastName = capitalize(localStorage.fullName.slice(start + 1));
     }
 
     else
     {
-        you.firstName = capitalize(you.fullName);
+        localStorage.firstName = capitalize(localStorage.fullName);
     }
 
-    you.fullName = you.firstName + space + you.lastName;
+    localStorage.fullName = localStorage.firstName + space + localStorage.lastName;
+
+    you.firstName = localStorage.firstName;
+    you.lastName = localStorage.lastName;
+    you.fullName = localStorage.fullName;
 };
 
 virtualFriend.talk(greeting + "! What's your name?");
