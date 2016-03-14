@@ -31,7 +31,15 @@ var virtualFriend = {
                         talk: function(text)
                               {
                                   return personOneTalk.innerHTML = text;
-                              }
+                              },
+
+                        age: localStorage.virtualFriendAge,
+
+                        mood: localStorage.virtualFriendMood,
+
+                        personality: localStorage.virtualFriendPersonality,
+
+                        interests: localStorage.virtualFriendInterests
 
                     };
 
@@ -54,7 +62,13 @@ var you = {
 
               fullName: localStorage.fullName,
 
-              age: localStorage.age
+              age: localStorage.age,
+
+              mood: localStorage.mood,
+
+              personality: localStorage.personality,
+
+              interests: localStorage.interests
 
           };
 
