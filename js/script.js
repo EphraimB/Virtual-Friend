@@ -28,7 +28,17 @@ var avatar = document.getElementById("avatar");
 var submitButtonTwo = document.createElement("div");
 submitButtonTwo.setAttribute("class", "submitButton");
 
-var conversationPart = 0;
+var submitButtonThree = document.createElement("div");
+submitButtonThree.setAttribute("class", "submitButton");
+
+var conversationPart;
+
+if(localStorage.firstName == undefined) {
+  conversationPart = 0;
+}
+else if(localStorage.firstName != undefined) {
+  conversationPart = 1;
+}
 
 var space = "";
 
@@ -285,27 +295,63 @@ function nameSort(sentance)
         localStorage.firstName = capitalize(localStorage.fullName);
     }
 
-    localStorage.fullName = localStorage.firstName + space + localStorage.lastName;
+    if(localStorage.lastName != undefined) {
+      localStorage.fullName = localStorage.firstName + space + localStorage.lastName;
+    }
+    else if(localStorage.lastName == undefined) {
+      localStorage.fullName = localStorage.firstName
+    }
 
     you.firstName = localStorage.firstName;
     you.lastName = localStorage.lastName;
     you.fullName = localStorage.fullName;
 };
 
-if(conversationPart == 0) {
-  virtualFriend.talk(greeting + "! What's your name?");
+function conversation() {
+  if(conversationPart == 0) {
+    virtualFriend.talk(greeting + "! What's your name?");
 
-  submitButton.onclick = function()
-  {
-    conversationPart = 1;
+    submitButton.onclick = function()
+    {
+      conversationPart = 1;
+      conversation();
+    }
+  }
 
-    nameSort(you.says());
+  if(conversationPart == 1) {
+    submitButton.style.display = "none";
+    submitButtonTwo.innerHTML = "Submit";
+    personTwoTalk.appendChild(submitButtonTwo);
+    submitButtonTwo.style.display == "block";
 
-    virtualFriend.talk("Hi, " + you.firstName + space + you.lastName + "! How are you doing?");
+    if(localStorage.firstName == undefined) {
+      nameSort(you.says());
+    }
+
+    virtualFriend.talk("Hi, " + you.firstName + "! How are you doing?");
     you.clearTextField();
 
     submitButtonTwo.onclick = function() {
       conversationPart = 2;
+      conversation();
     }
   }
-};
+
+  if(conversationPart == 2) {
+    submitButtonTwo.style.display = "none";
+    submitButtonThree.innerHTML = "Submit";
+    personTwoTalk.appendChild(submitButtonThree);
+    submitButtonThree.style.display == "block";
+
+    if(you.says() == "Good") {
+      virtualFriend.talk("Nice to hear!");
+    }
+
+    if(you.says() == "Bad") {
+      virtualFriend.talk("Sorry to hear that!");
+    }
+
+    you.clearTextField();
+  }
+}
+conversation();
