@@ -50,7 +50,7 @@ var virtualFriend = {
 
                         age: localStorage.virtualFriendAge,
 
-                        mood: localStorage.virtualFriendMood,
+                        mood: "",
 
                         personality: localStorage.virtualFriendPersonality,
 
@@ -83,7 +83,7 @@ var you = {
 
               age: localStorage.age,
 
-              mood: localStorage.mood,
+              mood: "",
 
               personality: localStorage.personality,
 
