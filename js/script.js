@@ -1,4 +1,4 @@
-var submitButton = document.getElementsById("submitButton");
+var submitButton = document.getElementById("submitButton");
 var personOneTalk = document.getElementById("personOneTalk");
 var personTwoSays = document.getElementById("personTwoSays");
 var personTwoTalk = document.getElementById("personTwoTalk");
