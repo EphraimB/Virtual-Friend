@@ -1,4 +1,4 @@
-var submitButton = document.getElementsByClassName("submitButton")[0];
+var submitButton = document.getElementsById("submitButton");
 var personOneTalk = document.getElementById("personOneTalk");
 var personTwoSays = document.getElementById("personTwoSays");
 var personTwoTalk = document.getElementById("personTwoTalk");
@@ -24,6 +24,11 @@ var closeLogInForm = document.getElementById("closeLogInForm");
 var logIn = document.getElementById("logIn");
 var avatarInput = document.getElementById("avatarInput");
 var avatar = document.getElementById("avatar");
+
+var submitButtonTwo = document.createElement("div");
+submitButtonTwo.setAttribute("class", "submitButton");
+
+var conversationPart = 0;
 
 var space = "";
 
@@ -287,12 +292,20 @@ function nameSort(sentance)
     you.fullName = localStorage.fullName;
 };
 
-virtualFriend.talk(greeting + "! What's your name?");
+if(conversationPart == 0) {
+  virtualFriend.talk(greeting + "! What's your name?");
 
-submitButton.onclick = function()
-{
+  submitButton.onclick = function()
+  {
+    conversationPart = 1;
+
     nameSort(you.says());
 
     virtualFriend.talk("Hi, " + you.firstName + space + you.lastName + "! How are you doing?");
     you.clearTextField();
+
+    submitButtonTwo.onclick = function() {
+      conversationPart = 2;
+    }
+  }
 };
